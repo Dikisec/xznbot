@@ -571,8 +571,8 @@ udin.sendMessage(from, `_${sami}_`, text, {quoted:qul})
         reply('Waalaikumsalam')
         }
         if (budy.includes('S')){
-        	simi = await fetchJson(`https://api.simsimi.net/v1/?lang=id&cf=false&text=${arg}`)
-        	//simi = await fetchJson(`https://simsumi.herokuapp.com/api?text=${arg}&lang=v1`)
+        	//simi = await fetchJson(`https://api.simsimi.net/v1/?lang=id&cf=false&text=${arg}`)
+        	simi = await fetchJson(`https://simsumi.herokuapp.com/api?text=${arg}&lang=v1`)
              anu2 = `${simi.success}`
              reply(anu2)
              }
