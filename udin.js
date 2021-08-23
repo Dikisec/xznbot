@@ -868,7 +868,7 @@ sebaik nya ketik ${prefix}cek
 untuk cek autorespon simih
 
 BISA JUGA UNTUK GROUP
-${prefix}simi1
+${prefix}simi
 ${prefix}simi2
 
 *SELF BOT XZN*`
