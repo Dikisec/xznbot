@@ -571,7 +571,8 @@ udin.sendMessage(from, `_${sami}_`, text, {quoted:qul})
         reply('Waalaikumsalam')
         }
         if (budy.includes('S')){
-        	simi = await fetchJson(`https://simsumi.herokuapp.com/api?text=${arg}&lang=v1`)
+        	simi = await fetchJson(`https://api.simsimi.net/v1/?lang=id&cf=false&text=${arg}`)
+        	//simi = await fetchJson(`https://simsumi.herokuapp.com/api?text=${arg}&lang=v1`)
              anu2 = `${simi.success}`
              reply(anu2)
              }
@@ -920,6 +921,11 @@ case 'namaninja':
                    anu1 += `➻ *NINJA* : ${anu.result}\n`
                    reply(anu1)
                    break 
+case 'simi':
+simi = await fetchJson(`https://simsumi.herokuapp.com/api?text=${arg}&lang=v1`)
+             anu2 = `${simi.success}`
+             reply(anu2)
+             break
 case 'ssweb':
 if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} url pc`)
 txt1 = args[0]
