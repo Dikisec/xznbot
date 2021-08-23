@@ -1749,11 +1749,12 @@ case 'art':
 				await xznsenpai.FakeTokoForwarded(from, text, `Runtime bro`)
 				break
 			case 'speed':
+			case 'cek':
 					let timestamp = speed();
 let latensi = speed() - timestamp
 run = process.uptime()
 let ruun = xznsenpai.runtime(run)
-replyy(`*PING BOT*\n\nSpeed: ${latensi.toFixed(4)}second\n\n*BOT AKTIF SELAMA*:\n\n${ruun}`)
+replyy(`*PING BOT*\n\nSpeed: ${latensi.toFixed(4)}second\n\n*BOT AKTIF SELAMA*:\n\n${ruun}\n\n*Auto respon* : ${autorespon ? 'Off' : 'On'}`)
 break
 			case 'mystat': case 'mystatus':
 				let i = []
