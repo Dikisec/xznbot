@@ -570,12 +570,6 @@ udin.sendMessage(from, `_${sami}_`, text, {quoted:qul})
         if (budy.includes('Assalamualaikum')){
         reply('Waalaikumsalam')
         }
-        if (budy.includes('S')){
-        	//simi = await fetchJson(`https://api.simsimi.net/v1/?lang=id&cf=false&text=${arg}`)
-        	simi = await fetchJson(`https://simsumi.herokuapp.com/api?text=${arg}&lang=v1`)
-             anu2 = `${simi.success}`
-             reply(anu2)
-             }
         if (budy.includes('Bot')) {
 const gojomp3 = fs.readFileSync('./assets/gojo.mp3');
 udin.sendMessage(from, gojomp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', ptt:true})
@@ -867,13 +861,6 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 6.${prefix}neonlight
 7.${prefix}galaxywp
 8.${prefix}watercolor
-
-=>>SIMIH<<=
-
-sebaik nya ketik ${prefix}cek
-untuk cek autorespon simih
-
-S [textnya]
 
 *SELF BOT XZN*`
 //udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo: { forwardingScore: 250, isForwarded: true,  externalAdReply: { title: 'Duta TeyTed Tzy', body: '𐎑⃢BY;🇮🇩𝐱𝐳𝐧𝐬𝐞𝐧𝐩𝐚𝐢🇮🇩☙', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
