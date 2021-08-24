@@ -899,12 +899,14 @@ udin.sendMessage(from, llol, image, {quoted:qul, caption: textnya, contextInfo:{
 	break*/
 //dehan
 case 'dota':
+if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 txt1 = args.join(" ")
 buffer = await getBuffer(`https://dhnjing.xyz/maker/photooxy/dota?character=${randomChar}&text=${txt1}`)
 udin.sendMessage(from, buffer, image, {quoted: qul})
 break
 case 'aov':
+if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 aov = await getBuffer(`https://dhnjing.xyz/maker/photooxy/arena-of-valor?character=${randomChar}&border=${randomChar}&text=${arg}`)
 udin.sendMessage(from, aov, image, {quoted: qul, caption: `nih kaka`})
@@ -1819,7 +1821,7 @@ break
 						"status": "INQUIRY",
 						"surface": "CATALOG",
 						"message": `${teskny}`,
-						"orderTitle": "𝙓𝙕𝙉 𝙎𝙀𝙉𝙋𝘼𝙄",
+						"orderTitle": "𝙓𝙕𝙉 𝙎𝙀𝙉𝙋𝘼??",
 						 "token": "AR7lxB+W/oR81b6ENZgc3dQdr+XrCDQptYJnZEKf3oWcBg=="
 						 },
                 "contextInfo": {
