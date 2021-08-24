@@ -1761,6 +1761,26 @@ case 'art':
 					fs.unlinkSync(meidia)
 				})
 				break
+			//tts
+			case 'tts':                
+if (args.length < 1) return reply('Kode bahasa nya mana kak?')			
+const gtts = require('./lib/gtts')(args[0])
+					if (args.length < 2) return udin.sendMessage(from, 'Textnya mana om', text, {quoted: qul})
+					dtt = body.slice(8)
+					ranm = getRandom('.mp3')
+					rano = getRandom('.ogg')
+					dtt.length > 600
+					? reply('Textnya kebanyakan om')
+					: gtts.save(ranm, dtt, function() {
+						exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
+							fs.unlinkSync(ranm)
+							buffer = fs.readFileSync(rano)
+							if (err) return reply('Gagal om:(')
+							udin.sendMessage(from, buffer, audio, {quoted: qul, ptt:true})
+							fs.unlinkSync(rano)
+						})
+					})
+break
 			case 'hidetag':
 			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 		    //if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}hidetag teks`, qul)
