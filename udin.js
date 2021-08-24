@@ -540,7 +540,8 @@ const fvn = {
 				if (!isGroup && !isCmd && !command && !qul.key.fromMe && !autorespon) {
 //numd = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
 //simi = await fetchJson(`https://api.simsimi.net/v1/?lang=${numd.data.country_code}&cf=false&text=${arg}`)
-simi = await fetchJson(`https://api.simsimi.net/v1/?lang=id&cf=false&text=${arg}`)
+//simi = await fetchJson(`https://api.simsimi.net/v1/?lang=id&cf=false&text=${arg}`)
+simi = await fetchJson(`https://simsumi.herokuapp.com/api?text=${arg}&lang=v1`)
 sami = simi.success
 udin.sendMessage(from, `_${sami}_`, text, {quoted:qul})
                       }
@@ -1762,8 +1763,10 @@ case 'art':
 				})
 				break
 			//tts
-			case 'tts':                
-if (args.length < 1) return reply('Kode bahasa nya mana kak?')			
+			case 'tts':                
+
+if (args.length < 1) return reply('Kode bahasa nya mana kak?')			
+
 const gtts = require('./lib/gtts')(args[0])
 					if (args.length < 2) return udin.sendMessage(from, 'Textnya mana om', text, {quoted: qul})
 					dtt = body.slice(8)
