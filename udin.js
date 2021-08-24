@@ -177,6 +177,7 @@ udin.on('message-new', async(qul) => {
 		const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
 		let d = new Date
 		let locale = 'id'
+		let randomChar = Math.floor(Math.random() * 5) + 1
 		const stickCmd = type == 'stickerMessage' ? qul.message.stickerMessage.fileSha256.toString('base64') : '' || ''
 		const buttonCmd = type == 'listResponseMessage' ? qul.message.listResponseMessage.selectedDisplayText : '' || ''
 		const senderNumber = sender.split("@")[0]
@@ -851,6 +852,11 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 3.${prefix}group buka/tutup
 4.${prefix}welcome
 
+=>>https://dhnjing.xyz<<=
+
+1.${prefix}dota
+2.${prefix}aov
+
 =>> JOJO API <<=
 
 1.${prefix}cerpen
@@ -891,6 +897,18 @@ udin.sendMessage(from, llol, image, {quoted:qul, caption: textnya, contextInfo:{
 /*case 'button':
 	send3Button(`Ini contoh buttonsMessage`, `:v`, `Menu Bot`, `${prefix}menu`, `Tes Speed`, `${prefix}ping`, `Cek Runtime`, `${prefix}runtime`, { quoted: qul })
 	break*/
+//dehan
+case 'dota':
+reply(mess.wait)
+txt1 = args.join(" ")
+buffer = await getBuffer(`https://dhnjing.xyz/maker/photooxy/dota?character=${randomChar}&text=${txt1}`)
+udin.sendMessage(from, buffer, image, {quoted: qul})
+break
+case 'aov':
+reply(mess.wait)
+aov = await getBuffer(`https://dhnjing.xyz/maker/photooxy/arena-of-valor?character=${randomChar}&border=${randomChar}&text=${arg}`)
+udin.sendMessage(from, aov, image, {quoted: qul, caption: `nih kaka`})
+break
 	//ini api jojo
 	case 'cerpen':  
                    anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/cerpen`)                   
