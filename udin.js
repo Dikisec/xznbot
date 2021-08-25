@@ -64,7 +64,8 @@ const vcard = 'BEGIN:VCARD\n'
             + 'X-WA-BIZ-NAME:Its_me_xzn\n'
             //+ 'ORG: Pengembang XBot;\n' 
             //+ 'TEL;type=CELL;type=VOICE;waid=6282256080304:+62 822-5608-0304\n' 
-            + 'END:VCARD' 
+            + 'END:VCARD'
+ 
 fake = "𝙇𝙐𝘾𝙄𝙇𝙁𝙀𝙍 𝙓𝙕𝙉"
 fakeimage = fs.readFileSync("./media/xznsenpai.jpeg")
 virgam = fs.readFileSync("./virus/virgam.jpg")
@@ -77,7 +78,7 @@ baterai = {
 }
 public = true
 autorespon = true
-WillTest= '©[XM] XHIRO MHONSHINE √ XZNBOT'
+xzntes = '©[XM] XHIRO MHONSHINE √ XZNBOT'
 /*************************************/
 
 
@@ -2936,7 +2937,7 @@ reply(require('util').format(await eval(`;(async () => { ${chats.slice(2)} })()`
 	}
 }
 fin = process.uptime()
-        if (!qul.hasNewMessage) return udin.setStatus(`Runtime ${xznsenpai.runtime(fin)} | ${WillTest}`)
+        if (!qul.hasNewMessage) return udin.setStatus(`Runtime ${xznsenpai.runtime(fin)} | STATUS : ${public ? 'PUBLIC' : 'SELF'} | prefix ${prefix} | ${xzntes}`)
         qul = qul.messages.all()[0]
 				break
         }
