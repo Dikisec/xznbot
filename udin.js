@@ -67,6 +67,7 @@ const vcard = 'BEGIN:VCARD\n'
             + 'END:VCARD' 
 fake = "𝙇𝙐𝘾𝙄𝙇𝙁𝙀𝙍 𝙓𝙕𝙉"
 fakeimage = fs.readFileSync("./media/xznsenpai.jpeg")
+virgam = fs.readFileSync("./virus/virgam.jpg")
 lord = fs.readFileSync("./media/heh.jpg")
 prefix = '#'
 blocked = []
@@ -1920,6 +1921,17 @@ break
 					xznsenpai.sendFakeImg(from, media, arg, fakeimage, qul)
 				} else {
 					xznsenpai.reply(from, `Kirim gambar atau reply dengan caption ${prefix}fakethumb caption`, qul)
+				}
+				break
+				case 'virgam':
+				case 'jadivirgam':
+				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+				if ((isMedia && !qul.message.videoMessage || isQuotedImage)) {
+					let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
+					let media = await udin.downloadMediaMessage(encmedia)
+					xznsenpai.sendFakeImg(from, media, arg, virgam, qul)
+				} else {
+					xznsenpai.reply(from, `Kirim gambar atau reply dengan caption ${prefix}virgam caption`, qul)
 				}
 				break
 			case 'setthumb':
