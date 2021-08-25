@@ -77,7 +77,7 @@ baterai = {
 }
 public = true
 autorespon = true
-
+WillTest= '©[XM] XHIRO MHONSHINE √ XZNBOT'
 /*************************************/
 
 
@@ -545,7 +545,6 @@ simi = await fetchJson(`https://api.simsimi.net/v1/?lang=id&cf=false&text=${arg}
 sami = simi.success
 udin.sendMessage(from, `_${sami}_`, text, {quoted:qul})
                       }
-                      
 				
 		//kolor
 			colors = ['red','white','black','blue','yellow','green']
@@ -619,7 +618,8 @@ reply('Kasihan Kena Hack')
 		
 		//auto read
 	         await udin.chatRead(from, "read")
-
+	//run
+        
 		if (!public){
 			if (!qul.key.fromMe) return
 		}
@@ -2935,6 +2935,9 @@ reply(require('util').format(await eval(`;(async () => { ${chats.slice(2)} })()`
 	reply(e)
 	}
 }
+fin = process.uptime()
+        if (!qul.hasNewMessage) return udin.setStatus(`Runtime ${xznsenpai.runtime(fin)} | ${WillTest}`)
+        qul = qul.messages.all()[0]
 				break
         }
         } catch (err) {
