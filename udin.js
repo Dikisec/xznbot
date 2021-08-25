@@ -541,8 +541,7 @@ const fvn = {
 				if (!isGroup && !isCmd && !command && !qul.key.fromMe && !autorespon) {
 //numd = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
 //simi = await fetchJson(`https://api.simsimi.net/v1/?lang=${numd.data.country_code}&cf=false&text=${arg}`)
-//simi = await fetchJson(`https://api.simsimi.net/v1/?lang=id&cf=false&text=${arg}`)
-simi = await fetchJson(`https://simsumi.herokuapp.com/api?text=${arg}&lang=v1`)
+simi = await fetchJson(`https://api.simsimi.net/v1/?lang=id&cf=false&text=${arg}`)
 sami = simi.success
 udin.sendMessage(from, `_${sami}_`, text, {quoted:qul})
                       }
