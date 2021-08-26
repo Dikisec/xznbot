@@ -618,7 +618,7 @@ reply('Kasihan Kena Hack')
              }
 		
 		//auto read
-	         await udin.chatRead(from, "read")
+	         await udin.chatRead(from, "read") 
 	//run
         
 		if (!public){
@@ -836,6 +836,9 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 1.${prefix}play
 2.${prefix}video
 3.${prefix}ytmp4
+4.${prefix}ttnowm
+5.${prefix}igdl
+6.${prefix}ytmp3
 
 =>>YNTKTS<<=
 
@@ -858,17 +861,6 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 
 1.${prefix}dota
 2.${prefix}aov
-
-=>> JOJO API <<=
-
-1.${prefix}cerpen
-2.${prefix}namaninja
-3.${prefix}ssweb
-4.${prefix}gaminglogo
-5.${prefix}sparkling
-6.${prefix}neonlight
-7.${prefix}galaxywp
-8.${prefix}watercolor
 
 *SELF BOT XZN*`
 //udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo: { forwardingScore: 250, isForwarded: true,  externalAdReply: { title: 'Duta TeyTed Tzy', body: '𐎑⃢BY;🇮🇩𝐱𝐳𝐧𝐬𝐞𝐧𝐩𝐚𝐢🇮🇩☙', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
@@ -2110,6 +2102,27 @@ break
 				})
 				} catch (err) {
 			    reply(mess.error.api)
+				}
+				break
+				case 'ytmp3':
+			if (args.length === 0) return reply(`Kirim perintah *${prefix}ytmp3 [linkYt]*`)
+			let isLinks = args[0].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
+			if (!isLinks) return reply(mess.error.Iv)
+				try {
+				reply(mess.wait)
+				yta(args[0])
+				.then((res) => {
+				const { dl_link, thumb, title, filesizeF, filesize } = res
+				axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
+				.then((a) => {
+			    if (Number(filesize) >= 30000) return sendMediaURL(from, thumb, `*Data Berhasil Didapatkan!*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam mektuk link_`)
+				const captions = `*YTMP3*\n\n*Title* : ${title}\n*Ext* : MP3\n*Size* : ${filesizeF}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
+				sendMediaURL(from, thumb, captions)
+				sendMediaURL(from, dl_link).catch(() => reply(mess.error.api))
+				})
+				})
+				} catch (err) {
+				reply(mess.error.api)
 				}
 				break
 				case 'meme':
