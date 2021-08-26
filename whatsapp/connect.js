@@ -15,7 +15,7 @@ exports.udin = udin
 
 exports.connect = async() => {
     let authofile = './zainudin.json'
-    udin.version = [2, 2119, 6]
+    udin.version = [2, 2123, 8]
 	udin.logger.level = 'warn'
 	console.log(color(figlet.textSync('XZN SENPAI', {
 		font: 'Standard',
@@ -45,9 +45,9 @@ exports.connect = async() => {
 	await udin.connect({timeoutMs: 30*1000})
     fs.writeFileSync(authofile, JSON.stringify(udin.base64EncodedAuthInfo(), null, '\t'))
     console.log(color(' ===================================================='))
-	console.log(color('│ + IG : Its_me_xzn','green'))
-	console.log(color('│ + DANA : 082256080304','green'))
+	console.log(color('│ + IG : Its_me_xzn','yellow'))
+	console.log(color('│ + WA : 082256080304','green'))
 	console.log(color(' ===================================================='))
-	console.log(color('Its_me_xzn','green'))
+	console.log(color('Its_me_xzn'))
 	return udin
 }
