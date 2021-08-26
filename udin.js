@@ -1307,6 +1307,14 @@ ${anime.desc}\n\n*Link Batch* : ${anime.batch}\n*Link Download SD* : ${anime.bat
             .then((data) => { sendMediaURL(from, data.result.nowatermark) })
             .catch((err) => { reply(String(err)) })
              break
+             case 'igdl': 
+              if (!q) return reply('Link Yang Mana? ')
+              if (!q.includes('instagram')) return reply(mess.error.Iv)
+              reply(mess.wait)
+              anu = await igDownloader(`${q}`)
+             .then((data) => { sendMediaURL(from, data.result.link, data.result.desc, qul) })
+             .catch((err) => { reply(String(err)) })
+              break
       case 'memegen':
                      top = q.split('|')[0]
                      bottom = q.split('|')[1]
