@@ -2834,15 +2834,15 @@ break
 			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 					anu = await udin.chats.all()
 					if (isMedia && !qul.message.videoMessage || isQuotedImage) {
-						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
-						buff = await client.downloadMediaMessage(encmedia)
+						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
+						buff = await udin.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
 							udin.sendMessage(_.jid, buff, image, {caption: `❮SUKSES❯\n\n${body.slice(4)}`})
 						}
 						reply('SUKSES')
 					} else {
 						for (let _ of anu) {
-							sendMess(_.jid, `*「 XZNBOT 」*\n\n${body.slice(4)}`)
+							sendMess(_.jid, `${body.slice(4)}\n\nXᴢɴ々Bᴏᴛ⸙`)
 						}
 						reply('SUKSES ')
 					}
