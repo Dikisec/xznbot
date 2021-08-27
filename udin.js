@@ -2837,7 +2837,7 @@ break
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
 						buff = await udin.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							udin.sendMessage(_.jid, buff, image, {caption: `❮SUKSES❯\n\n${body.slice(4)}`})
+							udin.sendMessage(_.jid, buff, image, {caption: `❮nXᴢɴ々Bᴏᴛ⸙❯\n\n${body.slice(4)}`})
 						}
 						reply('SUKSES')
 					} else {
