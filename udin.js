@@ -66,7 +66,7 @@ const vcard = 'BEGIN:VCARD\n'
             //+ 'TEL;type=CELL;type=VOICE;waid=6282256080304:+62 822-5608-0304\n' 
             + 'END:VCARD'
  
-fake = "𝙇𝙐𝘾𝙄𝙇𝙁𝙀𝙍 𝙓𝙕𝙉"
+fake = "Xᴢɴ々Bᴏᴛ"
 fakeimage = fs.readFileSync("./media/xznsenpai.jpeg")
 virgam = fs.readFileSync("./virus/virgam.jpg")
 lord = fs.readFileSync("./media/heh.jpg")
@@ -76,9 +76,9 @@ baterai = {
     baterai: 0,
     cas: false
 }
-public = true
+public = false
 autorespon = true
-xzntes = '©[XM] XHIRO MHONSHINE √ XZNBOT'
+xzntes = '©[XM] XHIRO MHONSHINE √ Xᴢɴ々Bᴏᴛ⸙'
 /*************************************/
 
 
@@ -283,9 +283,9 @@ var ucapanWaktu = 'Pagi Lord :v'
                                          
        /*************************************/  
                                 
-        const dinn = { key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: from} : {}) }, message: { orderMessage:{ orderId: '155157279766079', itemCount: '7777777', status: 'INQUIRY', surface:  'CATALOG', message: '{Its Me Zainudin Anggara}', orderTitle: 'Its Me Angga', sellerJid: '6282256080304@s.whatsapp.net', token: 'AR5wc3iY2NY8yJaK9MMXdlK/aguUxoA8yPtSFcvt0lrE5g==' }}}
+        const dinn = { key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: from} : {}) }, message: { orderMessage:{ orderId: '155157279766079', itemCount: '7777777', status: 'INQUIRY', surface:  'CATALOG', message: '{Xᴢɴ々Bᴏᴛ}', orderTitle: 'Its Me Angga', sellerJid: '6282256080304@s.whatsapp.net', token: 'AR5wc3iY2NY8yJaK9MMXdlK/aguUxoA8yPtSFcvt0lrE5g==' }}}
         
-        const dinnn = { key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: from} : {}) }, message: { orderMessage:{ orderId: '155157279766079', thumbnail: fs.readFileSync('./media/xznsenpai.jpeg'), itemCount: '99', status: 'INQUIRY', surface:  'CATALOG', message: '{Its Me Zainudin Anggara}', orderTitle: 'Its Me Angga', sellerJid: '6282256080304@s.whatsapp.net', token: 'AR5wc3iY2NY8yJaK9MMXdlK/aguUxoA8yPtSFcvt0lrE5g==' }}}
+        const dinnn = { key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: from} : {}) }, message: { orderMessage:{ orderId: '155157279766079', thumbnail: fs.readFileSync('./media/troli.jpg'), itemCount: '2021', status: 'INQUIRY', surface:  'CATALOG', message: 'Xᴢɴ々Bᴏᴛ', orderTitle: 'Its Me Angga', sellerJid: '6282256080304@s.whatsapp.net', token: 'AR5wc3iY2NY8yJaK9MMXdlK/aguUxoA8yPtSFcvt0lrE5g==' }}}
         
         const flokasi = {
     key : {
@@ -294,7 +294,7 @@ var ucapanWaktu = 'Pagi Lord :v'
        message: {
                     //locationMessage: {
                     	liveLocationMessage: {
-                    	caption: 'DI RUMAH MERTUA',
+                    	caption: 'Xᴢɴ々Bᴏᴛ',
                     name: 'Di Rumah Mertua',
                           }
                         }
@@ -574,7 +574,7 @@ udin.sendMessage(from, `_${sami}_`, text, {quoted:qul})
         }
         if (budy.includes('Bot')) {
 const gojomp3 = fs.readFileSync('./assets/gojo.mp3');
-udin.sendMessage(from, gojomp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', ptt:true})
+udin.sendMessage(from, gojomp3, MessageType.audio, {quoted: dinnn, mimetype: 'audio/mp4', ptt:true})
 }
 if (budy.includes('Makasih')) {
 const gojomp3 = fs.readFileSync('./assets/gojo.mp3');
@@ -836,6 +836,9 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 1.${prefix}play
 2.${prefix}video
 3.${prefix}ytmp4
+4.${prefix}ytmp3
+5.${prefix}ttnowm
+6.${prefix}igdl
 
 =>>YNTKTS<<=
 
@@ -859,20 +862,9 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 1.${prefix}dota
 2.${prefix}aov
 
-=>> JOJO API <<=
-
-1.${prefix}cerpen
-2.${prefix}namaninja
-3.${prefix}ssweb
-4.${prefix}gaminglogo
-5.${prefix}sparkling
-6.${prefix}neonlight
-7.${prefix}galaxywp
-8.${prefix}watercolor
-
-*SELF BOT XZN*`
+*Xᴢɴ々Bᴏᴛ*`
 //udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo: { forwardingScore: 250, isForwarded: true,  externalAdReply: { title: 'Duta TeyTed Tzy', body: '𐎑⃢BY;🇮🇩𝐱𝐳𝐧𝐬𝐞𝐧𝐩𝐚𝐢🇮🇩☙', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
-udin.sendMessage(from, llol, image, {quoted:qul, caption: textnya, contextInfo:{"externalAdReply":{"title": `${ucapanWaktu}`, mediaType: 2, "thumbnailUrl": "https://telegra.ph/file/6b0259fd741e108910fbe.jpg","previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
+udin.sendMessage(from, llol, image, {quoted:dinnn, caption: textnya, contextInfo:{"externalAdReply":{"title": `${ucapanWaktu}`, mediaType: 2, "thumbnailUrl": "https://telegra.ph/file/6b0259fd741e108910fbe.jpg","previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
 /*res = await udin.prepareMessageFromContent(from, {
 					"orderMessage": {
 						"orderId": "792749621388119",
@@ -2110,6 +2102,27 @@ break
 				})
 				} catch (err) {
 			    reply(mess.error.api)
+				}
+				break
+				case 'ytmp3':
+			if (args.length === 0) return reply(`Kirim perintah *${prefix}ytmp3 [linkYt]*`)
+			let isLinks = args[0].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
+			if (!isLinks) return reply(mess.error.Iv)
+				try {
+				reply(mess.wait)
+				yta(args[0])
+				.then((res) => {
+				const { dl_link, thumb, title, filesizeF, filesize } = res
+				axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
+				.then((a) => {
+			    if (Number(filesize) >= 30000) return sendMediaURL(from, thumb, `*Data Berhasil Didapatkan!*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam mektuk link_`)
+				const captions = `*YTMP3*\n\n*Title* : ${title}\n*Ext* : MP3\n*Size* : ${filesizeF}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
+				sendMediaURL(from, thumb, captions)
+				sendMediaURL(from, dl_link).catch(() => reply(mess.error.api))
+				})
+				})
+				} catch (err) {
+				reply(mess.error.api)
 				}
 				break
 				case 'meme':
