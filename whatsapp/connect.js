@@ -49,5 +49,6 @@ exports.connect = async() => {
 	console.log(color('│ + WA : 082256080304','green'))
 	console.log(color(' ===================================================='))
 	console.log(color('Its_me_xzn'))
+	udin.sendMessage("6282256080304@s.whatsapp.net" , "BERHASIL TERHUBUNG KE BAILEYS" , MessageType.text)
 	return udin
 }
