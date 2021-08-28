@@ -76,7 +76,7 @@ baterai = {
     baterai: 0,
     cas: false
 }
-public = false
+public = true
 autorespon = true
 xzntes = '©[XM] XHIRO MHONSHINE √ Xᴢɴ々Bᴏᴛ⸙'
 /*************************************/
@@ -282,22 +282,22 @@ udin.on('message-new', async(qul) => {
 /*****UCAPAN*****/
 
 if(time2 < "23:59:00"){
-var ucapanWaktu = 'Malam Lord :v'
+var ucapanWaktu = 'Malam Lord'
                                         }
 if(time2 < "19:00:00"){
-var ucapanWaktu = 'Malam Lord :v'
+var ucapanWaktu = 'Malam Lord'
                                          }
 if(time2 < "18:30:00"){
-var ucapanWaktu = 'Senja Lord :v'
+var ucapanWaktu = 'Senja Lord'
                                          }
 if(time2 < "18:00:00"){
-var ucapanWaktu = 'Petang Lord :v'
+var ucapanWaktu = 'Petang Lord'
                                          }
 if(time2 < "12:00:00"){
-var ucapanWaktu = 'Siang Lord :v'
+var ucapanWaktu = 'Siang Lord'
                                          }
 if(time2 < "09:00:00"){
-var ucapanWaktu = 'Pagi Lord :v'
+var ucapanWaktu = 'Pagi Lord'
                                          }
                                          
        /*************************************/  
@@ -882,7 +882,7 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 
 *Xᴢɴ々Bᴏᴛ*`
 //udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo: { forwardingScore: 250, isForwarded: true,  externalAdReply: { title: 'Duta TeyTed Tzy', body: '𐎑⃢BY;🇮🇩𝐱𝐳𝐧𝐬𝐞𝐧𝐩𝐚𝐢🇮🇩☙', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
-udin.sendMessage(from, llol, image, {quoted:dinnn, caption: textnya, contextInfo:{"externalAdReply":{"title": `${ucapanWaktu}`, mediaType: 2, "thumbnailUrl": "https://telegra.ph/file/6b0259fd741e108910fbe.jpg","previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
+udin.sendMessage(from, llol, image, {quoted:dinnn, caption: textnya, contextInfo:{"externalAdReply":{"title": `${ucapanWaktu} ${pushname}`, mediaType: 2, "thumbnailUrl": "https://telegra.ph/file/6b0259fd741e108910fbe.jpg","previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
 /*res = await udin.prepareMessageFromContent(from, {
 					"orderMessage": {
 						"orderId": "792749621388119",
@@ -1952,6 +1952,33 @@ break
 					xznsenpai.reply(from, `Kirim gambar atau reply dengan caption ${prefix}virgam caption`, qul)
 				}
 				break
+				case 'jadivirgam2': 
+				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+				if (!isQuotedSticker) return xznsenpai.reply(from, 'Reply stiker nya', qul)
+				if (qul.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.isAnimated === true){
+					const encmedia = JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					const media = await udin.downloadAndSaveMediaMessage(encmedia)
+					const uploadn = await uptonaufal(media, Date.now() + '.webp')
+					const anjj = await axios.get(`http://nzcha-apii.herokuapp.com/webp-to-mp4?url=${uploadn.result.image}`)
+					await xznsenpai.sendMediaURL(from, anjj.data.result, 'Nih')
+					fs.unlinkSync(media)
+				} else {
+					const encmedia = JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					const media = await udin.downloadAndSaveMediaMessage(encmedia)
+					ran = xznsenpai.getRandom('.png')
+					exec(`ffmpeg -i ${media} ${ran}`, (err) => {
+						fs.unlinkSync(media)
+						if (err) {
+							xznsenpai.reply(from, `gagal`, qul)
+							fs.unlinkSync(ran)
+						} else {
+							buffer = fs.readFileSync(ran)
+							xznsenpai.sendFakeImg(from, buffer, 'nih virgamnya', virgam, qul)
+							fs.unlinkSync(ran)
+						}
+					})
+				}
+				break
 			case 'setthumb':
 			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				boij = JSON.parse(JSON.stringify(qul).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
@@ -2837,7 +2864,7 @@ break
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
 						buff = await udin.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							udin.sendMessage(_.jid, buff, image, {caption: `❮nXᴢɴ々Bᴏᴛ⸙❯\n\n${body.slice(4)}`})
+							udin.sendMessage(_.jid, buff, image, {caption: `❮nXᴢɴ々Bᴏᴛ⸙❯\n\n${body.slice(4)}\n\nnXᴢɴ々Bᴏᴛ⸙`})
 						}
 						reply('SUKSES')
 					} else {
