@@ -782,6 +782,18 @@ teks1 = `*_Sukses Menutup Group oleh Admin @${tag}`
 udin.sendMessage(from, teks1,text,{contextInfo: { mentionedJid: [sender]},quoted : qul})
 udin.groupSettingChange(from, GroupSettingChange.messageSend, true)
 break
+case 'Darkjokes 🗿':
+data = fs.readFileSync('./noapi/darkjokes.js');
+jsonData = JSON.parse(data);
+randIndex = Math.floor(Math.random() * jsonData.length);
+randKey = jsonData[randIndex];
+hasil = await getBuffer(randKey.result)
+udin.sendMessage(from, hasil, image, {quoted: qul, caption: `GELAP BOS`})
+break
+case 'Random Animex🐈':
+buffer = await getBuffer(`http://hadi-api.herokuapp.com/api/anime`)
+udin.sendMessage(from, buffer, image, { quoted: qul, caption: `Onichan`})
+break
 }
            // STIKER CMD
           switch(stickCmd) {
@@ -973,13 +985,13 @@ fyt2(textnya)
 	send3Button(`Ini contoh buttonsMessage`, `:v`, `Menu Bot`, `${prefix}menu`, `Tes Speed`, `${prefix}ping`, `Cek Runtime`, `${prefix}runtime`, { quoted: qul })
 	break*/
 case 'help':
-Testbang = udin.prepareMessageFromContent(from, {
+ Testbang = udin.prepareMessageFromContent(from, {
 "listMessage":{
  "title": `${ucapanWaktu} ${pushname}`,
 "description": "\n======>>>>>🐤🐤<<<<<=====",
 "buttonText": "MENU🗿",
  "listType": "SINGLE_SELECT",
- "sections": [ { "rows": [ { "title": "INFO🗿", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `MeNu🔥`, "rowId": 0 }, { "title": `Open Group`, "rowId": 0 }, { "title": `Close Group`, "rowId": 0 }
+ "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": "INFO🗿", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `MeNu🔥`, "rowId": 0 }, { "title": `Random Animex🐈`, "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `Open Group`, "rowId": 0 }, { "title": `Close Group`, "rowId": 0 }
   ]
   }]}}, {}) 
  udin.relayWAMessage(Testbang, {waitForAck: true})
