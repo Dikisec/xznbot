@@ -607,8 +607,6 @@ const gojomp3 = fs.readFileSync('./assets/gojo.mp3');
 udin.sendMessage(from, gojomp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', ptt:true})
 }
 		//self mode
-		//if (itsMe){
-		if (isMybot){
 		/*if (budy.startsWith('_>/<')){
 if (!isBotGroupAdmins) return
 if (!isGroup) return
@@ -621,6 +619,15 @@ setTimeout(() => {
 reply('Kasihan Kena Hack')
 }, 8000)
 }*/
+		//if (itsMe){
+		if (isMybot){
+if (chats.startsWith('$')){
+		    if (!arg) return
+				exec(arg, (err, stdout) => {
+					if (err) return xznsenpai.reply(from, err, qul)
+					if (stdout) xznsenpai.reply(from, stdout, qul)
+				})
+				}
            if (chats.toLowerCase() === `${prefix}public`){
                  public = true
 				//xznsenpai.sendFakeStatus(from, `Sukses`, `Status: PUBLIC`)
@@ -636,7 +643,7 @@ reply('Kasihan Kena Hack')
 				return xznsenpai.reply(from, JSON.stringify(eval(chats.slice(2)), null, 2), qul)
 				}
 			}
-		
+			
 		if (!isCmd && qul.message) {
              for (let i of totalchat) {
           udin.updatePresence(i.jid, Presence.recording) //unavailable, available, composing, recording, paused
