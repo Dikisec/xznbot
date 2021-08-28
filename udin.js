@@ -680,83 +680,49 @@ if (chats.startsWith('$')){
           const irimp3 = fs.readFileSync('./assets/iri.mp3');
           udin.sendMessage(from, irimp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
           break
-          case 'foto':
-				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
-					const lol = fs.readFileSync(`./media/xznsenpai.jpeg`)
-               await udin.toggleDisappearingMessages(from)
-               udin.sendMessage(from, lol, image, { quoted: dinn, caption: virtex()})
-               break
-                  case 'bug':
-				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
-                await udin.toggleDisappearingMessages(from)
-                udin.sendMessage(from, virtex(), MessageType.text, { quoted: dinn })
-                res = await udin.prepareMessageFromContent(from, {
-					"orderMessage": {
-						"orderId": "792749621388119",
-						"sellerJid": "6282256080304@s.whatsapp.net",
-						"itemCount": 999999,
-						"status": "INQUIRY",
-						"surface": "CATALOG",
-						"message": `${virtex()}`,
-						"orderTitle": "𝙓𝙕𝙉 𝙎𝙀𝙉𝙋𝘼𝙄",
-						 "token": "AR7lxB+W/oR81b6ENZgc3dQdr+XrCDQptYJnZEKf3oWcBg=="
-						 },
-                "contextInfo": {
-               "forwardingScore": 3,
-               "isForwarded": true
-                }
-                }, {quoted:dinn, contextInfo:{}}) 
-                udin.relayWAMessage(res)
-                break
-                case 'lokasii':
-                  ppp = `𝙓𝙕𝙉𝙎𝙀𝙉𝙋𝘼𝙄`
-                  send = ppp.split("|")[0];
-                  ppp = `${virtexxx()}`
-                  lok = ppp.split("|")[0];
-                  udin.sendMessage(from, {degreesLatitude: 24.121231, degreesLongitude: 55.1121221, name:send,address:lok}, MessageType.location)
-                  break
-}
-           // STIKER CMD
-          switch(stickCmd) {
-	      case 'MtVcGE6AN+NRv3yWIwNmWMsMX54MAxpZAuYbcl5Tun0=':
-	fn = process.uptime()
-textnya = `
-*╭━━ꩉ𖧹ᜓ᭢❍⃝⃘۪۪۪͡ ཻ̣֯ᬉཷ𖣘࿆ཪֺֹ໋ཱི࣯᳝ׄ፞͛ꪶཷ୭⸼۬࣪*
-*┊╭┄┈ꪶ࿐┄┈┄┈┄┈┄┈┄┈*
-*┊┆*           *MENU BOT *           
-*┊┆     ▭▬▬▭▬▬▭▬▬▭*
-*┊┆*  *Jika Eror Mohon Sabar*
-*┊╰┈┄┈┄┈┄┈┄┈┄┈┈┄┈ ཿ⸼۬࣪ꪶ⸼༅*
-*╰━━ꩉ𖧹ᜓ᭢❍⃝⃘۪۪۪͡ ཻ̣֯ᬉཷ𖣘࿆ཪֺֹ໋ཱི࣯᳝ׄ፞͛ꪶཷ୭͓*
+case 'MeNu🔥':
+ rn = process.uptime()
+				const textnya = `
+==>>Mohon Baca<<==
+
+JANGAN SPAM BOT INI !!..
+TETAP DI RUMAH AJA DAN LAKUKAN 3M
+1.makan
+2.minum
+3.MELIHAT MEMEG
+
+=>>JAM<<=
 
 ⦿ Jam WIT : ${wit}
 ⦿ Jam WITA : ${wita}
 ⦿ Jam WIB : ${jam}
 ⦿ Hari : ${week} ${weton}
 ⦿ Kalender : ${date}
-⦿Runtime : ${xznsenpai.runtime(fn)}
-⦿https://xznsenpai.herokuapp.com
+⦿Runtime : ${xznsenpai.runtime(rn)}
 
-=>>MENU GABUT<<=
-
-1.${prefix}truth
-2.${prefix}dare
-
-=>>NO APIKEY<<=
+=>>Pembuat Sticker<<=
 
 1.${prefix}sticker
 2.${prefix}toimg
-3.${prefix}play
-4.${prefix}video
-5.${prefix}ytmp4
+
+=>>DOWNLOAD<<=
+
+1.${prefix}play
+2.${prefix}video
+3.${prefix}ytmp4
+4.${prefix}ytmp3
+5.${prefix}ttnowm
+6.${prefix}igdl
 
 =>>YNTKTS<<=
 
-1.${prefix}linkwa
+1.${prefix}darkjokes
 2.${prefix}lirik
 3.${prefix}ytsearch
 4.${prefix}pinterest
 5.${prefix}playstore
+6.${prefix}truth
+7.${prefix}dare
 
 =>>HANYA ADMIN<<=
 
@@ -767,34 +733,116 @@ textnya = `
 
 =>>MAKER<<=
 
-1.${prefix}glitchx
-2.${prefix}googlex
-3.${prefix}pubgx
-4.${prefix}battlefieldx
-5.${prefix}coffeecupx
-6.${prefix}coffeecup2x
-7.${prefix}neonx
-8.${prefix}metallicx
-9.${prefix}summerx
-10.${prefix}flowerx
-11.${prefix}burnx
-12.${prefix}artquotex
-13.${prefix}boarchx
-14.${prefix}goldenx
-15.${prefix}maker
-16.${prefix}maker2
-17.${prefix}maker3
-18.${prefix}maker4
-19.${prefix}maker5
-20.${prefix}maker6
-21.${prefix}maker7
-22.${prefix}maker8
-23.${prefix}transformer
-24.${prefix}sertifikatepep
+1.${prefix}dota
+2.${prefix}aov
 
-*SELF BOT XZN*`
+*Xᴢɴ々Bᴏᴛ*`
+fyt2(textnya)
+break
+case 'INFO🗿':
+inf1 = `© *Bot Name* : XZN BOT\n`
+inf1 += `© *Owner Name* : XZN\n`
+inf1 += `© *AUTHOR* : XZNSENPAI\n`
+inf1 += `© *Bot Number* : 6282255794209\n`
+inf1 += `© *Owner Number* : 6282256080304\n`
+reply(inf1)
+break
+case 'DONASI🗿':
+const donasi = fs.readFileSync(`./media/donasi.jpg`)
+const donasii = `
+Mau donasi ya om?✨
 
-	replyy(textnya)
+“jauhilah api neraka, walau hanya dengan bersedekah sebiji kurma (sedikit). Jika kamu tidak punya, maka bisa dengan kalimah thayyibah”
+ [HR. Bukhari 6539, Muslim 1016]
+
+Dana = 6282256080304
+pulsa TEL = 6282256080304
+pulsa IM3 = 6285751414996
+
+foto di atas hanya pemanis
+*BUAT BELI JAJAN*`
+udin.sendMessage(from, donasi, image, {quoted: qul, caption: donasii})
+break
+case 'KONTAK OWNER🗿':
+udin.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: qul})
+break
+case 'Open Group':
+if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
+tag = sender.split('@')[0]
+teks1 = `*_Sukses Membuka Group oleh Admin @${tag}`
+udin.sendMessage(from, teks1,text,{contextInfo: { mentionedJid: [sender]},quoted : qul})
+udin.groupSettingChange(from, GroupSettingChange.messageSend, false)
+break
+case 'Close Group':
+if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
+tag = sender.split('@')[0]
+teks1 = `*_Sukses Menutup Group oleh Admin @${tag}`
+udin.sendMessage(from, teks1,text,{contextInfo: { mentionedJid: [sender]},quoted : qul})
+udin.groupSettingChange(from, GroupSettingChange.messageSend, true)
+break
+}
+           // STIKER CMD
+          switch(stickCmd) {
+	      case 'MtVcGE6AN+NRv3yWIwNmWMsMX54MAxpZAuYbcl5Tun0=':
+	rn = process.uptime()
+const textnya = `
+==>>Mohon Baca<<==
+
+JANGAN SPAM BOT INI !!..
+TETAP DI RUMAH AJA DAN LAKUKAN 3M
+1.makan
+2.minum
+3.MELIHAT MEMEG
+
+=>>JAM<<=
+
+⦿ Jam WIT : ${wit}
+⦿ Jam WITA : ${wita}
+⦿ Jam WIB : ${jam}
+⦿ Hari : ${week} ${weton}
+⦿ Kalender : ${date}
+⦿Runtime : ${xznsenpai.runtime(rn)}
+
+=>>Pembuat Sticker<<=
+
+1.${prefix}sticker
+2.${prefix}toimg
+
+=>>DOWNLOAD<<=
+
+1.${prefix}play
+2.${prefix}video
+3.${prefix}ytmp4
+4.${prefix}ytmp3
+5.${prefix}ttnowm
+6.${prefix}igdl
+
+=>>YNTKTS<<=
+
+1.${prefix}darkjokes
+2.${prefix}lirik
+3.${prefix}ytsearch
+4.${prefix}pinterest
+5.${prefix}playstore
+6.${prefix}truth
+7.${prefix}dare
+
+=>>HANYA ADMIN<<=
+
+1.${prefix}kick
+2.${prefix}add
+3.${prefix}group buka/tutup
+4.${prefix}welcome
+
+=>>MAKER<<=
+
+1.${prefix}dota
+2.${prefix}aov
+
+*Xᴢɴ々Bᴏᴛ*`
+ fyt2(textnya)
 	          break
 	          case 'tzCvkWiTvb5VtvzcgxdOxZ7Ak0aIco7vi2gnxCo+Eq4=':
 	          if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
@@ -837,7 +885,7 @@ textnya = `
 				        break
 	           } 
  switch (command) {
-			case 'menu': case 'help':
+			case 'menu':
 			const llol = fs.readFileSync(`./media/xznsenpai.jpeg`)
 			rn = process.uptime()
 				const textnya = `
@@ -882,7 +930,7 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 6.${prefix}truth
 7.${prefix}dare
 
-=>>ADMINGC<<=
+=>>HANYA ADMIN<<=
 
 1.${prefix}kick
 2.${prefix}add
@@ -924,6 +972,18 @@ fyt2(textnya)
 /*case 'button':
 	send3Button(`Ini contoh buttonsMessage`, `:v`, `Menu Bot`, `${prefix}menu`, `Tes Speed`, `${prefix}ping`, `Cek Runtime`, `${prefix}runtime`, { quoted: qul })
 	break*/
+case 'help':
+Testbang = udin.prepareMessageFromContent(from, {
+"listMessage":{
+ "title": `${ucapanWaktu} ${pushname}`,
+"description": "\n======>>>>>🐤🐤<<<<<=====",
+"buttonText": "MENU🗿",
+ "listType": "SINGLE_SELECT",
+ "sections": [ { "rows": [ { "title": "INFO🗿", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `MeNu🔥`, "rowId": 0 }, { "title": `Open Group`, "rowId": 0 }, { "title": `Close Group`, "rowId": 0 }
+  ]
+  }]}}, {}) 
+ udin.relayWAMessage(Testbang, {waitForAck: true})
+break
 //dehan
 case 'dota':
 if (args.length == 0) return reply('text nya mana anjg')
