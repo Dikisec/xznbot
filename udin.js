@@ -506,10 +506,13 @@ const fvn = {
                 });
             }   
 			const replyy = (teks) => {
-            udin.sendMessage(from, teks, text, { quoted: qul, thumbnail: fs.readFileSync('./media/loli.jpeg'), contextInfo: { externalAdReply: { title: 'Its_me_xzn', body: '𐎑⃢BY;🇮🇩𝐱𝐳𝐧𝐬𝐞𝐧𝐩𝐚𝐢🇮🇩☙', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
+            udin.sendMessage(from, teks, text, { quoted: qul, thumbnail: fs.readFileSync('./media/loli.jpeg'), contextInfo: { externalAdReply: { title: 'Its_me_xzn', body: 'Xᴢɴ々Bᴏᴛ', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
             }
             const fyt = (teks) => {
-            udin.sendMessage(from, teks, MessageType.text, {quoted:qul, contextInfo:{"externalAdReply":{"title": fake, mediaType: 2, "thumbnailUrl": "https://telegra.ph/file/235c23bd6db24ab5a50ab.jpg","previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
+            udin.sendMessage(from, teks, MessageType.text, {quoted:qul, contextInfo:{"externalAdReply":{"title": fake, mediaType: 2, thumbnail: fs.readFileSync('./media/loli.jpeg'), "previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
+            }
+            const fyt2 = (teks) => {
+            udin.sendMessage(from, teks, MessageType.text, {quoted:qul, contextInfo: { forwardingScore: 250, isForwarded: true, "externalAdReply":{"title": `${ucapanWaktu} ${pushname}`, mediaType: 2, thumbnail: fs.readFileSync('./media/loli.jpeg'), "previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
             }
             const fakethumb = (teks, yes) => {
             udin.sendMessage(from, teks, image, {thumbnail:fs.readFileSync('./media/loli.jpeg'),quoted:qul,caption:yes})
@@ -593,7 +596,11 @@ udin.sendMessage(from, `_${sami}_`, text, {quoted:qul})
         }
         if (budy.includes('Bot')) {
 const gojomp3 = fs.readFileSync('./assets/gojo.mp3');
-udin.sendMessage(from, gojomp3, MessageType.audio, {quoted: dinnn, mimetype: 'audio/mp4', ptt:true})
+udin.sendMessage(from, gojomp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', ptt:true})
+}
+if (budy.includes('Ah')) {
+const ahh = fs.readFileSync('./assets/ah.mp3');
+udin.sendMessage(from, ahh, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
 }
 if (budy.includes('Makasih')) {
 const gojomp3 = fs.readFileSync('./assets/gojo.mp3');
@@ -868,21 +875,22 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 6.${prefix}truth
 7.${prefix}dare
 
-=>>HANYA ADMIN<<=
+=>>ADMINGC<<=
 
 1.${prefix}kick
 2.${prefix}add
 3.${prefix}group buka/tutup
 4.${prefix}welcome
 
-=>>https://dhnjing.xyz<<=
+=>>MAKER<<=
 
 1.${prefix}dota
 2.${prefix}aov
 
 *Xᴢɴ々Bᴏᴛ*`
+fyt2(textnya)
 //udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo: { forwardingScore: 250, isForwarded: true,  externalAdReply: { title: 'Duta TeyTed Tzy', body: '𐎑⃢BY;🇮🇩𝐱𝐳𝐧𝐬𝐞𝐧𝐩𝐚𝐢🇮🇩☙', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
-udin.sendMessage(from, llol, image, {quoted:dinnn, caption: textnya, contextInfo:{"externalAdReply":{"title": `${ucapanWaktu} ${pushname}`, mediaType: 2, "thumbnailUrl": "https://telegra.ph/file/6b0259fd741e108910fbe.jpg","previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
+//udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo:{"externalAdReply":{"title": `${ucapanWaktu} ${pushname}`, mediaType: 2, "thumbnailUrl": "https://telegra.ph/file/6b0259fd741e108910fbe.jpg","previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
 /*res = await udin.prepareMessageFromContent(from, {
 					"orderMessage": {
 						"orderId": "792749621388119",
@@ -924,7 +932,7 @@ aov = await getBuffer(`https://dhnjing.xyz/maker/photooxy/arena-of-valor?charact
 udin.sendMessage(from, aov, image, {quoted: qul, caption: `nih kaka`})
 break
 	//ini api jojo
-	case 'cerpen':  
+case 'cerpen':  
                    anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/cerpen`)                   
                    anu1 = `➻ *JUDUL* : ${anu.result.title}\n`
                    anu1 += `➻ *PENGARANG* : ${anu.result.pengarang}\n` 
@@ -1903,7 +1911,8 @@ break
 			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				if (!args) return xznsenpai.reply(from, `Penggunaan ${prefix}setprefix prefix`, qul)
 				prefix = args
-				xznsenpai.sendFakeStatus(from, `Prefix berhasil diubah menjadi ${prefix}`, fake)
+				reply(`Prefix berhasil diubah menjadi ${prefix}`)
+				//xznsenpai.sendFakeStatus(from, `Prefix berhasil diubah menjadi ${prefix}`, fake)
 				//await xznsenpai.FakeTokoForwarded(from, `Prefix berhasil diubah menjadi ${prefix}`, fake)
 				break
 			case 'setname':
@@ -2713,10 +2722,12 @@ break
 				if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}kick @tag atau nomor`, qul)
 				if (qul.message.extendedTextMessage != undefined){
                     mentioned = qul.message.extendedTextMessage.contextInfo.mentionedJid
-					await xznsenpai.FakeTokoForwarded(from, `Bye...`, fake)
+					//await xznsenpai.FakeTokoForwarded(from, `Bye...`, fake)
+					reply('Goodby Kawan')
 					xznsenpai.kick(from, mentioned)
 				} else {
-					await xznsenpai.FakeTokoForwarded(from, `Bye...`, fake)
+					reply('Goodby Kawan')
+					//await xznsenpai.FakeTokoForwarded(from, `Bye...`, fake)
 					xznsenpai.kick(from, [args[0] + '@s.whatsapp.net'])
 				}
 				break
@@ -2725,7 +2736,8 @@ break
 			if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
 				if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}kick 628xxxx`, qul)
 				xznsenpai.add(from, [args[0] + '@s.whatsapp.net'])
-				xznsenpai.FakeTokoForwarded(from, `Sukses`, fake)
+				//xznsenpai.FakeTokoForwarded(from, `Sukses`, fake)
+				reply('Sokses lord')
 				break
 			case 'upstatus':
 				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
@@ -2880,6 +2892,7 @@ break
                     for (let _ of anu) {
 							xznsenpai.hideTag(_.jid, `${arg}`)
 						}
+						reply('Sokses')
 						break
 			case 'antidelete':
 				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
