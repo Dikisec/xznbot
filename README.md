@@ -31,9 +31,9 @@
 # Instalasi
 ## Clone Repo & Instalasi dependencies
 ```bash
-> git clone https://github.com/xznsenpai/xznmybot.git
-> cd selfbotxzn
-> npm install
+> git clone https://github.com/xznsenpai/xznbot
+> cd xznbot
+> bash install.sh / npm install
 > node udin
 ```
 ## For Termux
@@ -43,10 +43,9 @@
 > pkg install nodejs
 > pkg install git
 > pkg install bash
-> git clone https://github.com/xznsenpai/xznmybot.git
-> cd selfbotxzn
+> git clone https://github.com/xznsenpai/xznbot
+> cd xznbot
 > bash install.sh
-> npm install
 > node udin
 ```
 
@@ -99,79 +98,58 @@ atau bisa juga
 ```
 - Serah aja 
 
-## Note
-- ANU SAYA CUMA UPLOAD GITHUB BIAR GK KE HPS
-- DAN INDEX.JS SENGAJA SAYA TIDAK UPLOAD
+## Okelah
+- ©[XM] XHIRO MHONSHINE
+- Xᴢɴ々Bᴏᴛ
 
 # Features
 ```
 
-╔═══----❖•ೋ° °ೋ•❖-----═══╗
-  ➲"       𝔷𝔞𝔦𝔫𝔲𝔡𝔦𝔫 𝔞𝔫𝔤𝔤𝔞𝔯𝔞 𝔱𝔞𝔫𝔦𝔰𝔥𝔞       " ➲
-╚═══----❖•ೋ° °ೋ•❖-----═══╝
-*╭━━ꩉ𖧹ᜓ᭢❍⃝⃘۪۪۪͡ ཻ̣֯ᬉཷ𖣘࿆ཪֺֹ໋ཱི࣯᳝ׄ፞͛ꪶཷ୭⸼۬࣪*
-*┊╭┄┈ꪶ࿐┄┈┄┈┄┈┄┈┄┈*
-*┊┆*           *MENU BOT *           
-*┊┆     ▭▬▬▭▬▬▭▬▬▭*
-*┊┆*  *Jika Eror Mohon Sabar*
-*┊╰┈┄┈┄┈┄┈┄┈┄┈┈┄┈ ཿ⸼۬࣪ꪶ⸼༅*
-*╰━━ꩉ𖧹ᜓ᭢❍⃝⃘۪۪۪͡ ཻ̣֯ᬉཷ𖣘࿆ཪֺֹ໋ཱི࣯᳝ׄ፞͛ꪶཷ୭͓*
+==>>Mohon Baca<<==
 
-┌─❖*「 INFO OWNER 」*
-│✎ *Nama* : Duta TeyTed Tzy
-│✎ *Github* : github.com/xznsenpai
-│✎ *Ig* : its_me_xzn
-└─❖
+JANGAN SPAM BOT INI !!..
+TETAP DI RUMAH AJA DAN LAKUKAN 3M
+1.makan
+2.minum
+3.MELIHAT MEMEG
 
-⦿ Jam WIT : 18:56:01
-⦿ Jam WITA : 17:56:01
-⦿ Jam WIB : 16:56.01
-⦿ Hari : Rabu Legi
-⦿ Kalender : 4 Agustus 2021
-⦿ https://xzn-apikey.herokuapp.com
-⦿Runtime : 17 seconds🕐
-
-=>>NO APIKEY<<=
+=>>Pembuat Sticker<<=
 
 1.#sticker
 2.#toimg
-3.#play
 
-=>>Only Admin<<=
+=>>DOWNLOAD<<=
+
+1.#play
+2.#video
+3.#ytmp4
+4.#ytmp3
+5.#ttnowm
+6.#igdl
+
+=>>YNTKTS<<=
+
+1.#darkjokes
+2.#lirik
+3.#ytsearch
+4.#pinterest
+5.#playstore
+6.#truth
+7.#dare
+
+=>>ADMINGC<<=
 
 1.#kick
 2.#add
 3.#group buka/tutup
 4.#welcome
 
-=>>Fitu Rest Api Di Ats<<=
+=>>MAKER<<=
 
-1.#glitchx
-2.#googlex
-3.#pubgx
-4.#battlefieldx
-5.#coffeecupx
-6.#coffeecup2x
-7.#neonx
-8.#metallicx
-9.#summerx
-10.#flowerx
-11.#burnx
-12.#artquotex
-13.#boarchx
-14.#goldenx
-15.#maker
-16.#maker2
-17.#maker3
-18.#maker4
-19.#maker5
-20.#maker6
-21.#maker7
-22.#maker8
-23.#transformer
-24.#sertifikatepep
+1.#dota
+2.#aov
 
-*SELF BOT XZN*
+*Xᴢɴ々Bᴏᴛ*
 ```
 # Thanks to
 * [`Baileys`](https://github.com/adiwajshing/Baileys)
