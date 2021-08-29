@@ -1032,7 +1032,7 @@ Testbang = udin.prepareMessageFromContent(from, {
 "listMessage":{
  "title": `${ucapanWaktu} ${pushname}`,
 "description": "\n======>>>>>PILIH DI BAWAH<<<<<=====",
-"buttonText": "RANDOM FOTO ",
+"buttonText": "VIRUS XZN 🔥",
  "listType": "SINGLE_SELECT",
  "sections": [ {"title": `${week} ${date}`,
  "rows": [ 
