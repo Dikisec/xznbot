@@ -897,7 +897,7 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 				        break
 	           } 
  switch (command) {
-			case 'menu':
+			/*case 'menu':
 			const llol = fs.readFileSync(`./media/xznsenpai.jpeg`)
 			rn = process.uptime()
 				const textnya = `
@@ -955,7 +955,7 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 2.${prefix}aov
 
 *Xᴢɴ々Bᴏᴛ*`
-fyt2(textnya)
+fyt2(textnya)*/
 //udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo: { forwardingScore: 250, isForwarded: true,  externalAdReply: { title: 'Duta TeyTed Tzy', body: '𐎑⃢BY;🇮🇩𝐱𝐳𝐧𝐬𝐞𝐧𝐩𝐚𝐢🇮🇩☙', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
 //udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo:{"externalAdReply":{"title": `${ucapanWaktu} ${pushname}`, mediaType: 2, "thumbnailUrl": "https://telegra.ph/file/6b0259fd741e108910fbe.jpg","previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
 /*res = await udin.prepareMessageFromContent(from, {
@@ -979,12 +979,13 @@ fyt2(textnya)
                 //replyy(textnya)
                 //xznsenpai.FakeTokoForwarded(from, textnya, fake)
                 //xznsenpai.sendFakeStatusWithImg(from, lord, textnya, fake)
-				break
+				//break
 /*api gw sendiri*/
 /*case 'button':
 	send3Button(`Ini contoh buttonsMessage`, `:v`, `Menu Bot`, `${prefix}menu`, `Tes Speed`, `${prefix}ping`, `Cek Runtime`, `${prefix}runtime`, { quoted: qul })
 	break*/
-case 'help':
+
+case 'help': case 'menu':
  Testbang = udin.prepareMessageFromContent(from, {
 "listMessage":{
  "title": `${ucapanWaktu} ${pushname}`,
@@ -1613,18 +1614,6 @@ case 'art':
                   "buttonText": "LIST - Lamgu",
                   "listType": "SINGLE_SELECT",
                   "sections": [ { "rows": [ { "title": "ah", "rowId": 0 }, { "title": "iri", "rowId": 0 }
-                        ]
-                     }]}}, {}) 
-            udin.relayWAMessage(Testbang, {waitForAck: true})
-            break
-              case 'ampas':
-                Testbang = udin.prepareMessageFromContent(from, {
-				"listMessage":{
-                  "title": "• AMPAS MENU •",
-                  "description": "\nPilh Ampas Yang Di Inginkan",
-                  "buttonText": "LIST AMPAS",
-                  "listType": "SINGLE_SELECT",
-                  "sections": [ { "rows": [ { "title": "foto", "rowId": 0 }, { "title": "bug", "rowId": 0 }, { "title": "lokasii", "rowId": 0 }
                         ]
                      }]}}, {}) 
             udin.relayWAMessage(Testbang, {waitForAck: true})
