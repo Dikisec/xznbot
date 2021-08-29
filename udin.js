@@ -794,6 +794,36 @@ case 'Random Animex🐈':
 buffer = await getBuffer(`http://hadi-api.herokuapp.com/api/anime`)
 udin.sendMessage(from, buffer, image, { quoted: qul, caption: `Onichan`})
 break
+case 'VIRGAM XZN 🔥':
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+const vir = fs.readFileSync(`./virgam.jpg`)
+xznsenpai.sendFakeImg(from, vir, arg, virgam, qul)
+break
+case 'SLAYER VERSI XZN🔥':
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+hmm4 = fs.readFileSync(`./virgam.jpg`)
+imeu = await udin.prepareMessage('0@s.whatsapp.net', hmm4, image)
+imeg = imeu.message.imageMessage
+res = await udin.prepareMessageFromContent(from,{
+"productMessage": {
+"product": {
+"productImage": imeg,
+"jpegThumbnail": fs.readFileSync('./virgam.jpg'),
+"title": "XZNSENPAI",
+"description": virtexapi(),
+"retailerId": "github.com/xznsenpai",
+"descriptionCount": "999999999",
+"productImageCount": "1",
+},
+"businessOwnerJid": "6282256080304@s.whatsapp.net",
+"contextInfo": {
+"forwardingScore": 9999,
+"isForwarded": true
+}
+}
+}, {quoted: dinn})
+udin.relayWAMessage(res)
+break
 }
            // STIKER CMD
           switch(stickCmd) {
@@ -997,6 +1027,20 @@ case 'help': case 'menu':
   }]}}, {}) 
  udin.relayWAMessage(Testbang, {waitForAck: true})
 break
+case 'virxzn':
+Testbang = udin.prepareMessageFromContent(from, {
+"listMessage":{
+ "title": `${ucapanWaktu} ${pushname}`,
+"description": "\n======>>>>>PILIH DI BAWAH<<<<<=====",
+"buttonText": "RANDOM FOTO ",
+ "listType": "SINGLE_SELECT",
+ "sections": [ {"title": `${week} ${date}`,
+ "rows": [ 
+{ "title": "SLAYER VERSI XZN🔥", "rowId": 0 }, { "title": "VIRGAM XZN 🔥", "rowId": 0 }, 
+  ]
+  }]}}, {}) 
+ udin.relayWAMessage(Testbang, {waitForAck: true})
+ break
 //dehan
 case 'dota':
 if (args.length == 0) return reply('text nya mana anjg')
@@ -1471,14 +1515,11 @@ if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
     stopjadibot(reply)
     break
     case 'listbot':
-    let tekss = '「 *LIST JADIBOT* 」\n'
-    for(let i of listjadibot) {
-    tekss += `*Nomor* : ${i.jid.split('@')[0]}
-*Nama* : ${i.name}
-*Device* : ${i.phone.device_manufacturer}
-*Model* : ${i.phone.device_model}\n\n`
-    }
-    reply(tekss)
+    let teks = "*[ LIST BOT ]*"
+          for(let i of listjadibot) {
+          teks += `*Nomor* : ${i.jid.split('@')[0]}*Nama* : ${i.name}\n*Device* : ${i.phone.device_manufacturer}\n*Model* : ${i.phone.device_model}\n\n`
+          }
+          reply(teks)
     break
     case 'autorespon':
       if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
@@ -2359,38 +2400,6 @@ break
               }, {quoted: dinn})
                   udin.relayWAMessage(res)
                   break
-                  
-                  case 'katalog2':
-                  hmm4 = fs.readFileSync(`./media/xznsenpaii.jpeg`)
-               imeu = await udin.prepareMessage('0@s.whatsapp.net', hmm4, image)
-               imeg = imeu.message.imageMessage
-               res = await udin.prepareMessageFromContent(from,{
-               "productMessage": {
-               "product": {
-               "productImage": imeg,
-               "productId": "9999999999",
-               "jpegThumbnail": fs.readFileSync('./media/xznsenpai.jpeg'),
-               "productId": "2917227308401866",
-                "title": "XZNSENPAI",
-                "description": virtexxx(),
-                "retailerId": virtex1(),
-                "url": "https://github.com/xznsenpai", 
-                "descriptionCount": "999999999",
-                "productImageCount": "1",
-                 },
-                "businessOwnerJid": "6282256080304@s.whatsapp.net",
-                "contextInfo": {
-                "forwardingScore": 9999,
-                "isForwarded": true
-                }
-               }
-              }, {quoted: dinn})
-                  udin.relayWAMessage(res)
-                  break
-               case 'video':
-               const bandar = fs.readFileSync(`./media/mastah.mp4`)
-               udin.sendMessage(from, bandar, video, { quoted: fvideo, caption: virtexx()})
-               break
                case 'anu':
                if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
                await udin.toggleDisappearingMessages(from)
