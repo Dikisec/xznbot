@@ -1956,8 +1956,8 @@ break
 			case 'hidetag':
 			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 		    //if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}hidetag teks`, qul)
-		    teks = args.join(' ')
-				xznsenpai.hideTag(from, `${teks}`)
+		    tekss = args.join(' ')
+				xznsenpai.hideTag(from, `${tekss}`)
 				break
 			case 'runtime':
 				run = process.uptime()
