@@ -1498,10 +1498,10 @@ ${anime.desc}\n\n*Link Batch* : ${anime.batch}\n*Link Download SD* : ${anime.bat
 					ger = isQuotedImage || isQuotedSticker ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
 					owgi = await  udin.downloadAndSaveMediaMessage(ger)
 					anu = await imgbb("cedeb44b8d204947a6833ca1412ca77d", owgi)
-					teks = `${anu.display_url}`
+					tekks = `${anu.display_url}`
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
-					anu1 = `https://api.memegen.link/images/custom/${top}/${bottom}.png?background=${teks}`
+					anu1 = `https://api.memegen.link/images/custom/${top}/${bottom}.png?background=${tekks}`
 					sendMediaURL(from, `${anu1}`, mess.success)
 					} else {
 					reply('Gunakan foto/stiker!')
@@ -1515,10 +1515,10 @@ if ((isMedia && !qul.message.videoMessage || isQuotedImage || isQuotedSticker) &
 ger = isQuotedImage || isQuotedSticker ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
 owgi = await  udin.downloadAndSaveMediaMessage(ger)
 anu = await imgbb("cedeb44b8d204947a6833ca1412ca77d", owgi)
-teks = `${anu.display_url}`
+tekks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
-anu1 = `https://api.memegen.link/images/custom/${top}/${bottom}.png?background=${teks}`
+anu1 = `https://api.memegen.link/images/custom/${top}/${bottom}.png?background=${tekks}`
 sendStickerFromUrl(from, `${anu1}`)
 } else {
 reply('Gunakan foto/stiker!')
@@ -1933,9 +1933,7 @@ case 'art':
 				break
 			//tts
 			case 'tts':                
-
 if (args.length < 1) return reply('Kode bahasa nya mana kak?')			
-
 const gtts = require('./lib/gtts')(args[0])
 					if (args.length < 2) return udin.sendMessage(from, 'Textnya mana om', text, {quoted: qul})
 					dtt = body.slice(8)
