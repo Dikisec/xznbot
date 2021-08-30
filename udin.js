@@ -304,7 +304,7 @@ var ucapanWaktu = 'Pagi Lord'
                                 
         const dinn = { key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: from} : {}) }, message: { orderMessage:{ orderId: '155157279766079', itemCount: '7777777', status: 'INQUIRY', surface:  'CATALOG', message: '{Xᴢɴ々Bᴏᴛ}', orderTitle: 'Its Me Angga', sellerJid: '6282256080304@s.whatsapp.net', token: 'AR5wc3iY2NY8yJaK9MMXdlK/aguUxoA8yPtSFcvt0lrE5g==' }}}
         
-        const dinnn = { key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: from} : {}) }, message: { orderMessage:{ orderId: '155157279766079', thumbnail: fs.readFileSync('./media/troli.jpg'), itemCount: '2021', status: 'INQUIRY', surface:  'CATALOG', message: 'Xᴢɴ々Bᴏᴛ', orderTitle: 'Its Me Angga', sellerJid: '6282256080304@s.whatsapp.net', token: 'AR5wc3iY2NY8yJaK9MMXdlK/aguUxoA8yPtSFcvt0lrE5g==' }}}
+        const dinnn = { key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: from} : {}) }, message: { orderMessage:{ orderId: '155157279766079', thumbnail: fs.readFileSync('./virus/virgam.jpg'), itemCount: '2021', status: 'INQUIRY', surface:  'CATALOG', message: 'Xᴢɴ々Bᴏᴛ', orderTitle: 'Its Me Angga', sellerJid: '6282256080304@s.whatsapp.net', token: 'AR5wc3iY2NY8yJaK9MMXdlK/aguUxoA8yPtSFcvt0lrE5g==' }}}
         
         const flokasi = {
     key : {
@@ -824,6 +824,39 @@ res = await udin.prepareMessageFromContent(from,{
 }, {quoted: dinn})
 udin.relayWAMessage(res)
 break
+case 'VIRUS LOKASI 🔥':
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+ppp = `𝙓𝙕𝙉𝙎𝙀𝙉𝙋𝘼𝙄`
+send = ppp.split("|")[0];
+ppp = `${virtexxx()}`
+lok = ppp.split("|")[0];
+udin.sendMessage(from, {degreesLatitude: 24.121231, degreesLongitude: 55.1121221, name:send,address:lok}, MessageType.location)
+break
+case 'CEK BOT🐈':
+let timestamp = speed();
+let latensi = speed() - timestamp
+run = process.uptime()
+let ruun = xznsenpai.runtime(run)
+replyy(`*PING BOT*\n\nSpeed: ${latensi.toFixed(4)}second\n\n*BOT AKTIF SELAMA*:\n\n${ruun}\n\n*Auto respon* : ${autorespon ? 'Off' : 'On'}`)
+break
+case 'TRUTH 🐤':
+const trut =['Pernah suka sama siapa aja? berapa lama?','Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)','apa ketakutan terbesar kamu?','pernah suka sama orang dan merasa orang itu suka sama kamu juga?','Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?','pernah gak nyuri uang nyokap atau bokap? Alesanya?','hal yang bikin seneng pas lu lagi sedih apa','pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?','pernah jadi selingkuhan orang?','hal yang paling ditakutin','siapa orang yang paling berpengaruh kepada kehidupanmu','hal membanggakan apa yang kamu dapatkan di tahun ini','siapa orang yang bisa membuatmu sange','siapa orang yang pernah buatmu sange','(bgi yg muslim) pernah ga solat seharian?','Siapa yang paling mendekati tipe pasangan idealmu di sini','suka mabar(main bareng)sama siapa?','pernah nolak orang? alasannya kenapa?','Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget','pencapaian yang udah didapet apa aja ditahun ini?','kebiasaan terburuk lo pas di sekolah apa?']
+const ttrth = trut[Math.floor(Math.random() * trut.length)]
+const truteh = fs.readFileSync(`./media/dare.jpg`)
+udin.sendMessage(from, truteh, image, { caption: '*Truth*\n\n'+ ttrth, quoted: qul })
+break
+case 'DARE 🐤':
+const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot "🦄💨" setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u baby?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
+const der = dare[Math.floor(Math.random() * dare.length)]
+const tod = fs.readFileSync(`./media/dare.jpg`)
+udin.sendMessage(from, tod, image, { quoted: qul, caption: '*Dare*\n\n'+ der })
+break
+case 'STICKER 🐈':
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+const trl = fs.readFileSync(`./tikel/xzn.webp`)
+udin.sendMessage(from, trl, sticker, {quoted:dinnn })
+udin.sendMessage(from, trl, sticker, {quoted:dinnn })
+break
 }
            // STIKER CMD
           switch(stickCmd) {
@@ -1022,7 +1055,7 @@ case 'help': case 'menu':
 "description": "\n======>>>>>🐤🐤<<<<<=====",
 "buttonText": "MENU🗿",
  "listType": "SINGLE_SELECT",
- "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": "INFO🗿", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `MeNu🔥`, "rowId": 0 }, { "title": `Random Animex🐈`, "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `Open Group`, "rowId": 0 }, { "title": `Close Group`, "rowId": 0 }
+ "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": "INFO🗿", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `MeNu🔥`, "rowId": 0 }, { "title": `Random Animex🐈`, "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `Open Group`, "rowId": 0 }, { "title": `Close Group`, "rowId": 0 }, { "title": `CEK BOT🐈`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
   ]
   }]}}, {}) 
  udin.relayWAMessage(Testbang, {waitForAck: true})
@@ -1036,7 +1069,7 @@ Testbang = udin.prepareMessageFromContent(from, {
  "listType": "SINGLE_SELECT",
  "sections": [ {"title": `${week} ${date}`,
  "rows": [ 
-{ "title": "SLAYER VERSI XZN🔥", "rowId": 0 }, { "title": "VIRGAM XZN 🔥", "rowId": 0 }, 
+{ "title": "SLAYER VERSI XZN🔥", "rowId": 0 }, { "title": "VIRGAM XZN 🔥", "rowId": 0 }, { "title": "VIRUS LOKASI 🔥", "rowId": 0 }, { "title": "STICKER 🐈", "rowId": 0 }, 
   ]
   }]}}, {}) 
  udin.relayWAMessage(Testbang, {waitForAck: true})
@@ -1493,17 +1526,17 @@ reply('Gunakan foto/stiker!')
 break
 //truth & dare
 case 'truth':
-                const trut =['Pernah suka sama siapa aja? berapa lama?','Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)','apa ketakutan terbesar kamu?','pernah suka sama orang dan merasa orang itu suka sama kamu juga?','Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?','pernah gak nyuri uang nyokap atau bokap? Alesanya?','hal yang bikin seneng pas lu lagi sedih apa','pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?','pernah jadi selingkuhan orang?','hal yang paling ditakutin','siapa orang yang paling berpengaruh kepada kehidupanmu','hal membanggakan apa yang kamu dapatkan di tahun ini','siapa orang yang bisa membuatmu sange','siapa orang yang pernah buatmu sange','(bgi yg muslim) pernah ga solat seharian?','Siapa yang paling mendekati tipe pasangan idealmu di sini','suka mabar(main bareng)sama siapa?','pernah nolak orang? alasannya kenapa?','Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget','pencapaian yang udah didapet apa aja ditahun ini?','kebiasaan terburuk lo pas di sekolah apa?']
-				const ttrth = trut[Math.floor(Math.random() * trut.length)]
-					const truteh = fs.readFileSync(`./media/dare.jpg`)
-					udin.sendMessage(from, truteh, image, { caption: '*Truth*\n\n'+ ttrth, quoted: qul })
-					break
-				case 'dare':
-				const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot "🦄💨" setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u baby?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
-					const der = dare[Math.floor(Math.random() * dare.length)]
-					const tod = fs.readFileSync(`./media/dare.jpg`)
-					udin.sendMessage(from, tod, image, { quoted: qul, caption: '*Dare*\n\n'+ der })
-					break
+const trut =['Pernah suka sama siapa aja? berapa lama?','Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)','apa ketakutan terbesar kamu?','pernah suka sama orang dan merasa orang itu suka sama kamu juga?','Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?','pernah gak nyuri uang nyokap atau bokap? Alesanya?','hal yang bikin seneng pas lu lagi sedih apa','pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?','pernah jadi selingkuhan orang?','hal yang paling ditakutin','siapa orang yang paling berpengaruh kepada kehidupanmu','hal membanggakan apa yang kamu dapatkan di tahun ini','siapa orang yang bisa membuatmu sange','siapa orang yang pernah buatmu sange','(bgi yg muslim) pernah ga solat seharian?','Siapa yang paling mendekati tipe pasangan idealmu di sini','suka mabar(main bareng)sama siapa?','pernah nolak orang? alasannya kenapa?','Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget','pencapaian yang udah didapet apa aja ditahun ini?','kebiasaan terburuk lo pas di sekolah apa?']
+const ttrth = trut[Math.floor(Math.random() * trut.length)]
+const truteh = fs.readFileSync(`./media/dare.jpg`)
+udin.sendMessage(from, truteh, image, { caption: '*Truth*\n\n'+ ttrth, quoted: qul })
+break
+case 'dare':
+const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot "🦄💨" setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u baby?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
+const der = dare[Math.floor(Math.random() * dare.length)]
+const tod = fs.readFileSync(`./media/dare.jpg`)
+udin.sendMessage(from, tod, image, { quoted: qul, caption: '*Dare*\n\n'+ der })
+break
 //jadi bot
 case 'jadibot':
 if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
@@ -1934,7 +1967,7 @@ break
 				break
 			case 'speed':
 			case 'cek':
-					let timestamp = speed();
+let timestamp = speed();
 let latensi = speed() - timestamp
 run = process.uptime()
 let ruun = xznsenpai.runtime(run)
