@@ -1052,10 +1052,10 @@ case 'help': case 'menu':
  Testbang = udin.prepareMessageFromContent(from, {
 "listMessage":{
  "title": `${ucapanWaktu} ${pushname}`,
-"description": "\n======>>>>>🐤🐤<<<<<=====",
+"description": `\n==>>Mohon Baca<<==\n\nJANGAN SPAM BOT INI !!..\nTETAP DI RUMAH AJA DAN LAKUKAN 3M\n1.makan\n2.minum\n3.MELIHAT MEMEG\n\n=>>JAM<<=\n\n⦿ Jam WIT : ${wit}\n⦿ Jam WITA : ${wita}\n⦿ Jam WIB : ${jam}\n⦿ Hari : ${week} ${weton}\n⦿ Kalender : ${date}`,
 "buttonText": "MENU🗿",
  "listType": "SINGLE_SELECT",
- "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": "INFO🗿", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `MeNu🔥`, "rowId": 0 }, { "title": `Random Animex🐈`, "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `Open Group`, "rowId": 0 }, { "title": `Close Group`, "rowId": 0 }, { "title": `CEK BOT🐈`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
+ "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": 0 }, { "title": "INFO🗿", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `Random Animex🐈`, "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `Open Group`, "rowId": 0 }, { "title": `Close Group`, "rowId": 0 }, { "title": `CEK BOT🐈`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
   ]
   }]}}, {}) 
  udin.relayWAMessage(Testbang, {waitForAck: true})
