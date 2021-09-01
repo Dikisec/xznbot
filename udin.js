@@ -116,7 +116,7 @@ udin.on('group-participants-update', async (anu) => {
             pp_user = 'https://i.ibb.co/4j6ZxtW/hshs-by-midorizou-d8xpeka.jpg'
             }
             try {
-             pp_group = await udin.getProfilePicture(chat.jid)
+             pp_group = await udin.getProfilePicture(anu.jid)
             } catch (e) {
             pp_group = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
             }
