@@ -43,6 +43,7 @@ const Exif = require('./lib/exif');
 const { uptotele, uptonaufal, uploadFile } = require('./lib/uploadimage')
 const { yta, ytv, igdl, upload, uploadImages } = require('./lib/ytdl')
 const { jadibot, stopjadibot, listjadibot } = require('./lib/jadibot')
+const ph = require('./lib/photooxy.js')
 const { webp2gifFile, igDownloader, TiktokDownloader } = require("./lib/gif.js")
 const yts = require( 'yt-search')
 const hx = require('hxz-api')
@@ -742,6 +743,20 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 
 1.${prefix}dota
 2.${prefix}aov
+2.${prefix}flaming2
+3.${prefix}butterfly
+4.${prefix}lovetext
+5.${prefix}msggrass
+6.${prefix}lovemsg
+7.${prefix}naruto2
+8.${prefix}burnpapper
+9.${prefix}smoke
+10.${prefix}romantic
+11.${prefix}glitch
+12.${prefix}wanted
+13.${prefix}neon2
+14.${prefix}coffecup
+15.${prefix}shadow
 
 *Xᴢɴ々Bᴏᴛ*`
 fyt2(textnya)
@@ -3102,6 +3117,113 @@ break
 					xznsenpai.reply(from, `Kirim gambar atau reply gambar dengan caption ${prefix}setpp`, qul)
 				}
 				break
+case 'shadow':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+reply(mess.wait)
+ph.pShadow(txt1).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'coffecup':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+reply(mess.wait)
+ph.pCoffeCup(txt1).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case  'neon2':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+reply(mess.wait)
+ph.pNeons(txt1).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case  'wanted':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+txt2 = args[1]
+txt3 = args[2]
+reply(mess.wait)
+ph.pWanted(txt1, txt2, txt3).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case  'glitch':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+txt2 = args[1]
+reply(mess.wait)
+ph.pGlitch(txt1, txt2).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'romantic':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+reply(mess.wait)
+ph.pRomantic(txt1).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'smoke':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pSmoke(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'burnpapper':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pBurnPapper(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'naruto2':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pNaruto(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break 
+case 'lovemsg':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pLoveMsg(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'msggrass':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pMsgGrass(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'lovetext':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pLoveText(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'butterfly':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pButterfly(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'flaming2':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pFlaming(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
 			case 'eval':
 			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				let code = body.slice(6)
