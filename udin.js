@@ -69,7 +69,6 @@ const vcard = 'BEGIN:VCARD\n'
 fake = "Xᴢɴ々Bᴏᴛ"
 fakeimage = fs.readFileSync("./media/xznsenpai.jpeg")
 virgam = fs.readFileSync("./virus/virgam.jpg")
-lord = fs.readFileSync("./media/heh.jpg")
 prefix = '#'
 blocked = []
 baterai = {
@@ -116,6 +115,12 @@ udin.on('group-participants-update', async (anu) => {
             } catch (e) {
             pp_user = 'https://i.ibb.co/4j6ZxtW/hshs-by-midorizou-d8xpeka.jpg'
             }
+            try {
+             pp_group = await udin.getProfilePicture(chat.jid)
+            } catch (e) {
+            pp_group = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
+            }
+            
             if (anu.action == 'add' && !mem.includes(udin.user.jid)) {
             mdata = await udin.groupMetadata(anu.jid)
             memeg = mdata.participants.length
@@ -124,9 +129,10 @@ udin.on('group-participants-update', async (anu) => {
             anu_user = v.vname || v.notify || PhoneNumber('+' + v.jid.replace('@s.whatsapp.net', '')).getNumber('international')
             //anu_user = udin.contacts[mem]
             awikwok = moment().tz('Asia/Jakarta').format("HH:mm")
-            teks = `Welcome in ${mdata.subject}, \nHalo @${num.split('@')[0]}\njangan lupa intro kak\n═════•›ꪶ ཻུ۪۪ꦽꦼ̷⸙ꪶ ཻུ۪۪ꦽꦼ̷⸙•══════\n➸Nama:\n➸Umur:\n➸Askot:\n═════•›ꪶ ཻུ۪۪ꦽꦼ̷⸙ꪶ ཻུ۪۪ꦽꦼ̷⸙•══════\n〲Thanks !*\n*￫─────⁾ྲྀ͢*`
+            teks = `Welcome in ${mdata.subject}, @${num.split('@')[0]}`
             fkon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(mdata.id ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { "contactMessage": { "displayName": `${anu_user}`, "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:XL;${anu_user.notify},;;;\nFN:${anu_user.notify},\nitem1.TEL;waid=${num.split('@')[0]}:${num.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
-	        buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/welcome?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://telegra.ph/file/386a72a86b94e8b0ff6c3.jpg`)
+	        //buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/welcome?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://telegra.ph/file/386a72a86b94e8b0ff6c3.jpg`)
+	       buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/Welcome2?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&gcicon=${pp_group}&pp=${pp_user}&bg=https://telegra.ph/file/386a72a86b94e8b0ff6c3.jpg`)
 		udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fkon, caption: teks, contextInfo: {"mentionedJid": [num]}})
 		}
 		/*if (anu.action == "add" && !mem.includes(udin.user.jid)) {
@@ -156,9 +162,10 @@ udin.on('group-participants-update', async (anu) => {
                 //anu_user = udin.contacts[mem]
                 memeg = mdata.participants.length
                 awikwok = moment().tz('Asia/Jakarta').format("HH:mm")
-                out = `Selamat Tinggal @${num.split('@')[0]} \n═════════════════════\n〲Thanks !*\n*￫─────⁾ྲྀ͢*`
+                out = `Selamat Tinggal @${num.split('@')[0]}`
                 fkon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(mdata.id ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { "contactMessage": { "displayName": `${anu_user}`, "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:XL;${anu_user.notify},;;;\nFN:${anu_user.notify},\nitem1.TEL;waid=${num.split('@')[0]}:${num.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
-                buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/goodbye?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://telegra.ph/file/2612c2bbf5e034ec45563.jpg`)
+                //buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/goodbye?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://telegra.ph/file/2612c2bbf5e034ec45563.jpg`)
+                buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/goodbye2?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&gcicon=${pp_group}&pp=${pp_user}&bg=https://telegra.ph/file/2612c2bbf5e034ec45563.jpg`)
                 udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fkon, caption: out, contextInfo: {"mentionedJid": [num]}})
             }
 		} catch (e) {
