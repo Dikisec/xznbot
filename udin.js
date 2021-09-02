@@ -43,7 +43,8 @@ const Exif = require('./lib/exif');
 const { uptotele, uptonaufal, uploadFile } = require('./lib/uploadimage')
 const { yta, ytv, igdl, upload, uploadImages } = require('./lib/ytdl')
 const { jadibot, stopjadibot, listjadibot } = require('./lib/jadibot')
-const ph = require('./lib/photooxy.js')
+const ph = require('./noapi/photooxy.js')//xznscrap
+const zn = require('./noapi/xznphoto.js')//xznscrap
 const { webp2gifFile, igDownloader, TiktokDownloader } = require("./lib/gif.js")
 const yts = require( 'yt-search')
 const hx = require('hxz-api')
@@ -757,6 +758,14 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 13.${prefix}neon2
 14.${prefix}coffecup
 15.${prefix}shadow
+16.${prefix}pubg
+17.${prefix}cemetery
+18.${prefix}wolf
+19.${prefix}hary
+20.${prefix}cover
+21.${prefix}nightsky
+22.${prefix}woodblock
+23.${prefix}under
 
 *Xᴢɴ々Bᴏᴛ*`
 fyt2(textnya)
@@ -1126,6 +1135,172 @@ Testbang = udin.prepareMessageFromContent(from, {
   }]}}, {}) 
  udin.relayWAMessage(Testbang, {waitForAck: true})
  break
+ case 'shadow':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+reply(mess.wait)
+ph.pShadow(txt1).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'coffecup':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+reply(mess.wait)
+ph.pCoffeCup(txt1).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case  'neon2':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+reply(mess.wait)
+ph.pNeons(txt1).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case  'wanted':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+txt2 = args[1]
+txt3 = args[2]
+reply(mess.wait)
+ph.pWanted(txt1, txt2, txt3).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case  'glitch':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+txt2 = args[1]
+reply(mess.wait)
+ph.pGlitch(txt1, txt2).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'romantic':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+reply(mess.wait)
+ph.pRomantic(txt1).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'smoke':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pSmoke(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'burnpapper':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pBurnPapper(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'naruto2':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pNaruto(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break 
+case 'lovemsg':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pLoveMsg(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'msggrass':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pMsgGrass(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'lovetext':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pLoveText(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'butterfly':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pButterfly(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'flaming2':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+ph.pFlaming(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+//zn
+case  'pubg':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+txt2 = args[1]
+reply(mess.wait)
+zn.pubg(txt1, txt2).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'cemetery':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+zn.cemetery(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'wolf':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+zn.wolf(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'hary':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+zn.hary(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'cover':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+zn.cover(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'nightsky':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+zn.nightsky(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'woodblock':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+zn.woodblock(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
+case 'under':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+zn.under(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+})
+break
 //dehan
 case 'dota':
 if (args.length == 0) return reply('text nya mana anjg')
@@ -1139,265 +1314,6 @@ if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 aov = await getBuffer(`https://dhnjing.xyz/maker/photooxy/arena-of-valor?character=${randomChar}&border=${randomChar}&text=${arg}`)
 udin.sendMessage(from, aov, image, {quoted: qul, caption: `nih kaka`})
-break
-	//ini api jojo
-case 'cerpen':  
-                   anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/cerpen`)                   
-                   anu1 = `➻ *JUDUL* : ${anu.result.title}\n`
-                   anu1 += `➻ *PENGARANG* : ${anu.result.pengarang}\n` 
-                   anu1 += `➻ *KATEGORI* : ${anu.result.kategori}\n`
-                   anu1 += `➻ *CERPEN* : ${anu.result.cerpen}\n`
-                   reply(anu1)
-                   break      
-case 'namaninja':  
-                   if (args.length < 1) return reply(`[  ×  ] Example :\n*${prefix}${command} udin*`)  
-                   F = body.slice(11)
-                   anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/ninja_name?name=${F}`)
-                   anu1 = `➻ *NAMA* : ${anu.your_name}\n`
-                   anu1 += `➻ *NINJA* : ${anu.result}\n`
-                   reply(anu1)
-                   break 
-case 'simi':
-simi = await fetchJson(`https://simsumi.herokuapp.com/api?text=${arg}&lang=v1`)
-             anu2 = `${simi.success}`
-             reply(anu2)
-             break
-case 'ssweb':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} url pc`)
-txt1 = args[0]
-txt2 = args[1]
-spl = await getBuffer(`https://docs-jojo.herokuapp.com/api/ssweb?url=${txt1}&device=${txt2}`)
-udin.sendMessage(from, spl, image, {quoted: qul, caption: `nih kaka`})
-break
-case 'sparkling':
-if (args.length == 0) return reply('text nya mana anjg')
-txt1 = args[0]
-txt2 = args[1]
-spl = await getBuffer(`https://docs-jojo.herokuapp.com/api/sparkling?text1=${txt1}&text2=${txt2}`)
-udin.sendMessage(from, spl, image, {quoted: qul, caption: `nih kaka`})
-break
-case 'gaminglogo':
-if (args.length == 0) return reply('text nya mana anjg')
-spl = await getBuffer(`https://docs-jojo.herokuapp.com/api/gaming?text=${arg}`)
-udin.sendMessage(from, spl, image, {quoted: qul, caption: `nih kaka`})
-break
-case 'neonlight':
-if (args.length == 0) return reply('text nya mana anjg')
-spl = await getBuffer(`https://docs-jojo.herokuapp.com/api/neon_light?text=${arg}`)
-udin.sendMessage(from, spl, image, {quoted: qul, caption: `nih kaka`})
-break
-case 'galaxywp':
-if (args.length == 0) return reply('text nya mana anjg')
-spl = await getBuffer(`https://docs-jojo.herokuapp.com/api/galaxywp?text=${arg}`)
-udin.sendMessage(from, spl, image, {quoted: qul, caption: `nih kaka`})
-break
-case 'watercolor':
-if (args.length == 0) return reply('text nya mana anjg')
-spl = await getBuffer(`https://docs-jojo.herokuapp.com/api/watercolor?text=${arg}`)
-udin.sendMessage(from, spl, image, {quoted: qul, caption: `nih kaka`})
-break
-//ini api gw
-case 'glitchx':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xznbot xznsenpai`)
-txt1 = args[0]
-txt2 = args[1]
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker?text=${txt1}&text2=${txt2}&theme=glitch&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'googlex':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn imut banget`)
-txt1 = args[0]
-txt2 = args[1]
-txt3 = args[2]
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker?text=${txt1}&text2=${txt2}&text3=${txt3}&theme=google-suggestion&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'pubgx':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} Xzn senpai`)
-txt1 = args[0]
-txt2 = args[1]
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker/game?text=${txt1}&text2=${txt2}&theme=pubg&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'battlefieldx':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn senpai`)
-txt1 = args[0]
-txt2 = args[1]
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker/game?text=${txt1}&text2=${txt2}&theme=battlefield&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'coffeecupx':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker/senja?text=${arg}&theme=coffee-cup&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'coffeecup2x':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker/senja?text=${arg}&theme=coffee-cup2&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'neonx':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker/metallic?text=${arg}&theme=neon&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'metallicx':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker/metallic?text=${arg}&theme=glow&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'summerx':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker/alam?text=${arg}&theme=summer&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'flowerx':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker/alam?text=${arg}&theme=flower&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'burnx':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker/random?text=${arg}&theme=text-burn&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'artquotex':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker/random?text=${arg}&theme=art-quote&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'boarchx':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker/roses?text=${arg}&theme=wooden-boarch&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'goldenx':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/textmaker/roses?text=${arg}&theme=golden&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-//maker//
-case 'maker':
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/maker?text=${arg}&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.results)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'maker2':
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/maker2?text=${arg}&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.results)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'maker3':
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/maker3?text=${arg}&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.results)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'maker4':
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/maker4?text=${arg}&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.results)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'maker5':
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/maker3d?text=${arg}&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.results)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'maker6':
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/maker3d/no2?text=${arg}&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.results)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'maker7':
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/maker3d/no3?text=${arg}&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.results)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'maker8':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/maker3d/no4?text=${arg}&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.results)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'transformer':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/maker/special/transformer?text=${arg}&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.results)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-case 'sertifikatepep':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} xzn`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/maker/special/epep?text=${arg}&apikey=lucilfer`)
-xzn = await getBuffer(anu.result.results)
-udin.sendMessage(from, xzn, image, {quoted: qul})
-break
-//random//
-case 'kisahnabi':
-if (args.length == 0) return xznsenpai.reply(from, `Contoh: ${prefix + command} muhammad`)
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/kisahnabi?nabi=${arg}&apikey=lucilfer`)
-buff = await getBuffer(anu.result.nabi.image)
-teks = `*HASIL*\n\n*Nama Nabi :* ${anu.result.nabi.nabi}\n*Lahir :* ${anu.result.nabi.lahir}\n*Umur :* ${anu.result.nabi.umur}\n*Tempat :* ${anu.result.nabi.tempat}\n*Kisah :* ${anu.result.nabi.kisah}`
-udin.sendMessage(from, buff, image, {quoted: qul, caption: teks})
-break
-case 'wallpaper':
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/random/wallpaper?apikey=lucilfer`)
-xzn = await getBuffer(anu.result.url)
-udin.sendMessage(from, xzn, image, {quoted: flokasi})
-break
-case 'quotes':
-bang = await fetchJson(`https://xznsenpai.herokuapp.com/api/randomquote?apikey=lucilfer`)
-anu = bang.result.quotes
-anuu = bang.result.author
-reply(`${anu}\n\n by: ${anuu}`)
-break
-case 'caklontong':
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/kuis/caklontong?apikey=lucilfer`)
-caklontong = `*${anu.result.soal}*`
-ffburiq = `jawaban: *${anu.result.jawaban}*\n\nPenjelasan:  *${anu.result.deskripsi}*`
-setTimeout( () => {
-udin.sendMessage(from, ffburiq, MessageType.text, {quoted: qul})
-}, 30000) // 1000 = 1s,
-setTimeout( () => {
-reply('10 detik lagi')
-}, 20000) // 1000 = 1s,
-setTimeout( () => {
-reply('20 detik lagi')
-}, 10000) // 1000 = 1s,
-setTimeout( () => {
-reply('30 detik lagi')
-}, 2500) // 1000 = 1s,
-udin.sendMessage(from, caklontong, MessageType.text, {quoted: qul})
-break
-case 'tebakgambar':
-anu = await fetchJson(`https://xznsenpai.herokuapp.com/api/kuis/tebakgambar?apikey=lucilfer`)
-pubghd = await getBuffer(anu.result.images)
-ml = `*${anu.result.jawaban}*`
-setTimeout( () => {
-udin.sendMessage(from, ml, MessageType.text, {quoted: qul})
-}, 30000) // 1000 = 1s,
-setTimeout( () => {
-reply('10 detik lagi')
-}, 20000) // 1000 = 1s,
-setTimeout( () => {
-reply('20 detik lagi')
-}, 10000) // 1000 = 1s,
-setTimeout( () => {
-reply('30 detik lagi')
-}, 2500) // 1000 = 1s,
-udin.sendMessage(from, pubghd, image, { caption: '_Jelaskan Apa Maksud Gambar Ini gak bisa jawab donasi yah wkwkwk_', quoted: qul })
 break
 case 'darkjokes':
 data = fs.readFileSync('./noapi/darkjokes.js');
@@ -3117,113 +3033,7 @@ break
 					xznsenpai.reply(from, `Kirim gambar atau reply gambar dengan caption ${prefix}setpp`, qul)
 				}
 				break
-case 'shadow':
-if (args.length == 0) return reply('text nya mana anjg')
-txt1 = args[0]
-reply(mess.wait)
-ph.pShadow(txt1).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break
-case 'coffecup':
-if (args.length == 0) return reply('text nya mana anjg')
-txt1 = args[0]
-reply(mess.wait)
-ph.pCoffeCup(txt1).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break
-case  'neon2':
-if (args.length == 0) return reply('text nya mana anjg')
-txt1 = args[0]
-reply(mess.wait)
-ph.pNeons(txt1).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break
-case  'wanted':
-if (args.length == 0) return reply('text nya mana anjg')
-txt1 = args[0]
-txt2 = args[1]
-txt3 = args[2]
-reply(mess.wait)
-ph.pWanted(txt1, txt2, txt3).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break
-case  'glitch':
-if (args.length == 0) return reply('text nya mana anjg')
-txt1 = args[0]
-txt2 = args[1]
-reply(mess.wait)
-ph.pGlitch(txt1, txt2).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break
-case 'romantic':
-if (args.length == 0) return reply('text nya mana anjg')
-txt1 = args[0]
-reply(mess.wait)
-ph.pRomantic(txt1).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break
-case 'smoke':
-if (args.length == 0) return reply('text nya mana anjg')
-reply(mess.wait)
-ph.pSmoke(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break
-case 'burnpapper':
-if (args.length == 0) return reply('text nya mana anjg')
-reply(mess.wait)
-ph.pBurnPapper(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break
-case 'naruto2':
-if (args.length == 0) return reply('text nya mana anjg')
-reply(mess.wait)
-ph.pNaruto(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break 
-case 'lovemsg':
-if (args.length == 0) return reply('text nya mana anjg')
-reply(mess.wait)
-ph.pLoveMsg(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break
-case 'msggrass':
-if (args.length == 0) return reply('text nya mana anjg')
-reply(mess.wait)
-ph.pMsgGrass(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break
-case 'lovetext':
-if (args.length == 0) return reply('text nya mana anjg')
-reply(mess.wait)
-ph.pLoveText(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break
-case 'butterfly':
-if (args.length == 0) return reply('text nya mana anjg')
-reply(mess.wait)
-ph.pButterfly(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break
-case 'flaming2':
-if (args.length == 0) return reply('text nya mana anjg')
-reply(mess.wait)
-ph.pFlaming(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
-})
-break
+
 			case 'eval':
 			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				let code = body.slice(6)
