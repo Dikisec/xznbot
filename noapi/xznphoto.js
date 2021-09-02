@@ -9,6 +9,10 @@ pubg: "https://photooxy.com/battlegrounds/make-wallpaper-battlegrounds-logo-text
 nightsky: "https://photooxy.com/logo-and-text-effects/write-stars-text-on-the-night-sky-200.html",
 cover: "https://photooxy.com/banner-cover/graffiti-text-cover-222.html",
 hary: "https://photooxy.com/logo-and-text-effects/create-harry-potter-text-on-horror-background-178.html",
+rainbow: "https://photooxy.com/logo-and-text-effects/rainbow-shine-text-223.html",
+fabric: "https://photooxy.com/logo-and-text-effects/army-camouflage-fabric-text-effect-221.html",
+typography: "https://photooxy.com/logo-and-text-effects/smoke-typography-text-effect-170.html",
+gradient: "https://photooxy.com/logo-and-text-effects/gradient-avatar-text-effect-207.html",
 }
 //2txt
 async function pubg(text1, text2) {
@@ -29,6 +33,74 @@ async function pubg(text1, text2) {
   })
 }
 //1txt
+async function rainbow(text1) {
+  return new Promise((resolve, reject) => {
+    const options = { method: 'POST',
+      url: xznphoto.rainbow,
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      formData: { text_1: text1, login: 'OK' } };
+    
+    request(options, async function (error, response, body) {
+      if (error) throw new Error(error);
+      const $ = cheerio.load(body)
+      const result = {
+           url: $('div.btn-group > a').attr('href')
+      }
+      resolve(result);
+    }); 
+  })
+}
+async function fabric(text1) {
+  return new Promise((resolve, reject) => {
+    const options = { method: 'POST',
+      url: xznphoto.fabric,
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      formData: { text_1: text1, login: 'OK' } };
+    
+    request(options, async function (error, response, body) {
+      if (error) throw new Error(error);
+      const $ = cheerio.load(body)
+      const result = {
+           url: $('div.btn-group > a').attr('href')
+      }
+      resolve(result);
+    }); 
+  })
+}
+async function typography(text1) {
+  return new Promise((resolve, reject) => {
+    const options = { method: 'POST',
+      url: xznphoto.typography,
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      formData: { text_1: text1, login: 'OK' } };
+    
+    request(options, async function (error, response, body) {
+      if (error) throw new Error(error);
+      const $ = cheerio.load(body)
+      const result = {
+           url: $('div.btn-group > a').attr('href')
+      }
+      resolve(result);
+    }); 
+  })
+}
+async function gradient(text1) {
+  return new Promise((resolve, reject) => {
+    const options = { method: 'POST',
+      url: xznphoto.gradient,
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      formData: { text_1: text1, login: 'OK' } };
+    
+    request(options, async function (error, response, body) {
+      if (error) throw new Error(error);
+      const $ = cheerio.load(body)
+      const result = {
+           url: $('div.btn-group > a').attr('href')
+      }
+      resolve(result);
+    }); 
+  })
+}
 async function hary(text1) {
   return new Promise((resolve, reject) => {
     const options = { method: 'POST',
@@ -164,4 +236,8 @@ pubg,
 nightsky,
 cover,
 hary,
+rainbow,
+fabric,
+typography,
+gradient
 };
