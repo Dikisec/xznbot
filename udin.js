@@ -1140,7 +1140,7 @@ if (args.length == 0) return reply('text nya mana anjg')
 txt1 = args[0]
 reply(mess.wait)
 ph.pShadow(txt1).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'coffecup':
@@ -1148,7 +1148,7 @@ if (args.length == 0) return reply('text nya mana anjg')
 txt1 = args[0]
 reply(mess.wait)
 ph.pCoffeCup(txt1).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case  'neon2':
@@ -1156,7 +1156,7 @@ if (args.length == 0) return reply('text nya mana anjg')
 txt1 = args[0]
 reply(mess.wait)
 ph.pNeons(txt1).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case  'wanted':
@@ -1166,7 +1166,7 @@ txt2 = args[1]
 txt3 = args[2]
 reply(mess.wait)
 ph.pWanted(txt1, txt2, txt3).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case  'glitch':
@@ -1175,7 +1175,7 @@ txt1 = args[0]
 txt2 = args[1]
 reply(mess.wait)
 ph.pGlitch(txt1, txt2).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'romantic':
@@ -1183,63 +1183,63 @@ if (args.length == 0) return reply('text nya mana anjg')
 txt1 = args[0]
 reply(mess.wait)
 ph.pRomantic(txt1).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'smoke':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 ph.pSmoke(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'burnpapper':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 ph.pBurnPapper(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'naruto2':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 ph.pNaruto(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break 
 case 'lovemsg':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 ph.pLoveMsg(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'msggrass':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 ph.pMsgGrass(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'lovetext':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 ph.pLoveText(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'butterfly':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 ph.pButterfly(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'flaming2':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 ph.pFlaming(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 //zn
@@ -1249,56 +1249,84 @@ txt1 = args[0]
 txt2 = args[1]
 reply(mess.wait)
 zn.pubg(txt1, txt2).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'cemetery':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 zn.cemetery(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'wolf':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 zn.wolf(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'hary':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 zn.hary(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'cover':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 zn.cover(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'nightsky':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 zn.nightsky(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'woodblock':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 zn.woodblock(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'under':
 if (args.length == 0) return reply('text nya mana anjg')
 reply(mess.wait)
 zn.under(arg).then(res => {
-sendMediaURL(from, `${res.url}`, 'Dah jadi ngab')
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
+})
+break
+case 'gradient':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+zn.gradient(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
+})
+break
+case 'typography':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+zn.typography(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
+})
+break
+case 'fabric':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+zn.fabric(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
+})
+break
+case 'rainbow':
+if (args.length == 0) return reply('text nya mana anjg')
+reply(mess.wait)
+zn.rainbow(arg).then(res => {
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 //dehan
