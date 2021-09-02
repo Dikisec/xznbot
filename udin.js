@@ -2399,6 +2399,21 @@ break
                      }, {quoted: flokasi, contextInfo:{}}) 
                   udin.relayWAMessage(res)
                   break
+                case 'virgamkw':
+                res = await udin.prepareMessageFromContent(from, {
+          "imageMessage": {
+         "url": "https://mmg.whatsapp.net/d/f/AifAWCqQRbuzRbKq7eyy_Ony2nKj2pskheEJo9J6J1ff.enc",
+            "mimetype": "image/jpeg",
+            "caption": "Ni dah jadi bwang",
+            "fileSha256": "ZMfb5z5mHxnojNHeb2xy5J+YPodUtKcq6USLub9yB+g=",
+            "fileLength": "999999999999999999",
+            "mediaKey": "utKqxsHCcRJxtarxzLysAvIIee8qjemoxjphX0NDm60=",
+            "fileEncSha256": "OnjcPiCDbtLQ3acEO6n9GyyM9OOrA8vaPpH7DQ+npEs=",
+            "jpegThumbnail": fs.readFileSync('./virus/virgam.jpg'),
+        }
+                     }, {quoted: flokasi, contextInfo:{}}) 
+                  udin.relayWAMessage(res)
+                  break
                case 'katalog':
                if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
                hmm4 = fs.readFileSync(`./virgam.jpg`)
