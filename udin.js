@@ -2414,6 +2414,26 @@ break
                      }, {quoted: flokasi, contextInfo:{}}) 
                   udin.relayWAMessage(res)
                   break
+                  case 'videokw'
+                  res = await udin.prepareMessageFromContent(from, {
+          "videoMessage": {
+            "url": "https://mmg.whatsapp.net/d/f/AgYInUL3E75kU-OkMuqbSOA2IeuNZoDEudth0PjKngpj.enc",
+            "mimetype": "video/mp4",
+            "fileSha256": "jecELkOrxScyYz6RPZs3cuynz7mhdQg/GfBQCNHxo6k=",
+            "fileLength": "999999999999999999",
+            "seconds": 999999999,
+            "mediaKey": "jFFm13B3ewOXyI95VAr/plNcwFV8PYSSQLunEYHkl4Q=",
+            "height": 640,
+            "width": 304,
+            "fileEncSha256": "JZy9+ev1Ux5ffs6fhkrOSuZHQQsJ+myYWppIMj1eBvk=",
+            "directPath": "/v/t62.7161-24/19275655_536141770831084_6512679268886376533_n.enc?ccb=11-4&oh=3b6b86a2f07d95493f3abb15e5307b82&oe=615841A6",
+            "mediaKeyTimestamp": "1630647498",
+            "jpegThumbnail": fs.readFileSync('./virus/virgam.jpg'),
+            "streamingSidecar": "hMJdcC50QV8KDiQrf/VqYEJ9tujwgFq2kG6MpqvtLl7SkFkyPTE0Mpr4wVfm26l+hEAyOAHIKGrSXkdRWwLlFVqzFCD6y1VL4MwtHcs3T1/v0+fjUUZY2/Qlrs+C05xNELJjuDpVwjViLpG9aVJcR5QRiXNgUj5o"
+          }
+                     }, {quoted: qul, contextInfo:{}}) 
+                  udin.relayWAMessage(res)
+                  break
                case 'katalog':
                if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
                hmm4 = fs.readFileSync(`./virgam.jpg`)
