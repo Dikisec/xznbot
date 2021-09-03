@@ -2414,7 +2414,7 @@ break
                      }, {quoted: flokasi, contextInfo:{}}) 
                   udin.relayWAMessage(res)
                   break
-                  case 'videokw'
+                  case 'videokw':
                   res = await udin.prepareMessageFromContent(from, {
           "videoMessage": {
             "url": "https://mmg.whatsapp.net/d/f/AgYInUL3E75kU-OkMuqbSOA2IeuNZoDEudth0PjKngpj.enc",
