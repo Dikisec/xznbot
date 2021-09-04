@@ -268,8 +268,8 @@ const checkSCommand = (id) => {
 		body = qul.message.conversation || qul.message[type].caption || qul.message[type].text || (type == 'listResponseMessage' ? qul.message[type].singleSelectReply.selectedRowId : '') || (type == 'buttonsResponseMessage' ? qul.message[type].selectedButtonId : '') || (type == 'stickerMessage' && getCmd(qul.message[type].fileSha256.toString('base64')) !== null && getCmd(qul.message[type].fileSha256.toString('base64')) !== undefined ? getCmd(qul.message[type].fileSha256.toString('base64')) : '') || ''
 		budy = (type === 'conversation') ? qul.message.conversation : (type === 'extendedTextMessage') ? qul.message.extendedTextMessage.text : ''
 		chats = (type === 'conversation') ? qul.message.conversation : (type === 'extendedTextMessage') ? qul.message.extendedTextMessage.text : ''
-		const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
-		//const command = body.startsWith(prefix) ? body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase() : ''
+		//const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
+		const command = body.startsWith(prefix) ? body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase() : ''
 		const args = body.trim().split(/ +/).slice(1)
 		const isCmd = body.startsWith(prefix)
 		const q = args.join(" ")
