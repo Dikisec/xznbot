@@ -73,6 +73,8 @@ fakeimage = fs.readFileSync("./media/xznsenpai.jpeg")
 virgam = fs.readFileSync("./virus/virgam.jpg")
 prefix = '#'
 blocked = []
+roomttt = [];
+defttt = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"];
 baterai = {
     baterai: 0,
     cas: false
@@ -461,6 +463,19 @@ const fvn = {
 		const isOwner = ownerNumber.includes(sender)
 		const itsMe = qul.key.fromMe ? true : false
 		const isMybot = isOwner || itsMe
+		idttt = [];
+      players1 = [];
+      players2 = [];
+      turn = [];
+      for (let i of roomttt) {
+        idttt.push(i.id)
+        players1.push(i.player1)
+        players2.push(i.player2)
+        turn.push(i.turn)
+      }
+      const isTTT = isGroup ? idttt.includes(from) : false
+	    const isPlayer1 = isGroup ? players1.includes(sender) : false
+      const isPlayer2 = isGroup ? players2.includes(sender) : false 
 		const isUrl = (url) => {
 			return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/, 'gi'))
 		}
@@ -630,6 +645,16 @@ reply('Kasihan Kena Hack')
 }*/
 		//if (itsMe){
 		if (isMybot){
+if (chats.startsWith('>')){
+				console.log(color('[EVAL]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval V2 brooo`))
+				try{
+					//return xznsenpai.reply(from, JSON.stringify(eval(chats.slice(2)), null, 2), qul)
+reply(require('util').format(await eval(`;(async () => { ${chats.slice(2)} })()`)))
+}catch(err){
+	e = String(err)
+	reply(e)
+	}
+}
 if (chats.startsWith('$')){
 		    if (!arg) return
 				exec(arg, (err, stdout) => {
@@ -766,6 +791,7 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 21.${prefix}nightsky
 22.${prefix}woodblock
 23.${prefix}under
+24.${prefix}battlefield
 
 *Xᴢɴ々Bᴏᴛ*`
 fyt2(textnya)
@@ -976,6 +1002,29 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 
 1.${prefix}dota
 2.${prefix}aov
+2.${prefix}flaming2
+3.${prefix}butterfly
+4.${prefix}lovetext
+5.${prefix}msggrass
+6.${prefix}lovemsg
+7.${prefix}naruto2
+8.${prefix}burnpapper
+9.${prefix}smoke
+10.${prefix}romantic
+11.${prefix}glitch
+12.${prefix}wanted
+13.${prefix}neon2
+14.${prefix}coffecup
+15.${prefix}shadow
+16.${prefix}pubg
+17.${prefix}cemetery
+18.${prefix}wolf
+19.${prefix}hary
+20.${prefix}cover
+21.${prefix}nightsky
+22.${prefix}woodblock
+23.${prefix}under
+24.${prefix}battlefield
 
 *Xᴢɴ々Bᴏᴛ*`
  fyt2(textnya)
@@ -1249,6 +1298,15 @@ txt1 = args[0]
 txt2 = args[1]
 reply(mess.wait)
 zn.pubg(txt1, txt2).then(res => {
+sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
+})
+break
+case  'battlefield':
+if (args.length == 0) return reply('text nya mana anjg')
+txt1 = args[0]
+txt2 = args[1]
+reply(mess.wait)
+zn.battlefield(txt1, txt2).then(res => {
 sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
@@ -3096,7 +3154,13 @@ break
 					xznsenpai.reply(from, `Kirim gambar atau reply gambar dengan caption ${prefix}setpp`, qul)
 				}
 				break
-
+case 'leave':
+if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+udin.groupLeave(from)
+.then((res) => {
+udin.sendMessage(sender, "perintah untuk keluar berhasil di eksekusi", MessageType.text)
+})
+break
 			case 'eval':
 			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				let code = body.slice(6)
@@ -3142,19 +3206,163 @@ break
 					else return text;
 				}
 				break
+case 'ttt':
+        case 'tictactoe':
+          if (!isGroup) return reply("mainkan di group")
+          if (args.length < 1) return reply ("tag orang yang mau kamu aja main")
+          if (isTTT) return reply("permainan sedang berlangsung di group ini")
+          if (qul.message.extendedTextMessage === undefined || qul.message.extendedTextMessage === null) return reply('Tag salah satu orang untuk di ajak bermain')
+          ment = qul.message.extendedTextMessage.contextInfo.mentionedJid;
+          player1 = sender
+          player2 = ment[0]
+          number = ["0️⃣","1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣"]
+          id = from
+          turn = player2
+          roomttt.push({player1,player2,id,number,turn})
+          udin.sendMessage(from, `@${player1.split("@")[0]} Telah Memulai Game\n\n*@${player2.split("@")[0]}* anda di tantang untuk bermain game tic tac toe oleh *@${player1.split("@")[0]}*\nketik Y/N untuk menerima/menolak tantangan\n\nketik ${prefix}delttt untuk membatalkan permainan di group ini`, MessageType.text, {contextInfo: {mentionedJid: player2}})
+          break;
+        case 'delttt':
+          if (!isGroup) return reply("command ini hanya untuk group")
+          if (!isTTT) return reply("tidak ada permainan yang sedang berlangsung")
+          rooms = roomttt.filter(titid => titid.id.includes())
+          roomttt = rooms;
+          reply("sukses")
+          break
 			default:
-			if (!isMybot) return
-			if (chats.startsWith('>')){
-				console.log(color('[EVAL]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval V2 brooo`))
-				try{
-					//return xznsenpai.reply(from, JSON.stringify(eval(chats.slice(2)), null, 2), qul)
-reply(require('util').format(await eval(`;(async () => { ${chats.slice(2)} })()`)))
-}catch(err){
-	e = String(err)
-	reply(e)
-	}
-}
-fin = process.uptime()
+			//if (!isMybot) return
+
+        if (isTTT && isPlayer2) {
+            //if (budy.startsWith("Y")){
+            	if (chats.startsWith('Y')){
+              tto = roomttt.filter(gang => gang.id.includes(from))
+              tty = tto[0]
+              number = tto[0].number;
+              teksboard = `*[ TIC TAC TOE GAME ]*
+
+Player1 @${tty.player1.split('@')[0]}=❌
+Player2 @${tty.player2.split('@')[0]}=⭕
+
+${number[1]}${number[2]}${number[3]}
+${number[4]}${number[5]}${number[6]}
+${number[7]}${number[8]}${number[9]}
+
+giliran = @${tty.player1.split('@')[0]}`
+              udin.sendMessage(from, teksboard, MessageType.text, {quoted: qul, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+            }
+            //if (budy.startsWith('N')) {
+            	if (chats.startsWith('N')){
+              tto = roomttt.filter(gang => gang.id.includes(from))
+              tty = tto[0]
+              rooms = roomttt.filter(tokek => !tokek.id.includes(from))
+              roomttt = rooms;
+              udin.sendMessage(from, `Yahh @${tty.player2.split('@')[0]} Menolak:(`,text,{quoted:qul,contextInfo:{mentionedJid:[tty.player2]}})
+            }
+          }
+          if (isTTT && isPlayer1) {
+            noober = parseInt(budy)
+            if (isNaN(noober)) return 
+            if (noober < 1 || noober > 9) return reply("masukan number dengan benar")
+            main = roomttt.filter(gang => gang.id.includes(from))
+            if (!defttt.includes(main[0].number[noober])) return reply("number sudah di isi, pilih number lain nya")
+            if (main[0].turn.includes(sender)) return reply("tunggu giliran mu dulu ya")
+            s = '❌'
+            main[0].number[noober] = s
+            main[0].turn = main[0].player1
+            rooms = roomttt.filter(bang => !bang.id.includes(from))
+            roomttt = rooms;
+            pop = main[0]
+            roomttt.push(pop)
+            tto = roomttt.filter(hgh => hgh.id.includes(from))
+            tty = tto[0]
+            number = tto[0].number;
+            ttt = `${number[1]}${number[2]}${number[3]}\n${number[4]}${number[5]}${number[6]}\n${number[7]}${number[8]}${number[9]}`
+            
+            winningspeech = () => {
+              ucapan1 = `*[ Hasil pertandingan Tic Tac Toe ]*\n\nyeyyy permainan di menangkan oleh *@${tty.player1.split('@')[0]}*\n`
+              ucapan2 = `*[ Papan Hasil akhir ]*\n\n${ttt}`
+              udin.sendMessage(from, ucapan1, MessageType.text, {quoted:qul, contextInfo:{mentionedJid: [tty.player2]}}) 
+              rooms = roomttt.filter(hhg => !hhg.id.includes(from))
+              return roomttt = rooms 
+            }
+            if (number[1] == s && number[2] == s && number[3] == s) return winningspeech()
+            
+            if (number[1] == s && number[4] == s && number[7] == s) return winningspeech()
+            
+            if (number[1] == s && number[5] == s && number[9] == s) return winningspeech()
+            
+            if (number[2] == s && number[5] == s && number[8] == s) return winningspeech()
+            
+            if (number[4] == s && number[5] == s && number[6] == s) return winningspeech()
+            
+            if (number[7] == s && number[8] == s && number[9] == s) return winningspeech()
+            
+            if (number[3] == s && number[5] == s && number[7] == s) return winningspeech()
+            
+            if (number[3] == s && number[6] == s && number[9] == s) return winningspeech()
+            
+            if (!ttt.includes('1️⃣') && !ttt.includes('2️⃣') && !ttt.includes('3️⃣') && ! ttt.includes('4️⃣') && !ttt.includes('5️⃣') && !ttt.includes('6️⃣') && !ttt.includes('7️⃣') && !ttt.includes('8️⃣') && !ttt.includes('9️⃣')){
+              ucapan1 = `*[ Hasil pertandingan Tic Tac Toe ]*\n\npermainan seri Good Game\n`
+              ucapan2 = `*[ Papan Hasil akhir ]*\n\n${ttt}`
+              reply(ucapan1)
+              naa = roomttt.filter(hhg => !hhg.id.includes(from))
+              return roomttt= naa
+            }
+            ucapan = `*[ TIC TAC TOE GAME ]*\n\nPlayer1 @${tty.player1.split('@')[0]}=❌\nPlayer2 @${tty.player2.split('@')[0]}=⭕\n\n${ttt}\n\ngiliran = @${tty.player2.split('@')[0]}`
+            udin.sendMessage(from, ucapan, MessageType.text, {quoted: qul, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+          }
+          if (isTTT && isPlayer2) {
+            noober = parseInt(budy)
+            if (isNaN(noober)) return 
+            if (noober < 1 || noober > 9) return reply("masukan number dengan benar")
+            main = roomttt.filter(gang => gang.id.includes(from))
+            if (!defttt.includes(main[0].number[noober])) return reply("number sudah di isi, pilih number lain nya")
+            if (main[0].turn.includes(sender)) return reply("tunggu giliran mu dulu ya")
+            s = '⭕'
+            main[0].number[noober] = s
+            main[0].turn = main[0].player2
+            rooms = roomttt.filter(bang => !bang.id.includes(from))
+            roomttt = rooms;
+            pop = main[0]
+            roomttt.push(pop)
+            tto = roomttt.filter(hgh => hgh.id.includes(from))
+            tty = tto[0]
+            number = tto[0].number;
+            ttt = `${number[1]}${number[2]}${number[3]}\n${number[4]}${number[5]}${number[6]}\n${number[7]}${number[8]}${number[9]}`
+            
+            winningspeech = () => {
+              ucapan1 = `*[ Hasil pertandingan Tic Tac Toe ]*\n\nyeyyy permainan di menangkan oleh *@${tty.player2.split('@')[0]}*\n`
+              ucapan2 = `*[ Papan Hasil akhir ]*\n\n${ttt}`
+              udin.sendMessage(from, ucapan1, MessageType.text, {quoted:qul, contextInfo:{mentionedJid: [tty.player1]}}) 
+              rooms = roomttt.filter(hhg => !hhg.id.includes(from))
+              return roomttt = rooms 
+            }
+            if (number[1] == s && number[2] == s && number[3] == s) return winningspeech()
+            
+            if (number[1] == s && number[4] == s && number[7] == s) return winningspeech()
+            
+            if (number[1] == s && number[5] == s && number[9] == s) return winningspeech()
+            
+            if (number[2] == s && number[5] == s && number[8] == s) return winningspeech()
+            
+            if (number[4] == s && number[5] == s && number[6] == s) return winningspeech()
+            
+            if (number[7] == s && number[8] == s && number[9] == s) return winningspeech()
+            
+            if (number[3] == s && number[5] == s && number[7] == s) return winningspeech()
+            
+            if (number[3] == s && number[6] == s && number[9] == s) return winningspeech()
+            
+            if (!ttt.includes('1️⃣') && !ttt.includes('2️⃣') && !ttt.includes('3️⃣') && ! ttt.includes('4️⃣') && !ttt.includes('5️⃣') && !ttt.includes('6️⃣') && !ttt.includes('7️⃣') && !ttt.includes('8️⃣') && !ttt.includes('9️⃣')){
+              ucapan1 = `*[ Hasil pertandingan Tic Tac Toe ]*\n\npermainan seri Good Game\n`
+              ucapan2 = `*[ Papan Hasil akhir ]*\n\n${ttt}`
+              reply(ucapan1)
+              naa = roomttt.filter(hhg => !hhg.id.includes(from))
+              return roomttt= naa
+            }
+            ucapan = `*[ TIC TAC TOE GAME ]*\n\nPlayer1 @${tty.player1.split('@')[0]}=❌\nPlayer2 @${tty.player2.split('@')[0]}=⭕\n\n${ttt}\n\ngiliran = @${tty.player1.split('@')[0]}`
+            udin.sendMessage(from, ucapan, MessageType.text, {quoted: qul, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+          }
+      fin = process.uptime()
         if (!qul.hasNewMessage) return udin.setStatus(`Runtime ${xznsenpai.runtime(fin)} | STATUS : ${public ? 'PUBLIC' : 'SELF'} | prefix ${prefix} | ${xzntes}`)
         qul = qul.messages.all()[0]
 				break
