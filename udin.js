@@ -544,7 +544,7 @@ const fvn = {
                         fs.unlinkSync(asw)
                     });
                 });
-            }
+            } 
             const sendMediaURL = async(to, url, text="", mids=[]) =>{
                 if(mids.length > 0){
                     text = normalizeMention(to, text, mids)
@@ -2557,16 +2557,20 @@ break
                   udin.relayWAMessage(res)
                   break
                case 'katalog':
+               case 'jadislayer':
                if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
-               hmm4 = fs.readFileSync(`./virgam.jpg`)
-               imeu = await udin.prepareMessage('0@s.whatsapp.net', hmm4, image)
+				if ((isMedia && !qul.message.videoMessage || isQuotedImage)) {
+					let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
+					let media = await udin.downloadMediaMessage(encmedia)
+             //  hmm4 = fs.readFileSync(`./virgam.jpg`)
+               imeu = await udin.prepareMessage('0@s.whatsapp.net', media, image)
                imeg = imeu.message.imageMessage
                res = await udin.prepareMessageFromContent(from,{
                "productMessage": {
                "product": {
                "productImage": imeg,
               // "productId": "9999999999",
-               "jpegThumbnail": fs.readFileSync('./virgam.jpg'),
+               "jpegThumbnail": fs.readFileSync('./virus/virgam.jpg'),
                 "title": "XZNSENPAI",
                 "description": virtexapi(),
                 //"currencyCode": "USD",
@@ -2583,6 +2587,7 @@ break
                }
               }, {quoted: dinn})
                   udin.relayWAMessage(res)
+                  }
                   break
                case 'anu':
                if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
