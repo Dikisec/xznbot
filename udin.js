@@ -1,6 +1,7 @@
 /*
 DI RECODE ULANG ZAINUDIN
-*/
+Look at line 186 dan 868 casenya
+*/ 
 const
 	{
 		WAConnection,
@@ -51,6 +52,7 @@ const hx = require('hxz-api')
 const ig = require('insta-fetcher')
 const imgbb = require('imgbb-uploader')
 const exif = new Exif();
+let _scommand = JSON.parse(fs.readFileSync('./scommand.json'));
 
 conn.connect()
 const udin = conn.udin
@@ -182,7 +184,50 @@ udin.on('message-update', async (msg) => { // THX TO BANG HANIF
 	require('./antidelete/antidelete.js')(udin, msg)
 })
 udin.on('message-new', async(qul) => {
-    try {
+  // Sticker Cmd
+const addCmd = (id, command) => {
+	const obj = {
+		id: id,
+		chats: command
+	}
+	_scommand.push(obj)
+	fs.writeFileSync('./scommand.json', JSON.stringify(_scommand))
+}
+
+const getCommandPosition = (id) => {
+	let position = null;
+	Object.keys(_scommand).forEach((i) => {
+		if (_scommand[i].id === id) {
+			position = i
+		}
+	})
+	if (position !== null) {
+		return position
+	}
+}
+
+const getCmd = (id) => {
+	let position = null
+	Object.keys(_scommand).forEach((i) => {
+		if (_scommand[i].id === id) {
+			position = i
+		}
+	})
+	if (position !== null) {
+		return _scommand[position].chats
+	}
+}
+
+const checkSCommand = (id) => {
+	let status = false
+	Object.keys(_scommand).forEach((i) => {
+		if (_scommand[i].id === id) {
+			status = true
+		}
+	})
+	return status
+}
+  try {
         if (!qul.message) return
 		if (qul.key && qul.key.remoteJid == 'status@broadcast') return
         qul.message = (Object.keys(qul.message)[0] === 'ephemeralMessage') ? qul.message.ephemeralMessage.message : qul.message
@@ -220,7 +265,7 @@ udin.on('message-new', async(qul) => {
 		let waktu = d.toLocaleDateString(locale, { hour: 'numeric', minute: 'numeric', second: 'numeric' })
 		const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
 		//body = qul.message.conversation || qul.message[type].caption || qul.message[type].text || (type == 'listResponseMessage') && qul.message[type].singleSelectReply.selectedRowId || (type == 'buttonsResponseMessage') && qul.message[type].selectedButtonId || ''
-		body = (type === 'conversation' && qul.message.conversation.startsWith(prefix)) ? qul.message.conversation : (type == 'imageMessage') && qul.message.imageMessage.caption.startsWith(prefix) ? qul.message.imageMessage.caption : (type == 'videoMessage') && qul.message.videoMessage.caption.startsWith(prefix) ? qul.message.videoMessage.caption : (type == 'extendedTextMessage') && qul.message.extendedTextMessage.text.startsWith(prefix) ? qul.message.extendedTextMessage.text : ''
+		body = qul.message.conversation || qul.message[type].caption || qul.message[type].text || (type == 'listResponseMessage' ? qul.message[type].singleSelectReply.selectedRowId : '') || (type == 'buttonsResponseMessage' ? qul.message[type].selectedButtonId : '') || (type == 'stickerMessage' && getCmd(qul.message[type].fileSha256.toString('base64')) !== null && getCmd(qul.message[type].fileSha256.toString('base64')) !== undefined ? getCmd(qul.message[type].fileSha256.toString('base64')) : '') || ''
 		budy = (type === 'conversation') ? qul.message.conversation : (type === 'extendedTextMessage') ? qul.message.extendedTextMessage.text : ''
 		chats = (type === 'conversation') ? qul.message.conversation : (type === 'extendedTextMessage') ? qul.message.extendedTextMessage.text : ''
 		const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
@@ -819,7 +864,7 @@ pulsa IM3 = 6285751414996
 foto di atas hanya pemanis
 *BUAT BELI JAJAN*`
 udin.sendMessage(from, donasi, image, {quoted: qul, caption: donasii})
-break
+break 
 case 'KONTAK OWNER🗿':
 udin.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: qul})
 break
@@ -1157,7 +1202,26 @@ fyt2(textnya)*/
 /*case 'button':
 	send3Button(`Ini contoh buttonsMessage`, `:v`, `Menu Bot`, `${prefix}menu`, `Tes Speed`, `${prefix}ping`, `Cek Runtime`, `${prefix}runtime`, { quoted: qul })
 	break*/
-
+case 'addcmd':
+case 'setcmd':
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+if (isQuotedSticker) {
+	if (!q) return reply(`Penggunaan : ${prefix+command} cmdnya dan tag stickernya`)
+	kodenya = qul.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.fileSha256.toString('base64')
+	addCmd(kodenya, q);
+	reply('Sukses')
+} else {
+	reply('tag stickenya')
+}
+break
+case 'delcmd':
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+if (!isQuotedSticker) return reply(`Penggunaan : ${prefix+command} tagsticker`)
+kodenya = qul.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.fileSha256.toString('base64')
+_scommand.splice(getCommandPosition(kodenya), 1)
+fs.writeFileSync('./scommand.json', JSON.stringify(_scommand))
+reply('Sukses')
+break
 case 'help': case 'menu':
  Testbang = udin.prepareMessageFromContent(from, {
 "listMessage":{
