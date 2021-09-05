@@ -1844,7 +1844,7 @@ case 'art':
             udin.relayWAMessage(res)
             break
             case 'test':
-                xznsenpai.sendText(from, 'oke')
+                replyy('aktif bang')
 				break
 			/*case 'public':
 			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
