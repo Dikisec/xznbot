@@ -87,8 +87,8 @@ xzntes = '©[XM] XHIRO MHONSHINE √ Xᴢɴ々Bᴏᴛ⸙'
 /*************************************/
 
 
-/******** OWNER NUMBER**********/
-const ownerNumber = ["6282256080304@s.whatsapp.net"]//,"6285751414996@s.whatsapp.net"] 
+/******** OWNER NUMBER**********/ 
+const ownerNumber = ["6282256080304@s.whatsapp.net","6282255794209@s.whatsapp.net","6285751414996@s.whatsapp.net"] 
 /************************************/
 
 
@@ -141,25 +141,7 @@ udin.on('group-participants-update', async (anu) => {
 	       //buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/Welcome2?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&gcicon=${pp_group}&pp=${pp_user}&bg=https://telegra.ph/file/386a72a86b94e8b0ff6c3.jpg`)
 		udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fkon, caption: teks, contextInfo: {"mentionedJid": [num]}})
 		}
-		/*if (anu.action == "add" && !mem.includes(udin.user.jid)) {
-                mdata = await udin.groupMetadata(anu.jid);
-                memeg = mdata.participants.length;
-                num = anu.participants[0];
-                let v = udin.contacts[num] || { notify: num.replace(/@.+/, "") };
-                anu_user = v.vname || v.notify || num.split("@")[0];
-                time_wel = moment.tz("Asia/Jakarta").format("HH:mm");
-                wel = `Halo @${anu_user} \nWelcome In ${mdata.subject} \nKalau Mau Intro Silahkan \nTaati Peraturan Group ya Umm \nsapa member baru dengan cara klik tombol dibawah`;
-                const imagese = await new canvas.Welcome()
-                    .setUsername(anu_user)
-                    .setGuildName(mdata.subject)
-                    .setGuildIcon(shortgc.data)
-                    .setMemberCount(groupMembers.length)
-                    .setAvatar(shortpc.data)
-                    .setBackground("https://telegra.ph/file/4a7f884935b8ebf444d9e.jpg")
-                    .toAttachment();
-                data = imagese.toBuffer();
-                udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fkon, caption: teks, contextInfo: {"mentionedJid": [num]}})
-                }*/
+		
             if (anu.action == 'remove' && !mem.includes(udin.user.jid)) {
                 mdata = await udin.groupMetadata(anu.jid)
             	num = anu.participants[0]
@@ -2004,10 +1986,9 @@ case 'art':
 					xznsenpai.reply(from, `Kirim gambar/video dengan caption ${prefix}stickerwm nama|author atau tag gambar/video yang sudah dikirim\nNote : Durasi video maximal 10 detik`, id)
 				}
 				break
-			case 'takestick':
 			case 'take':
 				if (!isQuotedSticker) return xznsenpai.reply(from, `Reply sticker dengan caption *${prefix}takestick nama|author*`, qul)
-				const pembawm = body.slice(11)
+				const pembawm = body.slice(6)
 				if (!pembawm.includes('|')) return xznsenpai.reply(from, `Reply sticker dengan caption *${prefix}takestick nama|author*`, qul)
 				const encmedia = JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 				const media = await udin.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
@@ -2558,7 +2539,7 @@ break
                   break
                case 'katalog':
                case 'jadislayer':
-               if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+               if (!isOwner) return xznsenpai.reply(from, 'Anda Bukan XznSenpai', qul)
 				if ((isMedia && !qul.message.videoMessage || isQuotedImage)) {
 					let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
 					let media = await udin.downloadMediaMessage(encmedia)
@@ -2585,7 +2566,7 @@ break
                 "isForwarded": true
                 }
                }
-              }, {quoted: dinn})
+              }, {quoted: qul})
                   udin.relayWAMessage(res)
                   }
                   break
