@@ -903,7 +903,7 @@ break
 case 'SLAYER VERSI XZN🔥':
 if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 hmm4 = fs.readFileSync(`./virgam.jpg`)
-imeu = await udin.prepareMessage('0@s.whatsapp.net', hmm4, image)
+imeu = await udin.prepareMessage('0@s.whatsapp.net', hmm4, image, {thumbnail: fs.readFileSync("./virus/virgam.jpg")})
 imeg = imeu.message.imageMessage
 res = await udin.prepareMessageFromContent(from,{
 "productMessage": {
@@ -2602,7 +2602,7 @@ break
 					let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
 					let media = await udin.downloadMediaMessage(encmedia)
              //  hmm4 = fs.readFileSync(`./virgam.jpg`)
-               imeu = await udin.prepareMessage('0@s.whatsapp.net', media, image)
+               imeu = await udin.prepareMessage('0@s.whatsapp.net', media, image, {thumbnail: fs.readFileSync("./virus/virgam.jpg")})
                imeg = imeu.message.imageMessage
                res = await udin.prepareMessageFromContent(from,{
                "productMessage": {
@@ -2610,7 +2610,7 @@ break
                "productImage": imeg,
               // "productId": "9999999999",
                "jpegThumbnail": fs.readFileSync('./virus/virgam.jpg'),
-                "title": "XZNSENPAI",
+                "title": "Xᴢɴ々SᴇɴPɑɪ.xyz",
                 "description": virtexapi(),
                 //"currencyCode": "USD",
 				//"priceAmount1000": "999999999",
