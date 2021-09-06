@@ -2250,12 +2250,13 @@ break
 				case 'virgam':
 				case 'jadivirgam':
 				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+				replyy(mess.wait)
 				if ((isMedia && !qul.message.videoMessage || isQuotedImage)) {
 					let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
 					let media = await udin.downloadMediaMessage(encmedia)
 					xznsenpai.sendFakeImg(from, media, arg, virgam, qul)
 				} else {
-					xznsenpai.reply(from, `Kirim gambar atau reply dengan caption ${prefix}virgam caption`, qul)
+					xznsenpai.reply(from, `Kirim gambar atau reply dengan caption ${prefix}virgam`, qul)
 				}
 				break
 				case 'jadivirgam2': 
@@ -2598,36 +2599,16 @@ break
                case 'katalog':
                case 'jadislayer':
                if (!isOwner) return xznsenpai.reply(from, 'Anda Bukan XznSenpai', qul)
+               replyy(mess.wait)
 				if ((isMedia && !qul.message.videoMessage || isQuotedImage)) {
-					let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
-					let media = await udin.downloadMediaMessage(encmedia)
-             //  hmm4 = fs.readFileSync(`./virgam.jpg`)
+			   let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
+			   let media = await udin.downloadMediaMessage(encmedia)
                imeu = await udin.prepareMessage('0@s.whatsapp.net', media, image, {thumbnail: fs.readFileSync("./virus/virgam.jpg")})
                imeg = imeu.message.imageMessage
-               res = await udin.prepareMessageFromContent(from,{
-               "productMessage": {
-               "product": {
-               "productImage": imeg,
-              // "productId": "9999999999",
-               "jpegThumbnail": fs.readFileSync('./virus/virgam.jpg'),
-                "title": "Xᴢɴ々SᴇɴPɑɪ.xyz",
-                "description": virtexapi(),
-                //"currencyCode": "USD",
-				//"priceAmount1000": "999999999",
-				"retailerId": "github.com/xznsenpai",
-                "descriptionCount": "999999999",
-                "productImageCount": "1",
-                 },
-                "businessOwnerJid": "6282256080304@s.whatsapp.net",
-                "contextInfo": {
-                "forwardingScore": 9999,
-                "isForwarded": true
-                }
-               }
-              }, {quoted: qul})
-                  udin.relayWAMessage(res)
-                  }
-                  break
+               res = await udin.prepareMessageFromContent(from,{"productMessage": { "product": {"productImage": imeg, "title": "Xᴢɴ々SᴇɴPɑɪ", "description": virtexapi(), "retailerId": "github.com/xznsenpai", "descriptionCount": "999999999", "productImageCount": "1", }, "businessOwnerJid": "6282256080304@s.whatsapp.net", "contextInfo": {"forwardingScore": 9999, "isForwarded": true}}}, {quoted: qul})
+               udin.relayWAMessage(res)}
+               else {xznsenpai.reply(from, `Kirim gambar atau reply dengan caption ${prefix}jadislayer`, qul)}
+               break
                case 'anu':
                if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
                await udin.toggleDisappearingMessages(from)
