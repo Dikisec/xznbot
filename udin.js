@@ -718,9 +718,14 @@ if (chats.startsWith('$')){
 			}
 			if (chats.startsWith('z')){
 				console.log(color('[EVAL]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval brooo`))
-				return xznsenpai.reply(from, JSON.stringify(eval(chats.slice(2)), null, 2), qul)
-				}
-			}
+				try{
+				reply(require('util').format(await eval(`;(async () => { ${chats.slice(2)} })()`)))
+				//return xznsenpai.reply(from, JSON.stringify(eval(chats.slice(2)), null, 2), qul)
+				}catch(err){
+e = String(err)
+reply(e)
+}}}
+			
 			
 		if (!isCmd && qul.message) {
              for (let i of totalchat) {
