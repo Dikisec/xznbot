@@ -89,7 +89,7 @@ xzntes = '©[XM] XHIRO MHONSHINE √ Xᴢɴ々Bᴏᴛ⸙'
 
 
 /******** OWNER NUMBER**********/ 
-const ownerNumber = ["6282256080304@s.whatsapp.net","6282255794209@s.whatsapp.net","6285751414996@s.whatsapp.net"] 
+const ownerNumber = ["6282256080304@s.whatsapp.net","6282255794209@s.whatsapp.net"]//"6285751414996@s.whatsapp.net"] 
 /************************************/
 
 
@@ -692,12 +692,12 @@ reply('Kasihan Kena Hack')
 if (chats.startsWith('>')){
 				console.log(color('[EVAL]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval V2 brooo`))
 				try{
-					//return xznsenpai.reply(from, JSON.stringify(eval(chats.slice(2)), null, 2), qul)
-reply(require('util').format(await eval(`;(async () => { ${chats.slice(2)} })()`)))
+//reply(require('util').format(await eval(`;(async () => { ${chats.slice(2)} })()`)))
+return udin.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),MessageType.text, {quoted: qul})
 }catch(err){
-	e = String(err)
-	reply(e)
-	}
+e = String(err)
+reply(e)
+}
 }
 if (chats.startsWith('$')){
 		    if (!arg) return
