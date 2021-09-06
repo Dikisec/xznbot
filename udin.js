@@ -43,6 +43,7 @@ const axios = require('axios');
 const Exif = require('./lib/exif');
 const { uptotele, uptonaufal, uploadFile } = require('./lib/uploadimage')
 const { yta, ytv, igdl, upload, uploadImages } = require('./lib/ytdl')
+const { formatDate } = require('./lib/yytdl')
 const { jadibot, stopjadibot, listjadibot } = require('./lib/jadibot')
 const ph = require('./noapi/photooxy.js')//xznscrap
 const zn = require('./noapi/xznphoto.js')//xznscrap
@@ -135,7 +136,7 @@ udin.on('group-participants-update', async (anu) => {
             anu_user = v.vname || v.notify || PhoneNumber('+' + v.jid.replace('@s.whatsapp.net', '')).getNumber('international')
             //anu_user = udin.contacts[mem]
             awikwok = moment().tz('Asia/Jakarta').format("HH:mm")
-            teks = `Welcome in ${mdata.subject}, @${num.split('@')[0]}`
+            teks = `Selamat Datang Di ${mdata.subject}\nHay Kak @${num.split('@')[0]}\nDeskripsi Group\n${mdata.desc}`
             fkon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(mdata.id ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { "contactMessage": { "displayName": `${anu_user}`, "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:XL;${anu_user.notify},;;;\nFN:${anu_user.notify},\nitem1.TEL;waid=${num.split('@')[0]}:${num.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
 	        buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/welcome?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://telegra.ph/file/386a72a86b94e8b0ff6c3.jpg`)
 	       //buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/Welcome2?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&gcicon=${pp_group}&pp=${pp_user}&bg=https://telegra.ph/file/386a72a86b94e8b0ff6c3.jpg`)
@@ -156,6 +157,22 @@ udin.on('group-participants-update', async (anu) => {
                 //buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/goodbye2?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&gcicon=${pp_group}&pp=${pp_user}&bg=https://telegra.ph/file/2612c2bbf5e034ec45563.jpg`)
                 udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fkon, caption: out, contextInfo: {"mentionedJid": [num]}})
             }
+            if (anu.action == "promote") {
+            	mdata = await udin.groupMetadata(anu.jid)
+                num = anu.participants[0]
+                kata1 = `Selamat @${num.split("@")[0]} telah di Promote\nDeskripsi Group\n${mdata.desc}`
+                buff = await getBuffer(pp_user);
+                udin.sendMessage(mdata.id, buff, MessageType.image, {caption: kata1})
+                //udin.sendMessage(mdata.id, `@${num.split("@")[0]} telah di promote`, MessageType.text, { contextInfo: {mentionedJid: [num.split("@")[0]+ "@s.whatsapp.net"]}});
+               }
+           if (anu.action == "demote") {
+    	      mdata = await udin.groupMetadata(anu.jid)
+               num = anu.participants[0]
+               kata = `Selamat @${num.split("@")[0]} telah di demote\nDeskripsi Group\n${mdata.desc}`
+               buff = await getBuffer(pp_user);
+              udin.sendMessage(mdata.id, buff, MessageType.image, {caption: kata})
+              //udin.sendMessage(mdata.id, `@${num.split("@")[0]} telah di demote`, MessageType.text, { contextInfo: {mentionedJid: [num.split("@")[0]+ "@s.whatsapp.net"]}});
+              }
 		} catch (e) {
 			console.log('Error : %s', color(e, 'red'))
 			udin.sendMessage(mdata.id, `${e}`, MessageType.text)
@@ -1467,6 +1484,47 @@ res += `*Nama*: *${i.nama}\n*Link*: ${i.link}\n\n`
 reply(res)
 });
 break
+case 'groupinfo':
+if (!isGroup) return
+ppUrl = await udin.getProfilePicture(from) // leave empty to get your own
+buffergbl = await getBuffer(ppUrl)
+udin.sendMessage(from, buffergbl, image, {quoted: qul, caption: `\`\`\`「 Group Info 」\`\`\`\n*•> Name* : ${groupName}\n*•> Member* : ${groupMembers.length}\n*•> Admin* : ${groupAdmins.length}\n*•> Description* : \n${groupDesc}`})
+break
+case 'inspect':
+mdata = await udin.groupMetadata(from)
+            try {
+            if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) return reply(mess.Iv)
+            if (!q) return reply('masukan link wa')
+            cos = args[0]
+            var net = cos.split('https://chat.whatsapp.com/')[1]
+            if (!net) return reply('pastikan itu link https://whatsapp.com/')
+            jids = []
+            let { id, owner, subject, subjectOwner, desc, descId, participants, size, descOwner, descTime, creation} = await udin.query({ 
+            json: ["query", "invite",net],
+            expect200:true })
+            let par = `*Id* : ${id}
+${owner ? `*Owner* : @${owner.split('@')[0]}` : '*Owner* : -'}
+*Nama Gc* : ${subject}
+*Gc dibuat Tanggal* : ${formatDate(creation * 1000)}
+*Jumlah Member* : ${size}
+${desc ? `*Desc* : ${desc}` : '*Desc* : tidak ada'}
+*Id desc* : ${descId}
+${descOwner ? `*Desc diubah oleh* : @${descOwner.split('@')[0]}` : '*Desc diubah oleh* : -'}\n*Tanggal* : ${descTime ? `${formatDate(descTime * 1000)}` : '-'}\n\n*Kontak yang tersimpan*\n`
+           for ( let y of participants) {
+             par += `> @${y.id.split('@')[0]}\n*Admin* : ${y.isAdmin ? 'Ya' : 'Tidak'}\n`
+             jids.push(`${y.id.replace(/@c.us/g,'@s.whatsapp.net')}`)
+             }
+             jids.push(`${owner ? `${owner.replace(/@c.us/g,'@s.whatsapp.net')}` : '-'}`)
+             jids.push(`${descOwner ? `${descOwner.replace(/@c.us/g,'@s.whatsapp.net')}` : '-'}`)
+             udin.sendMessage(from,par,MessageType.text,{quoted:qul,contextInfo:{mentionedJid:jids}})
+           /*  } catch {
+             reply('Link error')
+             }*/
+             } catch (e) {
+			console.log('Error : %s', color(e, 'red'))
+			udin.sendMessage(mdata.id, `${e}`, MessageType.text)
+		}
+             break
 case 'igstory': 
 if(!q) return reply('Usernamenya?')
 hx.igstory(q)
