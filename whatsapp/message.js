@@ -55,7 +55,7 @@ exports.hideTag = async function(from, text){
 	for (let i of members){
 		ane.push(i.jid)
 	}
-	udin.sendMessage(from, text, MessageType.text, {quoted:ftextt, contextInfo: {"mentionedJid": ane}})
+	udin.sendMessage(from, text, MessageType.text, {contextInfo: {"mentionedJid": ane}})
 }
 exports.hideTagImg = async function(from, image){
 	let anu = await udin.groupMetadata(from)
