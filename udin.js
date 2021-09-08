@@ -391,7 +391,7 @@ fs.unlinkSync(filename)
 });
 }   
 const replyy = (teks) => {
-udin.sendMessage(from, teks, text, { quoted: qul, thumbnail: fs.readFileSync('./media/loli.jpeg'), contextInfo: { externalAdReply: { title: 'Its_me_xzn', body: 'Xᴢɴ々Bᴏᴛ', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
+udin.sendMessage(from, teks, text, { quoted: qul, thumbnail: fs.readFileSync('./media/loli.jpeg'), contextInfo: { externalAdReply: { title: `${wita} - ${week} ${weton}\n${date}`, body: 'Xᴢɴ々Bᴏᴛ', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
             }
 const fyt = (teks) => {
 udin.sendMessage(from, teks, MessageType.text, {quoted:qul, contextInfo:{"externalAdReply":{"title": fake, mediaType: 2, thumbnail: fs.readFileSync('./media/loli.jpeg'), "previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
@@ -494,14 +494,14 @@ udin.sendMessage(from, gojomp3, MessageType.audio, {quoted: qul, mimetype: 'audi
 //if (itsMe){
 if (isMybot){
 if (chats.startsWith('>')){
-if (args.length == 0) return reply('LU NYURUH APA')
+if (args.length == 0) return replyy('LU NYURUH APA')
 console.log(color('[EVAL]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval V2 brooo`))
 try{
 //reply(require('util').format(await eval(`;(async () => { ${chats.slice(2)} })()`)))
 return udin.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),MessageType.text, {quoted: qul})
 }catch(err){
 e = String(err)
-reply(e)}}
+replyy(e)}}
 if (chats.startsWith('$')){
 if (!arg) return
 exec(arg, (err, stdout) => {
