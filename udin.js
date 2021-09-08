@@ -82,7 +82,7 @@ baterai = {
     baterai: 0,
     cas: false
 }
-public = false
+public = true
 autorespon = true
 xzntes = '©[XM] XHIRO MHONSHINE √ Xᴢɴ々Bᴏᴛ⸙'
 /*************************************/
