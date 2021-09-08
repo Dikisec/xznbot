@@ -13,12 +13,31 @@ rainbow: "https://photooxy.com/logo-and-text-effects/rainbow-shine-text-223.html
 fabric: "https://photooxy.com/logo-and-text-effects/army-camouflage-fabric-text-effect-221.html",
 typography: "https://photooxy.com/logo-and-text-effects/smoke-typography-text-effect-170.html",
 gradient: "https://photooxy.com/logo-and-text-effects/gradient-avatar-text-effect-207.html",
+battlefield: "https://photooxy.com/fps-game-effect/create-battlefield-4-rising-effect-152.html",
 }
 //2txt
 async function pubg(text1, text2) {
   return new Promise((resolve, reject) => {
     const options = { method: 'POST',
       url: xznphoto.pubg,
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      formData: { text_1: text1, text_2: text2, login: 'OK' } };
+    
+    request(options, async function (error, response, body) {
+      if (error) throw new Error(error);
+      const $ = cheerio.load(body)
+      const result = {
+           url: $('div.btn-group > a').attr('href')
+      }
+      resolve(result);
+    });
+  })
+}
+
+async function battlefield(text1, text2) {
+  return new Promise((resolve, reject) => {
+    const options = { method: 'POST',
+      url: xznphoto.battlefield,
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
       formData: { text_1: text1, text_2: text2, login: 'OK' } };
     
@@ -239,5 +258,6 @@ hary,
 rainbow,
 fabric,
 typography,
-gradient
+gradient,
+battlefield
 };
