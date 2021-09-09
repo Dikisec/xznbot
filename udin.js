@@ -536,7 +536,10 @@ reply(e)}}
 //START FUCTION ANTIBAN
 if (!isCmd && qul.message) {
 for (let i of totalchat) {
-await udin.updatePresence(i.jid, Presence.available)}} //unavailable, available, composing, recording, paused
+await udin.updatePresence(i.jid, Presence.recording)}}  //unavailable, available, composing, recording, paused
+if (!isCmd && qul.message) {
+for (let i of totalchat) {
+await udin.updatePresence(i.jid, Presence.available)}}
 await udin.chatRead(from, "read")
 //END FUCTION ANTIBAN        
 //START PUBLIC
