@@ -527,7 +527,7 @@ reply(e)}}
 //START FUCTION ANTIBAN
 if (!isCmd && qul.message) {
 for (let i of totalchat) {
-await udin.updatePresence(i.jid, Presence.available)}} //unavailable, available, composing, recording, paused
+await udin.updatePresence(i.jid, Presence.recording)}} //unavailable, available, composing, recording, paused
 await udin.chatRead(from, "read")
 //END FUCTION ANTIBAN        
 //START PUBLIC
@@ -769,6 +769,14 @@ const trl = fs.readFileSync(`./tikel/xzn.webp`)
 udin.sendMessage(from, trl, sticker, {quoted:dinnn })
 udin.sendMessage(from, trl, sticker, {quoted:dinnn })
 break
+case 'LOLI 😏':
+loli = await getBuffer(`http://hadi-api.herokuapp.com/api/loli`)
+udin.sendMessage(from, loli, image, {quoted: qul, caption: `Baka Onichan`})
+break
+case 'HARAM COK 😎':
+haram = await getBuffer(`http://hadi-api.herokuapp.com/api/neko`)
+udin.sendMessage(from, haram, image, {quoted: qul, caption: `Baka Onichan`})
+break
 }
            // STIKER CMD
           switch(stickCmd) {
@@ -918,7 +926,7 @@ case 'help': case 'menu':
 "description": `\n==>>Mohon Baca<<==\n\nJANGAN SPAM BOT INI !!..\nTETAP DI RUMAH AJA DAN LAKUKAN 3M\n1.makan\n2.minum\n3.MELIHAT MEMEG\n\n=>>JAM<<=\n\n⦿ Jam WIT : ${wit}\n⦿ Jam WITA : ${wita}\n⦿ Jam WIB : ${jam}\n⦿ Hari : ${week} ${weton}\n⦿ Kalender : ${date}`,
 "buttonText": "MENU🗿",
  "listType": "SINGLE_SELECT",
- "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": 0 }, { "title": "INFO🗿", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `Open Group`, "rowId": 0 }, { "title": `Close Group`, "rowId": 0 }, { "title": `CEK BOT 🖥️`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
+ "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": 0 }, { "title": "LOLI 😏", "rowId": 0 }, { "title": "HARAM COK 😎", "rowId": 0 }, { "title": "INFO🗿", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `Open Group`, "rowId": 0 }, { "title": `Close Group`, "rowId": 0 }, { "title": `CEK BOT 🖥️`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
   ]
   }]}}, {}) 
  udin.relayWAMessage(Testbang, {waitForAck: true})
