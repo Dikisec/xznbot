@@ -391,7 +391,7 @@ fs.unlinkSync(filename)
 });
 }   
 const replyy = (teks) => {
-udin.sendMessage(from, teks, text, { quoted: qul, thumbnail: fs.readFileSync('./media/loli.jpeg'), contextInfo: { externalAdReply: { title: `${wita} - ${week} ${weton}\n${date}`, body: 'Xᴢɴ々Bᴏᴛ', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
+udin.sendMessage(from, teks, text, { quoted: qul, contextInfo: { externalAdReply: { title: `${wita} - ${week} ${weton}\n${date}`, body: 'Xᴢɴ々Bᴏᴛ', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
             }
 const fyt = (teks) => {
 udin.sendMessage(from, teks, MessageType.text, {quoted:qul, contextInfo:{"externalAdReply":{"title": fake, mediaType: 2, thumbnail: fs.readFileSync('./media/loli.jpeg'), "previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
