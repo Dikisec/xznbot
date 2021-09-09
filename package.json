@@ -1,7 +1,7 @@
 {
-  "name": "KangCopas",
+  "name": "ZainudinAnggara",
   "version": "0.0.1",
-  "description": "Ga ada",
+  "description": "XZN",
   "main": "udin.js",
   "directories": {
     "lib": "lib"
@@ -36,10 +36,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xznsenpai/MyBot.git"
+    "url": "git+https://github.com/xznsenpai/xznbot.git"
   },
   "bugs": {
-    "url": "https://github.com/xznsenpai/MyBot/issues"
+    "url": "https://github.com/xznsenpai/xznbot/issues"
   },
-  "homepage": "https://github.com/xznsenpai/MyBot#readme"
+  "homepage": "https://github.com/xznsenpai/xznbot#readme"
 }
