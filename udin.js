@@ -159,17 +159,26 @@ udin.on('group-participants-update', async (anu) => {
             }
             if (anu.action == "promote") {
             	mdata = await udin.groupMetadata(anu.jid)
-                num = anu.participants[0]
-                kata1 = `Selamat @${num.split("@")[0]} telah di Promote\nDeskripsi Group\n${mdata.desc}`
-                buff = await getBuffer(pp_user);
+            	num = anu.participants[0]
+                v = udin.contacts[num] || { notify: num.replace(/@.+/, '') }
+                anu_user = v.vname || v.notify || PhoneNumber('+' + v.jid.replace('@s.whatsapp.net', '')).getNumber('international')
+                memeg = mdata.participants.length
+                awikwok = moment().tz('Asia/Jakarta').format("HH:mm")
+                kata1 = `Selamat @${num.split("@")[0]} telah di Promote`
+                buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/promote?nama=${encodeURI(anu_user)}&member=${memeg}&pesan=Selamat Telah Jadi Admin&pp=${pp_user}&bg=https://telegra.ph/file/6d6b8cd7f12d456d9e22c.jpg`)
                 udin.sendMessage(mdata.id, buff, MessageType.image, {caption: kata1})
                 //udin.sendMessage(mdata.id, `@${num.split("@")[0]} telah di promote`, MessageType.text, { contextInfo: {mentionedJid: [num.split("@")[0]+ "@s.whatsapp.net"]}});
                }
            if (anu.action == "demote") {
     	      mdata = await udin.groupMetadata(anu.jid)
-               num = anu.participants[0]
-               kata = `Selamat @${num.split("@")[0]} telah di demote\nDeskripsi Group\n${mdata.desc}`
-               buff = await getBuffer(pp_user);
+              num = anu.participants[0]
+              v = udin.contacts[num] || { notify: num.replace(/@.+/, '') }
+              anu_user = v.vname || v.notify || PhoneNumber('+' + v.jid.replace('@s.whatsapp.net', '')).getNumber('international')
+              memeg = mdata.participants.length
+              awikwok = moment().tz('Asia/Jakarta').format("HH:mm")
+              kata = `Selamat @${num.split("@")[0]} telah di demote`
+               //buff = await getBuffer(pp_user);
+               buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/demote?nama=${encodeURI(anu_user)}&member=${memeg}&pesan=Selamat Telah Diturunkan&pp=${pp_user}&bg=https://telegra.ph/file/6d6b8cd7f12d456d9e22c.jpg`)
               udin.sendMessage(mdata.id, buff, MessageType.image, {caption: kata})
               //udin.sendMessage(mdata.id, `@${num.split("@")[0]} telah di demote`, MessageType.text, { contextInfo: {mentionedJid: [num.split("@")[0]+ "@s.whatsapp.net"]}});
               }
@@ -527,7 +536,7 @@ reply(e)}}
 //START FUCTION ANTIBAN
 if (!isCmd && qul.message) {
 for (let i of totalchat) {
-await udin.updatePresence(i.jid, Presence.recording)}} //unavailable, available, composing, recording, paused
+await udin.updatePresence(i.jid, Presence.available)}} //unavailable, available, composing, recording, paused
 await udin.chatRead(from, "read")
 //END FUCTION ANTIBAN        
 //START PUBLIC
