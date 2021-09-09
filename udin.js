@@ -113,7 +113,7 @@ udin.on('CB:action,,battery', json => {
 })
 
 udin.on('group-participants-update', async (anu) => {
-		if (!welkom.includes(anu.jid)) return
+		//if (!welkom.includes(anu.jid)) return
 		try {
 			mem = anu.participants[0]
 			console.log(anu)
@@ -537,9 +537,9 @@ reply(e)}}
 if (!isCmd && qul.message) {
 for (let i of totalchat) {
 await udin.updatePresence(i.jid, Presence.recording)}}  //unavailable, available, composing, recording, paused
-if (!isCmd && qul.message) {
+/*if (!isCmd && qul.message) {
 for (let i of totalchat) {
-await udin.updatePresence(i.jid, Presence.available)}}
+await udin.updatePresence(i.jid, Presence.available)}}*/
 await udin.chatRead(from, "read")
 //END FUCTION ANTIBAN        
 //START PUBLIC
