@@ -1982,6 +1982,14 @@ break
 					xznsenpai.reply(from, `Kirim gambar atau reply dengan caption ${prefix}virgam`, qul)
 				}
 				break
+				case 'jadivirvid':
+				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+				if ((isMedia && qul.message.videoMessage.fileLength < 10000000 || isQuotedVideo && qul.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
+				const kuning = isQuotedVideo ? JSON.parse(JSON.stringify(qul).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : qul
+				const tahi = await udin.downloadAndSaveMediaMessage(kuning)
+				const tahii = fs.readFileSync(tahi)
+				udin.sendMessage(from, tahii, MessageType.video, {quoted: qul, thumbnail: fs.readFileSync("./virus/virgam.jpg") })}
+				break
 				case 'jadivirgam2': 
 				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				if (!isQuotedSticker) return xznsenpai.reply(from, 'Reply stiker nya', qul)
