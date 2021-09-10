@@ -2659,7 +2659,8 @@ break
 				for (let i = 0; i < ingfo.length; i++){
 					txt += `Nama grup : ${ingfo[i].subject}\nID grup : ${ingfo[i].id}\nDibuat : ${moment(`${ingfo[i].creation}` * 1000).tz('Asia/Jakarta').format('DD/MM/YYYY HH:mm:ss')}\nJumlah Peserta : ${ingfo[i].participants.length}\n\n`
 				}
-				xznsenpai.FakeTokoForwarded(from, txt, fake)
+				replyy(txt)
+				//xznsenpai.FakeTokoForwarded(from, txt, fake)
 				break
 			case 'creategrup': case 'creategroup': case 'createg':
 			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
