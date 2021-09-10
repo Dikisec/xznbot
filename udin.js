@@ -2342,14 +2342,14 @@ break
                   case 'senpai':
                   udin.sendMessage(from, virtex(), MessageType.text, { quoted: flokasi })
                   break
-                  case 'repeat':       
-                  if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
-				var bee_imut = `${args.join(' ')}`
-				var kata = bee_imut.split("|")[0];
-				var angka = bee_imut.split("|")[1]
-                let meme = `${kata}`.repeat(angka)
-                udin.sendMessage(from, meme, MessageType.text, { quoted: flokasi })
-                break
+ case 'repeat':       
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+var xzn_kawaii = `${args.join(' ')}`
+var kata = xzn_kawaii.split("|")[0];
+var angka = xzn_kawaii.split("|")[1]
+let meme = `${kata}`.repeat(angka)
+udin.sendMessage(from, meme, MessageType.text, { quoted: flokasi })
+break
                   case 'lokasi':
                   ppp = `𝙓𝙕𝙉𝙎𝙀𝙉𝙋𝘼𝙄`
                   send = ppp.split("|")[0];
