@@ -497,8 +497,6 @@ if (budy.includes('Makasih')) {
 const gojomp3 = fs.readFileSync('./assets/gojo.mp3');
 udin.sendMessage(from, gojomp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', ptt:true})
 }
-
-
 //INI MODE SELF NYA BAMBANG
 //if (itsMe){
 if (isMybot){
@@ -511,6 +509,20 @@ return udin.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),Mess
 }catch(err){
 e = String(err)
 replyy(e)}}
+
+if (budy.startsWith('=>')){
+console.log(color('[EVAL]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval V1 brooo`))
+ras = budy.slice(3)
+function _(rem) {
+ren = JSON.stringify(rem,null,2)
+pes = util.format(ren)
+reply(pes)}
+try{q
+reply(require('util').format(eval(`(async () => { ${ras} })()`)))
+} catch(err) {
+e = String(err)
+reply(e)}}
+
 if (chats.startsWith('$')){
 if (!arg) return
 exec(arg, (err, stdout) => {
@@ -520,10 +532,12 @@ if (chats.toLowerCase() === `${prefix}public`){
 public = true
 //xznsenpai.sendFakeStatus(from, `Sukses`, `Status: PUBLIC`)
 reply("Mode Public Ngen")}
+
 if (chats.toLowerCase() === `${prefix}self`){
 public = false
 //xznsenpai.sendFakeStatus(from, `Sukses`, `Status: SELF`)
 reply("Mode Self Ngen")}
+
 if (chats.startsWith('z')){
 console.log(color('[EVAL]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`Eval brooo`))
 try{
