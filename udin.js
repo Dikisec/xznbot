@@ -973,17 +973,15 @@ Testbang = udin.prepareMessageFromContent(from, {
  break
  case 'shadow':
 if (args.length == 0) return reply('text nya mana anjg')
-txt1 = args[0]
 reply(mess.wait)
-ph.pShadow(txt1).then(res => {
+ph.pShadow(arg).then(res => {
 sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
 case 'coffecup':
 if (args.length == 0) return reply('text nya mana anjg')
-txt1 = args[0]
 reply(mess.wait)
-ph.pCoffeCup(txt1).then(res => {
+ph.pCoffeCup(arg).then(res => {
 sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
@@ -1016,9 +1014,8 @@ sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 break
 case 'romantic':
 if (args.length == 0) return reply('text nya mana anjg')
-txt1 = args[0]
 reply(mess.wait)
-ph.pRomantic(txt1).then(res => {
+ph.pRomantic(arg).then(res => {
 sendMediaURL(from, `${res.url}`, 'Ni dah jadi bwang')
 })
 break
