@@ -62,8 +62,8 @@ const PhoneNumber = require('awesome-phonenumber')
 /********** MENU SETTING **********/
 const vcard = 'BEGIN:VCARD\n' 
             + 'VERSION:3.0\n' 
-            + 'FN:⚔✭ꭙࣼznsenpai༻⚔✭\n'
-            + 'nitem1.TEL;waid=6282256080304:+62 822-5608-0304\n'
+            + 'FN:Owner Kawaii\n'
+            + 'nitem1.TEL;waid=6285751414996:+62 857-5141-4996\n'
             + 'item1.X-ABLabel:Ponsel\n'
             + 'X-WA-BIZ-DESCRIPTION: Owner Bot XZN \n'
             + 'X-WA-BIZ-NAME:Its_me_xzn\n'
@@ -89,7 +89,7 @@ xzntes = '©[XM] XHIRO MHONSHINE √ Xᴢɴ々Bᴏᴛ⸙'
 
 
 /******** OWNER NUMBER**********/ 
-const ownerNumber = ["6282256080304@s.whatsapp.net","6282255794209@s.whatsapp.net"]//"6285751414996@s.whatsapp.net"] 
+const ownerNumber = ["6282256080304@s.whatsapp.net","6282255794209@s.whatsapp.net","6285751414996@s.whatsapp.net"] 
 /************************************/
 
 
