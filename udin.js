@@ -164,9 +164,10 @@ udin.on('group-participants-update', async (anu) => {
                 anu_user = v.vname || v.notify || PhoneNumber('+' + v.jid.replace('@s.whatsapp.net', '')).getNumber('international')
                 memeg = mdata.participants.length
                 awikwok = moment().tz('Asia/Jakarta').format("HH:mm")
+                fgclink = {"key": {"fromMe": false, "participant": "0@s.whatsapp.net", "remoteJid": "0@s.whatsapp.net"}, "message": {"groupInviteMessage": {"mimetype": "image/jpeg", "jpegThumbnail": fs.readFileSync(`./media/loli.jpeg`), "groupJid": "6282256080304-1622727181@g.us", "inviteCode": "mememteeeekkeke", "groupName": "Its Me Zainudin Anggara", "caption": "XZNSENPAI"}}}
                 kata1 = `Selamat @${num.split("@")[0]} telah di Promote`
                 buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/promote?nama=${encodeURI(anu_user)}&member=${memeg}&pesan=Selamat Telah Jadi Admin&pp=${pp_user}&bg=https://telegra.ph/file/6d6b8cd7f12d456d9e22c.jpg`)
-                udin.sendMessage(mdata.id, buff, MessageType.image, {caption: kata1})
+                udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fgclink, caption: kata1})
                 //udin.sendMessage(mdata.id, `@${num.split("@")[0]} telah di promote`, MessageType.text, { contextInfo: {mentionedJid: [num.split("@")[0]+ "@s.whatsapp.net"]}});
                }
            if (anu.action == "demote") {
@@ -176,10 +177,11 @@ udin.on('group-participants-update', async (anu) => {
               anu_user = v.vname || v.notify || PhoneNumber('+' + v.jid.replace('@s.whatsapp.net', '')).getNumber('international')
               memeg = mdata.participants.length
               awikwok = moment().tz('Asia/Jakarta').format("HH:mm")
+              fgclink = {"key": {"fromMe": false, "participant": "0@s.whatsapp.net", "remoteJid": "0@s.whatsapp.net"}, "message": {"groupInviteMessage": {"mimetype": "image/jpeg", "jpegThumbnail": fs.readFileSync(`./media/loli.jpeg`), "groupJid": "6282256080304-1622727181@g.us", "inviteCode": "mememteeeekkeke", "groupName": "Its Me Zainudin Anggara", "caption": "XZNSENPAI"}}}
               kata = `Selamat @${num.split("@")[0]} telah di demote`
                //buff = await getBuffer(pp_user);
                buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/demote?nama=${encodeURI(anu_user)}&member=${memeg}&pesan=Selamat Telah Diturunkan&pp=${pp_user}&bg=https://telegra.ph/file/6d6b8cd7f12d456d9e22c.jpg`)
-              udin.sendMessage(mdata.id, buff, MessageType.image, {caption: kata})
+              udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fgclink, caption: kata})
               //udin.sendMessage(mdata.id, `@${num.split("@")[0]} telah di demote`, MessageType.text, { contextInfo: {mentionedJid: [num.split("@")[0]+ "@s.whatsapp.net"]}});
               }
 		} catch (e) {
@@ -316,6 +318,7 @@ const fgif = {key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? {
 const ftextt = {key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6282256080304-1622727181@g.us" } : {})}, message: {"extendedTextMessage": {"mimetype": "image/jpeg", "jpegThumbnail": fs.readFileSync(`./media/loli.jpeg`), "text":"Xᴢɴ々SᴇɴPɑɪ", "title": `Hmm`}}}                     
 const fvn = {key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6282256080304-1622727181@g.us" } : {})}, message: {"audioMessage": {"mimetype":"audio/ogg; codecs=opus", "seconds": "${second}", "ptt": "true"}}}
 const sft = {key: {fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {})}, message: {"productMessage": {"product": {"productImage":{ }, "title": "Creat Its Me Zainudin", "description": "1 Bulan : Rp 10.000,00", "currencyCode": "USD", "priceAmount1000": "10000000000000000000", "retailerId": "Self Bot", "productImageCount": 99999}, "businessOwnerJid": `0@s.whatsapp.net`}}}       
+const once = {key : {participant : '0@s.whatsapp.net'}, "message": {"viewOnceMessage": {"message": {"imageMessage": {"url": "https://mmg.whatsapp.net/d/f/Ar5T7V7eN5j_nSw-xgy_EVdIOsuqgg_Duto86e4fJ-Qw.enc", "mimetype": "image/jpeg", "fileSha256": "iunlEh4hXYeza7nrfdXDhHhdbm+MtierOu/CFRsjIGU=", "fileLength": "126766", "height": 720, "width": 1520, "mediaKey": "HV8K4Wvi+CrBlbcDvKppBHRC1nt6CDRy7fSiCOTeubI=", "fileEncSha256": "WHzCrgzOdpLi85bhhIikQR+ZZmXz82Si+D5X+LSZt/w=", "directPath": "/v/t62.7118-24/21226550_1161558544334956_2350569904574046255_n.enc?ccb=11-4&oh=37804c40c439a259151c529674f87b6f&oe=61643631", "mediaKeyTimestamp": "1631439562", "jpegThumbnail": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABsbGxscGx4hIR4qLSgtKj04MzM4PV1CR0JHQl2NWGdYWGdYjX2Xe3N7l33gsJycsOD/2c7Z//////////////8BGxsbGxwbHiEhHiotKC0qPTgzMzg9XUJHQkdCXY1YZ1hYZ1iNfZd7c3uXfeCwnJyw4P/Zztn////////////////CABEIACIASAMBIgACEQEDEQH/xAAtAAADAQEAAAAAAAAAAAAAAAAAAQMCBAEBAQEBAAAAAAAAAAAAAAAAAgABA//aAAwDAQACEAMQAAAA4XSnKgugrndtKWNc5MRDu5hzeKEltEa0qdELkNDytQ5oYbZqC3ABzmAs/8QAIBAAAgICAgIDAAAAAAAAAAAAAAECESFBAxMQMRIiUf/aAAgBAQABPwCpSFCR1s6mdWTqoVJHLCMo5ElEjHfjLKMRd0YGTbRmrM0SklQ+RRyiLU42imhKmMnEf1sTjR7HG46PhVUxSXj2NHLHBA2fpoejj2bFs5PTP//EABwRAAIDAAMBAAAAAAAAAAAAAAABAhEhEEFRA//aAAgBAgEBPwC36b6S+ckk3dF1zg233gyLwQxcR7P/xAAYEQADAQEAAAAAAAAAAAAAAAABEBExAP/aAAgBAwEBPwCOPXGNKPf/2Q==", "scansSidecar": "yxwTOibSDB4HaqsKZaXPmYqNRrwT7jTEi7E4nq7f4TRY3tfEMbiwnA==", "scanLengths": [11892, 53069, 23444, 38361], "midQualityFileSha256": "yXjSDT06QCxfTzL4Wi7F0rxdQ3dTTjb8+CcBQV0fces=", "viewOnce": true}}}}}
         /*************************************/
 const totalchat = await udin.chats.all()
 const groupMetadata = isGroup ? await udin.groupMetadata(from) : ''
@@ -2247,15 +2250,16 @@ break
 				*/
 				//fake
 				case 'fake':
-				udin.sendMessage(from, `nih liat`, MessageType.text, {quoted: fgclink })
-				udin.sendMessage(from, `nih liat`, MessageType.text, {quoted: flokasi })
-				udin.sendMessage(from, `nih liat`, MessageType.text, {quoted: fvideo })
-				udin.sendMessage(from, `nih liat`, MessageType.text, {quoted: sft })
-				udin.sendMessage(from, `nih liat`, MessageType.text, {quoted: dinn })
-				udin.sendMessage(from, `nih liat`, MessageType.text, {quoted: fdocs })
-				udin.sendMessage(from, `nih liat`, MessageType.text, {quoted: fgif })
-				udin.sendMessage(from, `nih liat`, MessageType.text, {quoted: ftextt })
-				udin.sendMessage(from, `nih liat`, MessageType.text, {quoted: fvn })
+				udin.sendMessage(from, `link`, MessageType.text, {quoted: fgclink })
+				udin.sendMessage(from, `lokasi`, MessageType.text, {quoted: flokasi })
+				udin.sendMessage(from, `vidoe`, MessageType.text, {quoted: fvideo })
+				udin.sendMessage(from, `anu`, MessageType.text, {quoted: sft })
+				udin.sendMessage(from, `troli`, MessageType.text, {quoted: dinn })
+				udin.sendMessage(from, `doc`, MessageType.text, {quoted: fdocs })
+				udin.sendMessage(from, `gif`, MessageType.text, {quoted: fgif })
+				udin.sendMessage(from, `anu`, MessageType.text, {quoted: ftextt })
+				udin.sendMessage(from, `VN`, MessageType.text, {quoted: fvn })
+				udin.sendMessage(from, `once`, MessageType.text, {quoted: once})
                break
 				//bug
 				/*case 'p':
