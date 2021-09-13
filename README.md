@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://telegra.ph/file/0e9f55fefc50ff85ab663.jpg" alt="MyBot" width="300" />
+<img src="https://telegra.ph/file/3299b74d03a20cf0242c3.jpg" alt="MyBot" width="300" />
 
 # MyBot
 
