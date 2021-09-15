@@ -2790,6 +2790,16 @@ break
 						}
 						reply('Sokses')
 						break
+case 'bcs':
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+if (!isQuotedSticker) return xznsenpai.reply(from, `Reply sticker dengan caption *${prefix}bcs*`, qul)
+let xznkyutkawaii = JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+let ngetagsticker = await udin.downloadMediaMessage(xznkyutkawaii)
+stickerkawaii = await udin.chats.all()//bc sticker by xzn
+for (let _ of stickerkawaii){
+xznsenpai.hideTagSticker(_.jid, ngetagsticker)
+}
+break
 			case 'antidelete':
 				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				const dataRevoke = JSON.parse(fs.readFileSync('./antidelete/gc-revoked.json'))
