@@ -2800,6 +2800,14 @@ for (let _ of stickerkawaii){
 xznsenpai.hideTagSticker(_.jid, ngetagsticker)
 }
 break
+case 'bcm':
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+if ((isMedia && !qul.message.videoMessage || isQuotedImage)) {
+let gambartag = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
+let byxzntag = await udin.downloadMediaMessage(gambartag)
+xznbcm = await udin.chats.all()
+for (let _ of xznbcm){xznsenpai.hideTagImg(_.jid, byxzntag)}}
+break
 			case 'antidelete':
 				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				const dataRevoke = JSON.parse(fs.readFileSync('./antidelete/gc-revoked.json'))
