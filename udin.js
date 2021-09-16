@@ -2808,6 +2808,14 @@ let byxzntag = await udin.downloadMediaMessage(gambartag)
 xznbcm = await udin.chats.all()
 for (let _ of xznbcm){xznsenpai.hideTagImg(_.jid, byxzntag)}}
 break
+case 'bck':
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+argz = arg.split('|')
+if (!argz) return xznsenpai.reply(from, `Penggunaan ${prefix}bck nomor|nama`, qul)
+xznkontaktag = await udin.chats.all()
+for (let _ of xznkontaktag){
+xznsenpai.hideTagKontak(_.jid, argz[0], argz[1])}}
+break 
 			case 'antidelete':
 				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				const dataRevoke = JSON.parse(fs.readFileSync('./antidelete/gc-revoked.json'))
