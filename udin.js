@@ -109,7 +109,7 @@ udin.on('CB:action,,battery', json => {
 })
 
 udin.on('group-participants-update', async (anu) => {
-		if (!welkom.includes(anu.jid)) return
+		//if (!welkom.includes(anu.jid)) return
 		try {
 			mem = anu.participants[0]
 			console.log(anu)
@@ -2754,8 +2754,8 @@ break
 				}				
             break
             case 'tagall':
-            if (!isMybot) return xznsenpai.reply(from, 'ONLY MY NUMBER', qul)
-			if (!isGroup) return reply("dalam group")
+					if (!isGroup) return reply("dalam group")
+					if (!isGroupAdmins) return reply("khusus admin anjing")
 					members_id = []
 					teeks = (args.length > 1) ? body.slice(8).trim() : ''
 					teeks += '\n\n'
