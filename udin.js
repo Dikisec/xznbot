@@ -454,7 +454,7 @@ reply("5detik")
 }
 
 if (!isGroup && !isCmd && !command && !qul.key.fromMe && !autorespon) {
-simi = await fetchJson(`https://api.simsimi.net/v1/?lang=id&cf=false&text=${arg}`)
+simi = await fetchJson(`https://simsumi.herokuapp.com/api?text=${arg}&lang=id`)
 sami = simi.success
 udin.sendMessage(from, `_${sami}_`, text, {quoted:qul})
                       }
