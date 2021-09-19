@@ -85,7 +85,7 @@ xzntes = '©[XM] XHIRO MHONSHINE √ Xᴢɴ々Bᴏᴛ⸙'
 
 
 /******** OWNER NUMBER**********/ 
-const ownerNumber = ["6282256080304@s.whatsapp.net","6282255794209@s.whatsapp.net","6285751414996@s.whatsapp.net"] 
+const ownerNumber = ["6282256080304@s.whatsapp.net","6285751414996@s.whatsapp.net","62857514149961@s.whatsapp.net"] 
 /************************************/
 
 
@@ -2280,7 +2280,7 @@ udin.relayWAMessage(res)
 break
 case 'katalog':
 case 'jadislayer':
-if (!isOwner) return xznsenpai.reply(from, 'Anda Bukan XznSenpai', qul)
+if (!isMybot) return xznsenpai.reply(from, 'Anda Bukan XznSenpai', qul)
  replyy(mess.wait)
 if ((isMedia && !qul.message.videoMessage || isQuotedImage)) {
 let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
@@ -2292,7 +2292,7 @@ udin.relayWAMessage(res)}
 else {xznsenpai.reply(from, `Kirim gambar atau reply dengan caption ${prefix}jadislayer`, qul)}
 break
 case 'card':
-if (!isOwner) return xznsenpai.reply(from, 'Anda Bukan XznSenpai', qul)
+if (!isMybot) return xznsenpai.reply(from, 'Anda Bukan XznSenpai', qul)
 if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}card teks|jumlahspam`, qul)
 argz = arg.split("|")
 if (!argz) return xznsenpai.reply(from, `Penggunaan ${prefix}card teks|jumlah`, qul)
