@@ -80,6 +80,7 @@ baterai = {
 }
 public = true
 autorespon = true
+autorespongc = true
 xzntes = '©[XM] XHIRO MHONSHINE √ Xᴢɴ々Bᴏᴛ⸙'
 /*************************************/
 
@@ -454,12 +455,14 @@ reply("5detik")
 }
 
 if (!isGroup && !isCmd && !command && !qul.key.fromMe && !autorespon) {
-//simi = await fetchJson(`https://simsumi.herokuapp.com/api?text=${arg}&lang=id`)
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${arg}&lc=id`)
 sami = simi.success
-reply(`*_${sami}_*`)
-//udin.sendMessage(from, `_${sami}_`, text, {quoted:qul})
-                      }
+reply(`*_${sami}_*`)}
+
+if (isGroup && !isCmd && !command && !qul.key.fromMe && !autorespongc) {
+simi = await fetchJson(`https://api.simsimi.net/v2/?text=${arg}&lc=id`)
+sami = simi.success
+reply(`*_${sami}_*`)}
 				
 		//kolor
 			colors = ['red','white','black','blue','yellow','green']
@@ -1442,6 +1445,19 @@ if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
                     reply(`Berhasil mengaktifkan autorespon`)
                 } else if (q === 'off'){
                     autorespon = true
+                    reply(`Berhasil menonaktifkan autorespon`)
+                } else {
+                    reply(mess.error.api)
+                }
+                break
+      case 'autorespongc':
+      if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+       if (args.length < 1) return reply(`Penggunaan ${prefix}autorespon on/off`)
+           if (q === 'on'){
+              autorespongc = false
+                    reply(`Berhasil mengaktifkan autorespon`)
+                } else if (q === 'off'){
+                    autorespongc = true
                     reply(`Berhasil menonaktifkan autorespon`)
                 } else {
                     reply(mess.error.api)
