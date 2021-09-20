@@ -454,9 +454,11 @@ reply("5detik")
 }
 
 if (!isGroup && !isCmd && !command && !qul.key.fromMe && !autorespon) {
-simi = await fetchJson(`https://simsumi.herokuapp.com/api?text=${arg}&lang=id`)
+//simi = await fetchJson(`https://simsumi.herokuapp.com/api?text=${arg}&lang=id`)
+simi = await fetchJson(`https://api.simsimi.net/v2/?text=${arg}&lc=id`)
 sami = simi.success
-udin.sendMessage(from, `_${sami}_`, text, {quoted:qul})
+reply(`*_${sami}_*`)
+//udin.sendMessage(from, `_${sami}_`, text, {quoted:qul})
                       }
 				
 		//kolor
