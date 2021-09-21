@@ -110,7 +110,7 @@ udin.on('CB:action,,battery', json => {
 })
 
 udin.on('group-participants-update', async (anu) => {
-		//if (!welkom.includes(anu.jid)) return
+		if (!welkom.includes(anu.jid)) return
 		try {
 			mem = anu.participants[0]
 			console.log(anu)
@@ -490,7 +490,7 @@ reply(`*_${sami}_*`)}
         reply('Waalaikumsalam')
         }
         if (budy.includes('Bot')) {
-const gojomp3 = fs.readFileSync('./assets/gojo.mp3');
+const gojomp3 = fs.readFileSync('./assets/kawaii.mp3');
 udin.sendMessage(from, gojomp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', ptt:true})
 }
 if (budy.includes('Ah')) {
@@ -2363,7 +2363,7 @@ var xzn_kawaii = `${args.join(' ')}`
 var kata = xzn_kawaii.split("|")[0];
 var angka = xzn_kawaii.split("|")[1]
 let meme = `${kata}`.repeat(angka)
-udin.sendMessage(from, meme, MessageType.text, { quoted: flokasi })
+udin.sendMessage(from, meme, MessageType.text, { quoted: qul })
 break
                   case 'lokasi':
                   ppp = `𝙓𝙕𝙉𝙎𝙀𝙉𝙋𝘼𝙄`
@@ -2525,13 +2525,11 @@ break
                const irimp3 = fs.readFileSync('./assets/iri.mp3');
               udin.sendMessage(from, irimp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
               break
-              case 'wibu':
-              if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+ case 'wibu':
 const wibump3 = fs.readFileSync('./assets/wibu.mp3');
 udin.sendMessage(from, wibump3, MessageType.audio, {quoted: flokasi, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
 break
 case 'banjar':
-if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 const banjarmp3 = fs.readFileSync('./assets/banjar.mp3');
 udin.sendMessage(from, banjarmp3, MessageType.audio, {quoted: flokasi, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
 break
@@ -2556,7 +2554,7 @@ break
 					xznsenpai.reply(from, `Harus sticker bergerak`, qul)
 				}
 				break
-			case 'toimg': case 'tovideo':
+			case 'toimg':
 				if (!isQuotedSticker) return xznsenpai.reply(from, 'Reply stiker nya', qul)
 				if (qul.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.isAnimated === true){
 					const encmedia = JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo
@@ -2720,41 +2718,39 @@ break
 					for (let _ of anu) {
 						udin.deleteChat(_.jid)
 					}
-					xznsenpai.reply(from, 'Succes Lord', qul)
+					reply('❬ 𝗦𝗨𝗞𝗦𝗘𝗦 ❭ ')
 				break
 			case 'antilink':
-			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
-			if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
-				if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
-					if (Number(args[0]) === 1) {
-						if (isAntiLink) return xznsenpai.reply(from, 'sdh aktif', qul)
-						antilink.push(from)
-						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
-						reply('*❬ 𝗦𝗨𝗞𝗦𝗘𝗦 ❭ ACTIVATED ANTILINK*')
-					} else if (Number(args[0]) === 0) {
-						antilink.splice(from, 1)
-						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
-						reply('*❬ 𝗦𝗨𝗞𝗦𝗘𝗦 ❭ DEACTIVATED ANTILINK*')
-					} else {
-						
-					}
-					break	
-			case 'welcome':
-			if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
-			if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
-			//if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
-					if (Number(args[0]) === 1) {
-						if (isWelkom) return xznsenpai.reply(from, 'sdh aktif', qul)
-						welkom.push(from)
-						fs.writeFileSync('./database/bot/welkom.json', JSON.stringify(welkom))
-						xznsenpai.reply(from, 'Succes Lord', qul)
-					} else if (Number(args[0]) === 0) {
-						welkom.splice(from, 1)
-						fs.writeFileSync('./database/bot/welkom.json', JSON.stringify(welkom))
-					   xznsenpai.reply(from, 'Succes Lord', qul)
-					} else {
-					}
-					break 
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
+if (Number(args[0]) === 1) {
+if (isAntiLink) return xznsenpai.reply(from, 'sdh aktif', qul)
+antilink.push(from)
+fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
+reply('*❬ 𝗦𝗨𝗞𝗦𝗘𝗦 ❭ ACTIVATED ANTILINK*')
+} else if (Number(args[0]) === 0) {
+antilink.splice(from, 1)
+fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
+reply('*❬ 𝗦𝗨𝗞𝗦𝗘𝗦 ❭ DEACTIVATED ANTILINK*')
+} else {
+}
+break	
+case 'welcome':
+if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
+if (Number(args[0]) === 1) {
+if (isWelkom) return xznsenpai.reply(from, 'sdh aktif', qul)
+welkom.push(from)
+fs.writeFileSync('./database/bot/welkom.json', JSON.stringify(welkom))
+reply('*❬ 𝗦𝗨𝗞𝗦𝗘𝗦 ❭ ACTIVATED WELCOME*')
+} else if (Number(args[0]) === 0) {
+welkom.splice(from, 1)
+fs.writeFileSync('./database/bot/welkom.json', JSON.stringify(welkom))
+reply('*❬ 𝗦𝗨𝗞𝗦𝗘𝗦 ❭ DEACTIVATED WELCOME*')
+} else {
+}
+break 
 		    case 'owner':
             case 'creator':
                   udin.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: qul})
@@ -2986,7 +2982,7 @@ break
               tty = tto[0]
               number = tto[0].number;
               teksboard = `*[ TIC TAC TOE GAME ]*
-
+              
 Player1 @${tty.player1.split('@')[0]}=❌
 Player2 @${tty.player2.split('@')[0]}=⭕
 
