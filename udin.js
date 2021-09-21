@@ -80,6 +80,7 @@ baterai = {
 }
 public = true
 autorespon = true
+autoresponen = true
 autorespongc = true
 autovn = true
 xzntes = '©[XM] XHIRO MHONSHINE √ Xᴢɴ々Bᴏᴛ⸙'
@@ -458,12 +459,20 @@ reply("5detik")
 if (!isGroup && !isCmd && !command && !qul.key.fromMe && !autorespon) {
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${arg}&lc=id`)
 sami = simi.success
-reply(`*_${sami}_*`)}
+reply(`*_${sami}_*`)
+console.log(color(`${sami}`))}
+
+if (!isGroup && !isCmd && !command && !qul.key.fromMe && !autoresponen) {
+simi = await fetchJson(`https://api.simsimi.net/v2/?text=${arg}&lc=en`)
+sami = simi.success
+reply(`*_${sami}_*`)
+console.log(color(`${sami}`))}
 
 if (isGroup && !isCmd && !command && !qul.key.fromMe && !autorespongc) {
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${arg}&lc=id`)
 sami = simi.success
-reply(`*_${sami}_*`)}
+reply(`*_${sami}_*`)
+console.log(color(`${sami}`))}
 				
 		//kolor
 			colors = ['red','white','black','blue','yellow','green']
@@ -1448,6 +1457,19 @@ if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
                     reply(`Berhasil mengaktifkan autorespon`)
                 } else if (q === 'off'){
                     autorespon = true
+                    reply(`Berhasil menonaktifkan autorespon`)
+                } else {
+                    reply(mess.error.api)
+                }
+                break
+      case 'autoresponen':
+      if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+       if (args.length < 1) return reply(`Penggunaan ${prefix}autorespon on/off`)
+           if (q === 'on'){
+              autoresponen = false
+                    reply(`Berhasil mengaktifkan autorespon`)
+                } else if (q === 'off'){
+                    autoresponen = true
                     reply(`Berhasil menonaktifkan autorespon`)
                 } else {
                     reply(mess.error.api)
