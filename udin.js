@@ -801,9 +801,13 @@ case 'LOLI 😏':
 loli = await getBuffer(`http://hadi-api.herokuapp.com/api/loli`)
 udin.sendMessage(from, loli, image, {quoted: qul, caption: `Baka Onichan`})
 break
+case 'LOLI HARAM😈':
+lolih = await getBuffer(`https://pecundang.herokuapp.com/api/waifu`)
+udin.sendMessage(from, lolih, image, {quoted: qul, caption: `Baka Onichan})
+break
 case 'HARAM COK 😎':
 haram = await getBuffer(`http://hadi-api.herokuapp.com/api/neko`)
-udin.sendMessage(from, haram, image, {quoted: qul, caption: `Baka Onichan`})
+udin.sendMessage(from, haram, image, {quoted: qul, caption: `Haram Onichan`})
 break
 }
            // STIKER CMD
@@ -954,7 +958,7 @@ case 'help': case 'menu':
 "description": `JANGAN SPAM BOT INI !!..\nTETAP DI RUMAH AJA DAN LAKUKAN 3M\n1.makan\n2.minum\n3.MELIHAT MEMEG`,
 "buttonText": "Click here ♻️",
  "listType": "SINGLE_SELECT",
- "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": 0 }, { "title": "LOLI 😏", "rowId": 0 }, { "title": "HARAM COK 😎", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `CEK BOT 🖥️`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
+ "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": 0 }, { "title": "LOLI 😏", "rowId": 0 }, { "title": "LOLI HARAM😈", "rowId": 0 }, { "title": "HARAM COK 😎", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `CEK BOT 🖥️`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
   ]
   }]}}, {}) 
  udin.relayWAMessage(Testbang, {waitForAck: true})
