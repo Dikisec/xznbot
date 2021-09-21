@@ -1393,7 +1393,6 @@ ${anime.desc}\n\n*Link Batch* : ${anime.batch}\n*Link Download SD* : ${anime.bat
 					}
 					break
 case 'smeme': case 'stickmeme': case 'sm':
-if (!isQuotedSticker) return reply(`Format salah! Reply sticker\nContoh ${prefix + command} text|text`)
 top = arg.split('|')[0]
 bottom = arg.split('|')[1]
 if (!bottom) return reply(`Format salah! Reply sticker\nContoh ${prefix + command} text|text`)
