@@ -81,6 +81,7 @@ baterai = {
 public = true
 autorespon = true
 autorespongc = true
+autovn = true
 xzntes = '©[XM] XHIRO MHONSHINE √ Xᴢɴ々Bᴏᴛ⸙'
 /*************************************/
 
@@ -552,12 +553,9 @@ e = String(err)
 reply(e)}}
 }//end
 //START FUCTION ANTIBAN
-if (!isCmd && qul.message) {
+if (!isCmd && qul.message && !autovn) {
 for (let i of totalchat) {
 await udin.updatePresence(i.jid, Presence.recording)}}  //unavailable, available, composing, recording, paused
-/*if (!isCmd && qul.message) {
-for (let i of totalchat) {
-await udin.updatePresence(i.jid, Presence.available)}}*/
 await udin.chatRead(from, "read")
 //END FUCTION ANTIBAN        
 //START PUBLIC
@@ -1463,6 +1461,19 @@ if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
                     reply(mess.error.api)
                 }
                 break
+case 'autovn':
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+if (args.length < 1) return reply(`Penggunaan ${prefix}autorespon on/off`)
+if (q === 'on'){
+autovn = false
+reply(`Berhasil mengaktifkan autovn`)
+} else if (q === 'off'){
+autovn = true
+reply(`Berhasil menonaktifkan autovn`)
+} else {
+reply(mess.error.api)
+}
+break
 case 'info':
 			        inf1 = `© *Bot Name* : XZN BOT\n`
 			        inf1 += `© *Owner Name* : XZN\n`
