@@ -1382,7 +1382,7 @@ ${anime.desc}\n\n*Link Batch* : ${anime.batch}\n*Link Download SD* : ${anime.bat
 					if ((isMedia && !qul.message.videoMessage || isQuotedImage || isQuotedSticker) && args.length > 0) {
 					ger = isQuotedImage || isQuotedSticker ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
 					owgi = await  udin.downloadAndSaveMediaMessage(ger)
-					anu = await imgbb("cedeb44b8d204947a6833ca1412ca77d", owgi)
+					anu = await imgbb("20a14861e4f7591f3dc52649cb07ae02 ", owgi)
 					tekks = `${anu.display_url}`
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
@@ -1393,13 +1393,15 @@ ${anime.desc}\n\n*Link Batch* : ${anime.batch}\n*Link Download SD* : ${anime.bat
 					}
 					break
 case 'smeme': case 'stickmeme': case 'sm':
+if (!isQuotedSticker) return reply(`Format salah! Reply sticker\nContoh ${prefix + command} text|text`)
 top = arg.split('|')[0]
 bottom = arg.split('|')[1]
+if (!bottom) return reply(`Format salah! Reply sticker\nContoh ${prefix + command} text|text`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !qul.message.videoMessage || isQuotedImage || isQuotedSticker) && args.length > 0) {
 ger = isQuotedImage || isQuotedSticker ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
 owgi = await  udin.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("cedeb44b8d204947a6833ca1412ca77d", owgi)
+anu = await imgbb("20a14861e4f7591f3dc52649cb07ae02", owgi)
 tekks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
