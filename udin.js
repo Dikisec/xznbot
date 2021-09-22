@@ -1208,6 +1208,14 @@ randKey = jsonData[randIndex];
 hasil = await getBuffer(randKey.result)
 udin.sendMessage(from, hasil, image, {quoted: qul})
 break
+case 'lolixzn':
+loli = fs.readFileSync('./noapi/loli.js');
+lolidata = JSON.parse(loli);
+lolirand = Math.floor(Math.random() * lolidata.length);
+lolikun = jsonData[lolirand];
+hasil = await getBuffer(lolikun)
+udin.sendMessage(from, hasil, image, {quoted: qul, caption: `LOLI BOS`})
+break
 //hexa
 case 'linkwa':
 if(!q) return reply('cari group apa?')
