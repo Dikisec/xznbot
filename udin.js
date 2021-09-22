@@ -723,6 +723,14 @@ randKey = jsonData[randIndex];
 hasil = await getBuffer(randKey.result)
 udin.sendMessage(from, hasil, image, {quoted: qul, caption: `GELAP BOS`})
 break
+case 'RANDOM ANIME <||>':
+loli = fs.readFileSync('./noapi/loli.js');
+lolidata = JSON.parse(loli);
+lolirand = Math.floor(Math.random() * lolidata.length);
+lolikun = lolidata[lolirand];
+hasil = await getBuffer(lolikun)
+udin.sendMessage(from, hasil, image, {quoted: qul, caption: `Anime`})
+break
 case 'VIRGAM XZN 🔥':
 if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 const vir = fs.readFileSync(`./virgam.jpg`)
@@ -967,7 +975,7 @@ case 'help': case 'menu':
 "description": `JANGAN SPAM BOT INI !!..\nTETAP DI RUMAH AJA DAN LAKUKAN 3M\n1.makan\n2.minum\n3.MELIHAT MEMEG`,
 "buttonText": "Click here ♻️",
  "listType": "SINGLE_SELECT",
- "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": 0 }, { "title": "LOLI 😏", "rowId": 0 }, { "title": "LOLI HARAM😈", "rowId": 0 }, { "title": "HARAM COK 😎", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `CEK BOT 🖥️`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
+ "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": 0 }, { "title": "RANDOM ANIME <||>", "rowId": 0 }, { "title": "LOLI 😏", "rowId": 0 }, { "title": "LOLI HARAM😈", "rowId": 0 }, { "title": "HARAM COK 😎", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `CEK BOT 🖥️`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
   ]
   }]}}, {}) 
  udin.relayWAMessage(Testbang, {waitForAck: true})
@@ -1208,13 +1216,13 @@ randKey = jsonData[randIndex];
 hasil = await getBuffer(randKey.result)
 udin.sendMessage(from, hasil, image, {quoted: qul})
 break
-case 'lolixzn':
+case 'randomanime':
 loli = fs.readFileSync('./noapi/loli.js');
 lolidata = JSON.parse(loli);
 lolirand = Math.floor(Math.random() * lolidata.length);
 lolikun = lolidata[lolirand];
 hasil = await getBuffer(lolikun)
-udin.sendMessage(from, hasil, image, {quoted: qul, caption: `LOLI BOS`})
+udin.sendMessage(from, hasil, image, {quoted: qul, caption: `Anime`})
 break
 //hexa
 case 'linkwa':
