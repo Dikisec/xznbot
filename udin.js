@@ -1391,7 +1391,7 @@ ${anime.desc}\n\n*Link Batch* : ${anime.batch}\n*Link Download SD* : ${anime.bat
 					if ((isMedia && !qul.message.videoMessage || isQuotedImage || isQuotedSticker) && args.length > 0) {
 					ger = isQuotedImage || isQuotedSticker ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
 					owgi = await  udin.downloadAndSaveMediaMessage(ger)
-					anu = await imgbb("20a14861e4f7591f3dc52649cb07ae02 ", owgi)
+					anu = await imgbb("f0b190d67308d34811fab9c56fe8aba7", owgi)
 					tekks = `${anu.display_url}`
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
@@ -1409,7 +1409,7 @@ var imgbb = require('imgbb-uploader')
 if ((isMedia && !qul.message.videoMessage || isQuotedImage || isQuotedSticker) && args.length > 0) {
 ger = isQuotedImage || isQuotedSticker ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
 owgi = await  udin.downloadAndSaveMediaMessage(ger)
-anu = await imgbb("20a14861e4f7591f3dc52649cb07ae02", owgi)
+anu = await imgbb("f0b190d67308d34811fab9c56fe8aba7", owgi)
 tekks = `${anu.display_url}`
 ranp = getRandom('.gif')
 rano = getRandom('.webp')
