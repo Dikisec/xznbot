@@ -1212,7 +1212,7 @@ case 'lolixzn':
 loli = fs.readFileSync('./noapi/loli.js');
 lolidata = JSON.parse(loli);
 lolirand = Math.floor(Math.random() * lolidata.length);
-lolikun = jsonData[lolirand];
+lolikun = lolidata[lolirand];
 hasil = await getBuffer(lolikun)
 udin.sendMessage(from, hasil, image, {quoted: qul, caption: `LOLI BOS`})
 break
