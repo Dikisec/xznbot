@@ -1404,7 +1404,6 @@ ${anime.desc}\n\n*Link Batch* : ${anime.batch}\n*Link Download SD* : ${anime.bat
 case 'smeme': case 'stickmeme': case 'sm':
 top = arg.split('|')[0]
 bottom = arg.split('|')[1]
-if (!bottom) return reply(`Format salah! Reply sticker\nContoh ${prefix + command} text|text`)
 var imgbb = require('imgbb-uploader')
 if ((isMedia && !qul.message.videoMessage || isQuotedImage || isQuotedSticker) && args.length > 0) {
 ger = isQuotedImage || isQuotedSticker ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
