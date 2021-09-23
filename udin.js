@@ -975,7 +975,7 @@ case 'help': case 'menu':
 "description": `JANGAN SPAM BOT INI !!..\nTETAP DI RUMAH AJA DAN LAKUKAN 3M\n1.makan\n2.minum\n3.MELIHAT MEMEG`,
 "buttonText": "Click here ♻️",
  "listType": "SINGLE_SELECT",
- "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": 0 }, { "title": "RANDOM ANIME <||>", "rowId": 0 }, { "title": "LOLI 😏", "rowId": 0 }, { "title": "LOLI HARAM😈", "rowId": 0 }, { "title": "HARAM COK 😎", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": "DONASI🗿", "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `CEK BOT 🖥️`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
+ "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": 0 }, { "title": "RANDOM ANIME <||>", "rowId": 0 }, { "title": "LOLI 😏", "rowId": 0 }, { "title": "LOLI HARAM😈", "rowId": 0 }, { "title": "HARAM COK 😎", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `CEK BOT 🖥️`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
   ]
   }]}}, {}) 
  udin.relayWAMessage(Testbang, {waitForAck: true})
@@ -3151,7 +3151,9 @@ giliran = @${tty.player1.split('@')[0]}`
             ucapan = `*[ TIC TAC TOE GAME ]*\n\nPlayer1 @${tty.player1.split('@')[0]}=❌\nPlayer2 @${tty.player2.split('@')[0]}=⭕\n\n${ttt}\n\ngiliran = @${tty.player1.split('@')[0]}`
             udin.sendMessage(from, ucapan, MessageType.text, {quoted: qul, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
           }
-      fin = process.uptime()
+         if (body.startsWith(`${prefix}${command}`)) { reply(`Maaf *${pushname}*\nCommand *${prefix}${command}* Tidak Terdaftar Di Dalam *${prefix}menu*!`)}
+       
+        fin = process.uptime()
         if (!qul.hasNewMessage) return udin.setStatus(`Runtime ${xznsenpai.runtime(fin)} | STATUS : ${public ? 'PUBLIC' : 'SELF'} | prefix ${prefix} | ${xzntes}`)
         qul = qul.messages.all()[0]
 				break
