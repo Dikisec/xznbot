@@ -460,19 +460,19 @@ reply("5detik")
 if (!isGroup && !isCmd && !command && !qul.key.fromMe && !autorespon) {
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${arg}&lc=id`)
 sami = simi.success
-reply(`*_${sami}_*`)
+reply(`*_${sami}_*`)}
 //console.log(color(`${sami}`))}
 
 if (!isGroup && !isCmd && !command && !qul.key.fromMe && !autoresponen) {
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${arg}&lc=en`)
 sami = simi.success
-reply(`*_${sami}_*`)
+reply(`*_${sami}_*`)}
 //console.log(color(`${sami}`))}
 
 if (isGroup && !isCmd && !command && !qul.key.fromMe && !autorespongc) {
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${arg}&lc=id`)
 sami = simi.success
-reply(`*_${sami}_*`)
+reply(`*_${sami}_*`)}
 //console.log(color(`${sami}`))}
 				
 		//kolor
