@@ -50,6 +50,7 @@ const ig = require('insta-fetcher')
 const imgbb = require('imgbb-uploader')
 const exif = new Exif();
 let _scommand = JSON.parse(fs.readFileSync('./scommand.json'));
+let chalk = require('chalk')
 
 conn.connect()
 const udin = conn.udin
@@ -460,19 +461,19 @@ if (!isGroup && !isCmd && !command && !qul.key.fromMe && !autorespon) {
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${arg}&lc=id`)
 sami = simi.success
 reply(`*_${sami}_*`)
-console.log(color(`${sami}`))}
+//console.log(color(`${sami}`))}
 
 if (!isGroup && !isCmd && !command && !qul.key.fromMe && !autoresponen) {
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${arg}&lc=en`)
 sami = simi.success
 reply(`*_${sami}_*`)
-console.log(color(`${sami}`))}
+//console.log(color(`${sami}`))}
 
 if (isGroup && !isCmd && !command && !qul.key.fromMe && !autorespongc) {
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${arg}&lc=id`)
 sami = simi.success
 reply(`*_${sami}_*`)
-console.log(color(`${sami}`))}
+//console.log(color(`${sami}`))}
 				
 		//kolor
 			colors = ['red','white','black','blue','yellow','green']
@@ -573,11 +574,13 @@ if (!qul.key.fromMe) return
 }
  //if (isCmd && !isGroup) {console.log(color('[UDIN]' ,'blue'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`))}
 //if (isCmd && isGroup) {console.log(color('[UDIN]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(udin.user.name), 'in', color(groupName))}
-if (!isGroup && isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
+//if (!isGroup && isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
 //if (!isGroup && !isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
-if (isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
+//if (isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
 //if (!isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))*/
-           
+if (qul.message) {
+console.log(chalk.black(isCmd ? chalk.bgBlue('[ CMD ]') : chalk.bgWhite('[ MSG ]')), chalk.black(chalk.bgGreen(time)), chalk.black(chalk.bgRed(body || qul.mtype)) + '\n' + chalk.magenta('> Dari'), chalk.green(pushname), chalk.yellow(sender) + '\n' + chalk.blueBright('> Di'), chalk.green(isGroup ? groupName : 'Private Chat', from))
+}
 //START BUTTONCmd
 switch(buttonCmd) {
 case 'ah':
@@ -2681,7 +2684,7 @@ break
 					xznsenpai.demote(from, [args[0] + '@s.whatsapp.net'])
 				}
 				break
-			case 'kick':
+			/*case 'kick':
 			if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
 			if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
 				if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}kick @tag atau nomor`, qul)
@@ -2695,7 +2698,21 @@ break
 					//await xznsenpai.FakeTokoForwarded(from, `Bye...`, fake)
 					xznsenpai.kick(from, [args[0] + '@s.whatsapp.net'])
 				}
-				break
+				break*/
+				case 'kick':
+  if (!isGroup) return
+  if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+ if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
+  if (qul.message.extendedTextMessage === null || qul.message.extendedTextMessage === undefined) {
+    orang = args[0].replace(/\D/g, '') + '@s.whatsapp.net'
+    mentions(`Sure, kick @${orang.split('@')[0]}`, orang, true)
+      hexa.groupRemove(from, [orang])
+                        } else {
+orang = qul.message.extendedTextMessage.contextInfo.participant || qul.message.extendedTextMessage.contextInfo.mentionedJid[0]
+mentions(`Sure, kick @${orang.split('@')[0]}`, orang, true)
+udin.groupRemove(from, [orang])
+                        } 
+                    break
 			case 'add':
 			if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
 			if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
