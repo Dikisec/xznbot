@@ -3461,3 +3461,9 @@ giliran = @${tty.player1.split('@')[0]}`
 //if (!isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))*/
 
 //if (qul.message) {console.log(chalk.black(isCmd ? chalk.bgBlue('[ CMD ]') : chalk.bgWhite('[ MSG ]')), chalk.black(chalk.bgGreen(time)), chalk.black(chalk.bgRed(body || qul.mtype)) + '\n' + chalk.magenta('> Dari'), chalk.green(pushname), chalk.yellow(sender) + '\n' + chalk.blueBright('> Di'), chalk.green(isGroup ? groupName : 'Private Chat', from))}
+
+
+
+
+
+//.
