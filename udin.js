@@ -70,7 +70,6 @@ const vcard = 'BEGIN:VCARD\n'
  
 fake = "Xᴢɴ々Bᴏᴛ"
 fakeimage = fs.readFileSync("./media/xznsenpai.jpeg")
-faketoi = fs.readFileSync("./media/aqul.jpeg")
 virgam = fs.readFileSync("./virus/virgam.jpg")
 prefix = '#'
 blocked = []
@@ -86,21 +85,14 @@ autoresponen = true
 autorespongc = true
 autovn = true
 xzntes = '©[XM] XHIRO MHONSHINE √ Xᴢɴ々Bᴏᴛ⸙'
-panutan = '© XZNBOT, ARIPBOT, WILLBOT'
 /*************************************/
 
 
 /******** OWNER NUMBER**********/ 
-const ownerNumber = ["6282256080304@s.whatsapp.net","6285751414996@s.whatsapp.net","62857514149961@s.whatsapp.net","62813828362494@s.whatsapp.net","6283862323152@s.whatsapp.net","994407170763@s.whatsapp.net"] 
+const ownerNumber = ["6282256080304@s.whatsapp.net","6285751414996@s.whatsapp.net","62857514149961@s.whatsapp.net","62813828362494@s.whatsapp.net"] 
 /*********** LOAD FILE ***********/
 const welkom = JSON.parse(fs.readFileSync('./database/bot/welkom.json'))
 const antilink = JSON.parse(fs.readFileSync('./database/group/antilink.json'))
-const { buttonsMessage, image } = MessageType
-const wellef = async (from, context, fotext, img, but, options = {}) => {
-jadinya = await udin.prepareMessage(from, img, image, {thumbnail: Buffer.alloc(0)})          
-buttonMessagesI = {imageMessage: jadinya.message.imageMessage, contentText: context, footerText: fotext, buttons: but, headerType: 4}
-udin.sendMessage(from, buttonMessagesI, buttonsMessage, options)
-}
 
 udin.on('CB:Blocklist', json => {
 	if (blocked.length > 2) return
@@ -116,7 +108,7 @@ udin.on('CB:action,,battery', json => {
 })
 
 udin.on('group-participants-update', async (anu) => {
-		//if (!welkom.includes(anu.jid)) return
+		if (!welkom.includes(anu.jid)) return
 		try {
 			mem = anu.participants[0]
 			console.log(anu)
@@ -139,21 +131,13 @@ udin.on('group-participants-update', async (anu) => {
             anu_user = v.vname || v.notify || PhoneNumber('+' + v.jid.replace('@s.whatsapp.net', '')).getNumber('international')
             //anu_user = udin.contacts[mem]
             awikwok = moment().tz('Asia/Jakarta').format("HH:mm")
-            teks = `
-╭──(>>>>>>WELCOME<<<<<<)
-│Selamat Datang Di ${mdata.subject}
-│Hay Kak @${num.split('@')[0]}
-│NAMA =
-│UMUR = 
-│ASKOT =
-╰───────────────────`
+            teks = `Selamat Datang Di ${mdata.subject}\nHay Kak @${num.split('@')[0]}\nDeskripsi Group\n${mdata.desc}`
             fkon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(mdata.id ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { "contactMessage": { "displayName": `${anu_user}`, "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:XL;${anu_user.notify},;;;\nFN:${anu_user.notify},\nitem1.TEL;waid=${num.split('@')[0]}:${num.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
 	        buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/welcome?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://telegra.ph/file/386a72a86b94e8b0ff6c3.jpg`)
-	        but = [{ buttonId: 'f', buttonText: { displayText: `WELCOME\n${teks}` }, type: 1 }]
-	        wellef(mdata.id, teks, panutan, buff, but, { contextInfo: { mentionedJid: [num] }})
 	       //buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/Welcome2?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&gcicon=${pp_group}&pp=${pp_user}&bg=https://telegra.ph/file/386a72a86b94e8b0ff6c3.jpg`)
-		   //udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fkon, caption: teks, contextInfo: {"mentionedJid": [num]}})
+		udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fkon, caption: teks, contextInfo: {"mentionedJid": [num]}})
 		}
+		
             if (anu.action == 'remove' && !mem.includes(udin.user.jid)) {
                 mdata = await udin.groupMetadata(anu.jid)
             	num = anu.participants[0]
@@ -165,12 +149,10 @@ udin.on('group-participants-update', async (anu) => {
                 out = `Selamat Tinggal @${num.split('@')[0]}`
                 fkon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(mdata.id ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { "contactMessage": { "displayName": `${anu_user}`, "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:XL;${anu_user.notify},;;;\nFN:${anu_user.notify},\nitem1.TEL;waid=${num.split('@')[0]}:${num.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
                 buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/goodbye?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://telegra.ph/file/2612c2bbf5e034ec45563.jpg`)
-                but = [{ buttonId: 'f', buttonText: { displayText: 'SELAMAT TINGGAL' }, type: 1 }]
-                wellef(mdata.id, out, panutan, buff, but, { contextInfo: { mentionedJid: [num] }})
                 //buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/goodbye2?nama=${encodeURI(anu_user)}&descriminator=${awikwok}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&gcicon=${pp_group}&pp=${pp_user}&bg=https://telegra.ph/file/2612c2bbf5e034ec45563.jpg`)
-                //udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fkon, caption: out, contextInfo: {"mentionedJid": [num]}})
+                udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fkon, caption: out, contextInfo: {"mentionedJid": [num]}})
             }
-           /*if (anu.action == "promote") {
+            if (anu.action == "promote") {
             	mdata = await udin.groupMetadata(anu.jid)
             	num = anu.participants[0]
                 v = udin.contacts[num] || { notify: num.replace(/@.+/, '') }
@@ -180,9 +162,7 @@ udin.on('group-participants-update', async (anu) => {
                 fgclink = {"key": {"fromMe": false, "participant": "0@s.whatsapp.net", "remoteJid": "0@s.whatsapp.net"}, "message": {"groupInviteMessage": {"mimetype": "image/jpeg", "jpegThumbnail": fs.readFileSync(`./media/loli.jpeg`), "groupJid": "6282256080304-1622727181@g.us", "inviteCode": "mememteeeekkeke", "groupName": "Its Me Zainudin Anggara", "caption": "XZNSENPAI"}}}
                 kata1 = `Selamat @${num.split("@")[0]} telah di Promote`
                 buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/promote?nama=${encodeURI(anu_user)}&member=${memeg}&pesan=Selamat Telah Jadi Admin&pp=${pp_user}&bg=https://telegra.ph/file/6d6b8cd7f12d456d9e22c.jpg`)
-                //udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fgclink, caption: kata1})
-                but = [{ buttonId: 'f', buttonText: { displayText: 'SELAMAT BEB' }, type: 1 }]
-                wellef(mdata.id, `${kata1}`, `${panutan}`, buff, but)
+                udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fgclink, caption: kata1})
                 //udin.sendMessage(mdata.id, `@${num.split("@")[0]} telah di promote`, MessageType.text, { contextInfo: {mentionedJid: [num.split("@")[0]+ "@s.whatsapp.net"]}});
                }
            if (anu.action == "demote") {
@@ -196,11 +176,9 @@ udin.on('group-participants-update', async (anu) => {
               kata = `Selamat @${num.split("@")[0]} telah di demote`
                //buff = await getBuffer(pp_user);
                buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/demote?nama=${encodeURI(anu_user)}&member=${memeg}&pesan=Selamat Telah Diturunkan&pp=${pp_user}&bg=https://telegra.ph/file/6d6b8cd7f12d456d9e22c.jpg`)
-              //udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fgclink, caption: kata})
-              but = [{ buttonId: 'f', buttonText: { displayText: 'YHAHA MAMPUS' }, type: 1 }]
-              wellef(mdata.id, `${kata}`, `${panutan}`, buff, but)
+              udin.sendMessage(mdata.id, buff, MessageType.image, {quoted: fgclink, caption: kata})
               //udin.sendMessage(mdata.id, `@${num.split("@")[0]} telah di demote`, MessageType.text, { contextInfo: {mentionedJid: [num.split("@")[0]+ "@s.whatsapp.net"]}});
-              }*/
+              }
 		} catch (e) {
 			console.log('Error : %s', color(e, 'red'))
 			udin.sendMessage(mdata.id, `${e}`, MessageType.text)
@@ -210,7 +188,7 @@ udin.on('group-participants-update', async (anu) => {
 udin.on('message-update', async (msg) => { // THX TO BANG HANIF
 	require('./antidelete/antidelete.js')(udin, msg)
 })
-udin.on('chat-update', async(qul) => {
+udin.on('message-new', async(qul) => {
   // Sticker Cmd
 const addCmd = (id, command) => {
 	const obj = {
@@ -255,18 +233,17 @@ const checkSCommand = (id) => {
 	return status
 }
 try {
-        if (!qul.hasNewMessage) return
-        qul = qul.messages.all()[0]
-		if (!qul.message || qul.key && qul.key.remoteJid == 'status@broadcast') return
-        qul.message = (Object.keys(qul.message)[0] === 'ephemeralMessage') ? qul.message.ephemeralMessage.message : qul.message
-		let infoMSG = JSON.parse(fs.readFileSync(`./antidelete/msg.data.json`))
-		infoMSG.push(JSON.parse(JSON.stringify(qul)))
-		fs.writeFileSync(`./antidelete/msg.data.json`, JSON.stringify(infoMSG, null, 2))
-		const urutan_pesan = infoMSG.length
-		if (urutan_pesan === 5000) {
-			infoMSG.splice(0, 4300)
-			fs.writeFileSync(`./antidelete/msg.data.json`, JSON.stringify(infoMSG, null, 2))
-		}
+if (!qul.message) return
+if (qul.key && qul.key.remoteJid == 'status@broadcast') return
+qul.message = (Object.keys(qul.message)[0] === 'ephemeralMessage') ? qul.message.ephemeralMessage.message : qul.message
+let infoMSG = JSON.parse(fs.readFileSync(`./antidelete/msg.data.json`))
+infoMSG.push(JSON.parse(JSON.stringify(qul)))
+fs.writeFileSync(`./antidelete/msg.data.json`, JSON.stringify(infoMSG, null, 2))
+const urutan_pesan = infoMSG.length
+if (urutan_pesan === 5000) {
+infoMSG.splice(0, 4300)
+fs.writeFileSync(`./antidelete/msg.data.json`, JSON.stringify(infoMSG, null, 2))
+}
 m = smsg(udin, qul)
 global.prefix
 const content = JSON.stringify(qul.message)
@@ -280,14 +257,12 @@ let senderr = qul.key.fromMe ? udin.user.jid : qul.key.remoteJid.endsWith('@g.us
 const jam = moment.tz('Asia/Jakarta').format('HH:mm.ss')
 const wita = moment.tz('Asia/Makassar').format('HH:mm:ss')
 const wit = moment.tz('Asia/Jayapura').format('HH:mm:ss')
-//const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
-const { text, extendedText, contact, contactsArray, groupInviteMessage, listMessage, buttonsMessage, location, liveLocation, image, video, sticker, document, audio, product, quotedMsg } = MessageType
+const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
 let d = new Date
 let locale = 'id'
 let randomChar = Math.floor(Math.random() * 5) + 1
 const stickCmd = type == 'stickerMessage' ? qul.message.stickerMessage.fileSha256.toString('base64') : '' || ''
-const butcmd = (type === 'buttonsResponseMessage') ? qul.message.buttonsResponseMessage.selectedButtonId : '' 
-const buttonCmd = type == 'listResponseMessage' ? qul.message.listResponseMessage.singleSelectReply.selectedRowId : '' || ''
+const buttonCmd = type == 'listResponseMessage' ? qul.message.listResponseMessage.selectedDisplayText : '' || ''
 const senderNumber = sender.split("@")[0]
 let gmt = new Date(0).getTime() - new Date('1 January 1970').getTime()
 let weton = ['Pahing', 'Pon','Wage','Kliwon','Legi'][Math.floor(((d * 1) + gmt) / 84600000) % 5]
@@ -295,12 +270,11 @@ let week = d.toLocaleDateString(locale, { weekday: 'long' })
 let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
 let waktu = d.toLocaleDateString(locale, { hour: 'numeric', minute: 'numeric', second: 'numeric' })
 const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
-//body = qul.message.conversation || qul.message[type].caption || qul.message[type].text || (type == 'listResponseMessage') && qul.message[type].singleSelectReply.selectedRowId || (type == 'buttonsResponseMessage') && qul.message[type].selectedButtonId || ''
-//body = qul.message.conversation || qul.message[type].caption || qul.message[type].text || (type == 'listResponseMessage' ? qul.message[type].singleSelectReply.selectedRowId : '') || (type == 'buttonsResponseMessage' ? qul.message[type].selectedButtonId : '') || (type == 'stickerMessage' && getCmd(qul.message[type].fileSha256.toString('base64')) !== null && getCmd(qul.message[type].fileSha256.toString('base64')) !== undefined ? getCmd(qul.message[type].fileSha256.toString('base64')) : '') || ''
-body = (type === 'conversation' && qul.message.conversation) ? qul.message.conversation : (type == 'imageMessage') && qul.message[type].caption ? qul.message[type].caption : (type == 'videoMessage') && qul.message[type].caption ? qul.message[type].caption : (type == 'extendedTextMessage') && qul.message[type].text ? qul.message[type].text : (type == 'listResponseMessage') && qul.message[type].singleSelectReply.selectedRowId ? qul.message[type].singleSelectReply.selectedRowId : (type == 'buttonsResponseMessage') && qul.message[type].selectedButtonId ? qul.message[type].selectedButtonId : (type == 'stickerMessage') && (qul.message[type].fileSha256.toString('base64')) !== null && qul.message[type].fileSha256.toString('base64') !== undefined ? qul.message[type].fileSha256.toString('base64') : ""
+		//body = qul.message.conversation || qul.message[type].caption || qul.message[type].text || (type == 'listResponseMessage') && qul.message[type].singleSelectReply.selectedRowId || (type == 'buttonsResponseMessage') && qul.message[type].selectedButtonId || ''
+body = qul.message.conversation || qul.message[type].caption || qul.message[type].text || (type == 'listResponseMessage' ? qul.message[type].singleSelectReply.selectedRowId : '') || (type == 'buttonsResponseMessage' ? qul.message[type].selectedButtonId : '') || (type == 'stickerMessage' && getCmd(qul.message[type].fileSha256.toString('base64')) !== null && getCmd(qul.message[type].fileSha256.toString('base64')) !== undefined ? getCmd(qul.message[type].fileSha256.toString('base64')) : '') || ''
 budy = (type === 'conversation') ? qul.message.conversation : (type === 'extendedTextMessage') ? qul.message.extendedTextMessage.text : ''
 chats = (type === 'conversation') ? qul.message.conversation : (type === 'extendedTextMessage') ? qul.message.extendedTextMessage.text : ''
-//const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
+		//const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
 const command = body.startsWith(prefix) ? body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase() : ''
 const args = body.trim().split(/ +/).slice(1)
 const isCmd = body.startsWith(prefix)
@@ -364,89 +338,20 @@ const isUrl = (url) => {
 return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/, 'gi'))
 }
 //FUCTION MEDIA DLL
-const sendButon = async (from, context, fotext, but, qul) => {
-buttonMessages = {
-contentText: context,
-footerText: fotext,
-buttons: but,
-headerType: 1
-}
-udin.sendMessage(from, buttonMessages, buttonsMessage, {
-quoted: qul
-})
-}
-const sendButImage = async (from, context, fotext, img, but) => {
-//jadinya = await udin.prepareMessage(from, img, image)
-jadinya = await udin.prepareMessage(from, img, image, {thumbnail: Buffer.alloc(0)})
-            
-            buttonMessagesI = {
-                imageMessage: jadinya.message.imageMessage,
-                contentText: context,
-                footerText: fotext,
-                buttons: but,
-                headerType: 4
-            }
-            udin.sendMessage(from, buttonMessagesI, buttonsMessage, {
-                quoted: qul
-            })
-        }
-        
-
-        const sendButVideo = async (from, context, fotext, vid, but) => {
-            jadinya = await udin.prepareMessage(from, vid, video)
-            
-            buttonMessagesV = {
-                videoMessage: jadinya.message.videoMessage,
-                contentText: context,
-                footerText: fotext,
-                buttons: but,
-                headerType: 5
-            }
-            udin.sendMessage(from, buttonMessagesV, buttonsMessage, {
-                quoted: qul
-            })
-        }
-        const sendList = async (from, buntex, desc, sections, qul) => {
-            button = {
-                buttonText: buntex,
-                description: desc,
-                sections: sections,
-                listType: 1
-            }
-            udin.sendMessage(from, button, listMessage, {
-                quoted: qul
-            })
-        }
-        const sendButLoc = async (from, context, fotext, tum, but) => {
-            buttonMessagesL = {
-                contentText: context,
-                footerText: fotext,
-                buttons: but,
-                headerType: 6,
-                locationMessage: {
-                    addres: "jepang",
-                    jpegThumbnail: tum
-                }
-            }
-            return udin.sendMessage(from, buttonMessagesL, buttonsMessage, {
-                quoted: qul
-            })
-        }
-        
 const sendGroupV4Invite = async(jid, participant, inviteCode, inviteExpiration, groupName = 'unknown subject', caption = 'Invitation to join my WhatsApp group', options = {}) => {
-let msg = WAMessageProto.Message.fromObject({
-groupInviteMessage: WAMessageProto.GroupInviteMessage.fromObject({
-inviteCode,
-inviteExpiration: parseInt(inviteExpiration) || +new Date(new Date + (3 * 86400000)),
-groupJid: jid,
-groupName: groupName ? groupName : udin.getName(jid),
-caption
-})
-})
-let message = await udin.prepareMessageFromContent(participant, msg, options)
-await udin.relayWAMessage(message)
-return message
-}
+			let msg = WAMessageProto.Message.fromObject({
+				groupInviteMessage: WAMessageProto.GroupInviteMessage.fromObject({
+					inviteCode,
+					inviteExpiration: parseInt(inviteExpiration) || +new Date(new Date + (3 * 86400000)),
+					groupJid: jid,
+					groupName: groupName ? groupName : udin.getName(jid),
+					caption
+				})
+			})
+			let message = await udin.prepareMessageFromContent(participant, msg, options)
+			await udin.relayWAMessage(message)
+			return message
+		}
 const sendStickerFromUrl = async(to, url) => {
 var names = Date.now() / 10000;
 var download = function (uri, filename, callback) {
@@ -490,7 +395,7 @@ mime = Mimetype.gif
 if(mime.split("/")[0] === "audio"){
 mime = Mimetype.mp4Audio
 }
-udin.sendMessage(to, media, type, { quoted: qul, thumbnail: fs.readFileSync('./media/loli.jpeg'), mimetype: mime, caption: text,contextInfo: {"mentionedJid": mids}})                    
+udin.sendMessage(to, media, type, { quoted: qul, mimetype: mime, caption: text,contextInfo: {"mentionedJid": mids}})                    
 fs.unlinkSync(filename)
 });
 }//HABIS
@@ -659,173 +564,137 @@ if (isCmd && !isGroup) {console.log(chalk.black(isCmd ? chalk.bgBlue('[ CMD ]') 
 if (isCmd && isGroup) {console.log(chalk.black(isCmd ? chalk.bgBlue('[ CMD ]') : chalk.bgWhite('[ MSG ]')), chalk.black(chalk.bgGreen(time)), chalk.black(chalk.bgRed(body || qul.mtype)) + '\n' + chalk.magenta('> Dari'), chalk.green(pushname), chalk.yellow(sender) + '\n' + chalk.blueBright('> Di'), chalk.green(isGroup ? groupName : 'Private Chat', from))}
 
 //START BUTTONCmd
-switch(butcmd) {
-case 'OWNER 🔰':
-udin.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: qul})
-break
-case 'STOP':
-reply('STOP STOP AJ GOSAH DI PENCET LAGI')
-break
-case 'RANDOM ANIMEX ♻️':
-loli = fs.readFileSync('./noapi/loli.js');
-lolidata = JSON.parse(loli);
-lolirand = Math.floor(Math.random() * lolidata.length);
-lolikun = lolidata[lolirand];
-hasil = await getBuffer(lolikun)
-but = [
-{ buttonId: 'STOP', buttonText: { displayText: 'STOP 🚫' }, type: 1 },
-{ buttonId: 'RANDOM ANIMEX ♻️', buttonText: { displayText: 'LANJUT ♻️' }, type: 1 }
-]
-sendButImage(from, `RANDOM ANIMEX`, `${panutan}`, hasil, but)
-break
-case 'loli':
-loli = await getBuffer(`http://hadi-api.herokuapp.com/api/loli`)
-but = [
-{ buttonId: 'STOP', buttonText: { displayText: 'STOP 🚫' }, type: 1 },
-{ buttonId: 'loli', buttonText: { displayText: 'NEXT ♻️' }, type: 1 }
-]
-sendButImage(from, `BAKA ONICHAN`, `${panutan}`, loli, but)
-break
-case 'haram':
-haram = await getBuffer(`http://hadi-api.herokuapp.com/api/neko`)
-but = [
-{ buttonId: 'STOP', buttonText: { displayText: 'STOP 🚫' }, type: 1 },
-{ buttonId: 'haram', buttonText: { displayText: 'NEXT ♻️' }, type: 1 }
-]
-sendButImage(from, `JANGAN DI JADIIN BACOL YEE`, `${panutan}`, haram, but)
-break
-case 'darkjokes':
-data = fs.readFileSync('./noapi/darkjokes.js');
-jsonData = JSON.parse(data);
-randIndex = Math.floor(Math.random() * jsonData.length);
-randKey = jsonData[randIndex];
-hasil = await getBuffer(randKey.result)
-but = [
-{ buttonId: 'STOP', buttonText: { displayText: 'STOP 🚫' }, type: 1 },
-{ buttonId: 'darkjokes', buttonText: { displayText: 'NEXT ♻️' }, type: 1 }
-]
-sendButImage(from, `AWOKWOK DARK COK`, `${panutan}`, hasil, but)
-break
-case 'dare':
-const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot "🦄💨" setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u baby?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
-const der = dare[Math.floor(Math.random() * dare.length)]
-but = [{ buttonId: 'truth', buttonText: { displayText: 'TRUTH' }, type: 1 }, { buttonId: 'dare', buttonText: { displayText: 'DARE' }, type: 1 },]
-sendButon(from, `*DARE*\n\n${der}`, `${panutan}`, but)
-break
-case 'truth':
-const trut =['Pernah suka sama siapa aja? berapa lama?','Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)','apa ketakutan terbesar kamu?','pernah suka sama orang dan merasa orang itu suka sama kamu juga?','Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?','pernah gak nyuri uang nyokap atau bokap? Alesanya?','hal yang bikin seneng pas lu lagi sedih apa','pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?','pernah jadi selingkuhan orang?','hal yang paling ditakutin','siapa orang yang paling berpengaruh kepada kehidupanmu','hal membanggakan apa yang kamu dapatkan di tahun ini','siapa orang yang bisa membuatmu sange','siapa orang yang pernah buatmu sange','(bgi yg muslim) pernah ga solat seharian?','Siapa yang paling mendekati tipe pasangan idealmu di sini','suka mabar(main bareng)sama siapa?','pernah nolak orang? alasannya kenapa?','Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget','pencapaian yang udah didapet apa aja ditahun ini?','kebiasaan terburuk lo pas di sekolah apa?']
-const ttrth = trut[Math.floor(Math.random() * trut.length)]
-but = [{ buttonId: 'truth', buttonText: { displayText: 'TRUTH' }, type: 1 }, { buttonId: 'dare', buttonText: { displayText: 'DARE' }, type: 1 },]
-sendButon(from, `*TRUTH*\n\n${ttrth}`, `${panutan}`, but)
-break
-}
-
 switch(buttonCmd) {
+case 'ah':
+reply(mess.wait)
+ res = await fs.readFileSync('./assets/ah.mp3');
+udin.sendMessage(from, res, audio, {quoted : qul, mimetype: 'audio/mp4',duration:999.999, ptt:true})
+break
+case 'iri':
+reply(mess.wait)
+const irimp3 = fs.readFileSync('./assets/iri.mp3');
+udin.sendMessage(from, irimp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
+break
 case 'MeNu🔥':
  rn = process.uptime()
-const textnya = `𖥂  MENU BOT XZN ⼥
+const textnya = `
+==>>Mohon Baca<<==
 
-╭──(>>>>>>PERHATIAN<<<<<<)
-│JANGAN SPAM BOT INI !!..
-│TETAP DI RUMAH AJA DAN LAKUKAN 3M
-│1.makan
-│2.minum
-│3.MELIHAT MEMEG
-╰───────────────────
+JANGAN SPAM BOT INI !!..
+TETAP DI RUMAH AJA DAN LAKUKAN 3M
+1.makan
+2.minum
+3.MELIHAT MEMEG
 
-╭──(>>>>>>WAKTU/HARI<<<<<<)
-│⦿ Jam WIT : ${wit}
-│⦿ Jam WITA : ${wita}
-│⦿ Jam WIB : ${jam}
-│⦿ Hari : ${week} ${weton}
-│⦿ Kalender : ${date}
-│⦿Runtime : ${xznsenpai.runtime(rn)}
-╰───────────────────
+=>>JAM<<=
 
-╭──(>>>>>>FFMPEG<<<<<<)
-│1.${prefix}sticker
-│2.${prefix}toimg {eror bang}
-╰───────────────────
+⦿ Jam WIT : ${wit}
+⦿ Jam WITA : ${wita}
+⦿ Jam WIB : ${jam}
+⦿ Hari : ${week} ${weton}
+⦿ Kalender : ${date}
+⦿Runtime : ${xznsenpai.runtime(rn)}
 
-╭──(>>>>>>DOWNLOAD<<<<<<)
-│1.${prefix}play <judul lagu>
-│2.${prefix}video <judul video>
-│3.${prefix}ytmp4 <link video yt>
-│4.${prefix}ytmp3 <link video yt>
-│5.${prefix}ttnowm <link video tiktok>
-│6.${prefix}igdl <link video ig>
-╰───────────────────
+=>>Pembuat Sticker<<=
 
-╭──(>>>>>>PAJANGAN<<<<<<)
-│1.${prefix}darkjokes
-│2.${prefix}lirik <judul lagu>
-│3.${prefix}ytsearch <nama video yt>
-│4.${prefix}pinterest <nama foto>
-│5.${prefix}playstore <nama apk>
-│6.${prefix}truth
-│7.${prefix}dare
-╰───────────────────
+1.${prefix}sticker
+2.${prefix}toimg
 
-╭──(>>>>>>ONLY ADMIN<<<<<<)
-│1.${prefix}kick <reply pesan>
-│2.${prefix}add <628**********>
-│3.${prefix}group buka/tutup
-│4.${prefix}welcome <1/2>
-╰───────────────────
+=>>DOWNLOAD<<=
 
-╭──(>>>>>>AU AH MLS<<<<<<)
-│1.${prefix}sm <reply foto/sticker>
-│2.${prefix}memegen <reply sticker/foto>
-│2.${prefix}flaming2 <masukkan text>
-│3.${prefix}butterfly <masukkan text>
-│4.${prefix}lovetext <masukkan text>
-│5.${prefix}msggrass <masukkan text>
-│6.${prefix}lovemsg <masukkan text>
-│7.${prefix}naruto2 <masukkan text>
-│8.${prefix}burnpapper <masukkan text>
-│9.${prefix}smoke <masukkan text>
-│10.${prefix}romantic <masukkan text>
-│11.${prefix}glitch <text1 text2>
-│12.${prefix}wanted <text1 text2 url>
-│13.${prefix}neon2 <masukkan text>
-│14.${prefix}coffecup <masukkan text>
-│15.${prefix}shadow <masukkan text>
-│16.${prefix}pubg <text1 text2>
-│17.${prefix}cemetery <masukkan text>
-│18.${prefix}wolf <masukkan text>
-│19.${prefix}hary <masukkan text>
-│20.${prefix}cover <masukkan text>
-│21.${prefix}nightsky <masukkan text>
-│22.${prefix}woodblock <masukkan text>
-│23.${prefix}under <masukkan text>
-│24.${prefix}battlefield <masukkan text>
-│25.${prefix}flaming2 <masukkan text>
-│
-│*Xᴢɴ々Bᴏᴛ*
-╰───────────────────`
-but = [{ buttonId: 'OWNER 🔰', buttonText: { displayText: 'NOMOR OWNER 🔰' }, type: 1 }]
-img = fs.readFileSync('./media/aqul.jpeg')
-sendButLoc(from, `${textnya}`, `${panutan}`, img, but)
+1.${prefix}play <judul lagu>
+2.${prefix}video <judul video>
+3.${prefix}ytmp4 <link video yt>
+4.${prefix}ytmp3 <link video yt>
+5.${prefix}ttnowm <link video tiktok>
+6.${prefix}igdl <link video ig>
+
+=>>YNTKTS<<=
+
+1.${prefix}darkjokes
+2.${prefix}lirik <judul lagu>
+3.${prefix}ytsearch <nama video yt>
+4.${prefix}pinterest <nama foto>
+5.${prefix}playstore <nama apk>
+6.${prefix}truth
+7.${prefix}dare
+
+=>>ONLY ADMIN<<=
+
+1.${prefix}kick <reply pesan>
+2.${prefix}add <628**********>
+3.${prefix}group buka/tutup
+4.${prefix}welcome <1/2>
+
+=>>TEXT KE FOTO<<=
+
+1.${prefix}sm <reply foto/sticker>
+2.${prefix}memegen <reply sticker/foto>
+2.${prefix}flaming2 <masukkan text>
+3.${prefix}butterfly <masukkan text>
+4.${prefix}lovetext <masukkan text>
+5.${prefix}msggrass <masukkan text>
+6.${prefix}lovemsg <masukkan text>
+7.${prefix}naruto2 <masukkan text>
+8.${prefix}burnpapper <masukkan text>
+9.${prefix}smoke <masukkan text>
+10.${prefix}romantic <masukkan text>
+11.${prefix}glitch <text1 text2>
+12.${prefix}wanted <text1 text2 url>
+13.${prefix}neon2 <masukkan text>
+14.${prefix}coffecup <masukkan text>
+15.${prefix}shadow <masukkan text>
+16.${prefix}pubg <text1 text2>
+17.${prefix}cemetery <masukkan text>
+18.${prefix}wolf <masukkan text>
+19.${prefix}hary <masukkan text>
+20.${prefix}cover <masukkan text>
+21.${prefix}nightsky <masukkan text>
+22.${prefix}woodblock <masukkan text>
+23.${prefix}under <masukkan text>
+24.${prefix}battlefield <masukkan text>
+
+*Xᴢɴ々Bᴏᴛ*`
+fyt2(textnya)
 break
-case 'PERTANYAAN':
-but = [{ buttonId: 'dare', buttonText: { displayText: 'DARE' }, type: 1 }, { buttonId: 'truth', buttonText: { displayText: 'TRUTH' }, type: 1 },]
-img = fs.readFileSync('./media/aqul.jpeg')
-sendButLoc(from, `TRUTH & DARE`, `${panutan}`, img, but)
+case 'INFO🗿':
+inf1 = `© *Bot Name* : XZN BOT\n`
+inf1 += `© *Owner Name* : XZN\n`
+inf1 += `© *AUTHOR* : XZNSENPAI\n`
+inf1 += `© *Bot Number* : 6282255794209\n`
+inf1 += `© *Owner Number* : 6282256080304\n`
+reply(inf1)
 break
+case 'DONASI🗿':
+const donasi = fs.readFileSync(`./media/donasi.jpg`)
+const donasii = `
+Mau donasi ya om?✨
+
+“jauhilah api neraka, walau hanya dengan bersedekah sebiji kurma (sedikit). Jika kamu tidak punya, maka bisa dengan kalimah thayyibah”
+ [HR. Bukhari 6539, Muslim 1016]
+
+Dana = 6282256080304
+pulsa TEL = 6282256080304
+pulsa IM3 = 6285751414996
+
+foto di atas hanya pemanis
+*BUAT BELI JAJAN*`
+udin.sendMessage(from, donasi, image, {quoted: qul, caption: donasii})
+break 
 case 'KONTAK OWNER🗿':
 udin.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: qul})
 break
 case 'Open Group':
-if (!isGroupAdmins) return reply(mess.GrupAdmin)
-if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
 tag = sender.split('@')[0]
 teks1 = `*_Sukses Membuka Group oleh Admin @${tag}`
 udin.sendMessage(from, teks1,text,{contextInfo: { mentionedJid: [sender]},quoted : qul})
 udin.groupSettingChange(from, GroupSettingChange.messageSend, false)
 break
 case 'Close Group':
-if (!isGroupAdmins) return reply(mess.GrupAdmin)
-if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
 tag = sender.split('@')[0]
 teks1 = `*_Sukses Menutup Group oleh Admin @${tag}`
 udin.sendMessage(from, teks1,text,{contextInfo: { mentionedJid: [sender]},quoted : qul})
@@ -837,28 +706,23 @@ jsonData = JSON.parse(data);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 hasil = await getBuffer(randKey.result)
-but = [
-{ buttonId: 'STOP', buttonText: { displayText: 'STOP 🚫' }, type: 1 },
-{ buttonId: 'darkjokes', buttonText: { displayText: 'NEXT ♻️' }, type: 1 }
-]
-sendButImage(from, `AWOKWOK DARK COK`, `${panutan}`, hasil, but)
+udin.sendMessage(from, hasil, image, {quoted: qul, caption: `GELAP BOS`})
 break
 case 'RANDOM ANIME <||>':
-but = [
-{ buttonId: 'loli', buttonText: { displayText: ' LOLI ACAK 🛐 ' }, type: 1 },
-{ buttonId: 'haram', buttonText: { displayText: 'WAIFU ACAK 🛐 ' }, type: 1 },
-{ buttonId: 'RANDOM ANIMEX ♻️', buttonText: { displayText: 'RANDOM ANIMEX ♻️' }, type: 1 }
-]
-img = fs.readFileSync('./media/aqul.jpeg')
-sendButLoc(from, `PILIH TERSERAHLU KLU BISA JANGAN SPAM`, `${panutan}`, img, but)
+loli = fs.readFileSync('./noapi/loli.js');
+lolidata = JSON.parse(loli);
+lolirand = Math.floor(Math.random() * lolidata.length);
+lolikun = lolidata[lolirand];
+hasil = await getBuffer(lolikun)
+udin.sendMessage(from, hasil, image, {quoted: qul, caption: `Anime`})
 break
 case 'VIRGAM XZN 🔥':
-if (!isMybot) return reply(mess.OnlyOwner)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 const vir = fs.readFileSync(`./virgam.jpg`)
 xznsenpai.sendFakeImg(from, vir, arg, virgam, qul)
 break
 case 'SLAYER VERSI XZN🔥':
-if (!isMybot) return reply(mess.OnlyOwner)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 hmm4 = fs.readFileSync(`./virgam.jpg`)
 imeu = await udin.prepareMessage('0@s.whatsapp.net', hmm4, image, {thumbnail: fs.readFileSync("./virus/virgam.jpg")})
 imeg = imeu.message.imageMessage
@@ -883,7 +747,7 @@ res = await udin.prepareMessageFromContent(from,{
 udin.relayWAMessage(res)
 break
 case 'VIRUS LOKASI 🔥':
-if (!isMybot) return reply(mess.OnlyOwner)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 ppp = `𝙓𝙕𝙉𝙎𝙀𝙉𝙋𝘼𝙄`
 send = ppp.split("|")[0];
 ppp = `${virtexxx()}`
@@ -917,6 +781,80 @@ teskny = `
 *Runtime :* ${xznsenpai.runtime(anu)}`
 replyy(teskny)
 break
+case 'TRUTH 🐤':
+const trut =['Pernah suka sama siapa aja? berapa lama?','Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)','apa ketakutan terbesar kamu?','pernah suka sama orang dan merasa orang itu suka sama kamu juga?','Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?','pernah gak nyuri uang nyokap atau bokap? Alesanya?','hal yang bikin seneng pas lu lagi sedih apa','pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?','pernah jadi selingkuhan orang?','hal yang paling ditakutin','siapa orang yang paling berpengaruh kepada kehidupanmu','hal membanggakan apa yang kamu dapatkan di tahun ini','siapa orang yang bisa membuatmu sange','siapa orang yang pernah buatmu sange','(bgi yg muslim) pernah ga solat seharian?','Siapa yang paling mendekati tipe pasangan idealmu di sini','suka mabar(main bareng)sama siapa?','pernah nolak orang? alasannya kenapa?','Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget','pencapaian yang udah didapet apa aja ditahun ini?','kebiasaan terburuk lo pas di sekolah apa?']
+const ttrth = trut[Math.floor(Math.random() * trut.length)]
+const truteh = fs.readFileSync(`./media/dare.jpg`)
+udin.sendMessage(from, truteh, image, { caption: '*Truth*\n\n'+ ttrth, quoted: qul })
+break
+case 'DARE 🐤':
+const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot "🦄💨" setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u baby?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
+const der = dare[Math.floor(Math.random() * dare.length)]
+const tod = fs.readFileSync(`./media/dare.jpg`)
+udin.sendMessage(from, tod, image, { quoted: qul, caption: '*Dare*\n\n'+ der })
+break
+case 'STICKER 🐈':
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+const trl = fs.readFileSync(`./tikel/xzn.webp`)
+udin.sendMessage(from, trl, sticker, {quoted:dinnn })
+udin.sendMessage(from, trl, sticker, {quoted:dinnn })
+break
+case 'LOLI 😏':
+loli = await getBuffer(`http://hadi-api.herokuapp.com/api/loli`)
+udin.sendMessage(from, loli, image, {quoted: qul, caption: `Baka Onichan`})
+break
+case 'LOLI HARAM😈':
+lolih = await getBuffer(`https://pecundang.herokuapp.com/api/waifu`)
+udin.sendMessage(from, lolih, image, {quoted: qul, caption: `Baka Onichan`})
+break
+case 'HARAM COK 😎':
+haram = await getBuffer(`http://hadi-api.herokuapp.com/api/neko`)
+udin.sendMessage(from, haram, image, {quoted: qul, caption: `Haram Onichan`})
+break
+case 'cyberspace':
+loli = fs.readFileSync('./noapi/cyberspace.js');
+lolidata = JSON.parse(loli);
+lolirand = Math.floor(Math.random() * lolidata.length);
+lolikun = lolidata[lolirand];
+hasil = await getBuffer(lolikun)
+udin.sendMessage(from, hasil, image, {quoted: qul, caption: `${command}`}) 
+break
+case 'teknologi':
+loli = fs.readFileSync('./noapi/teknologi.js');
+lolidata = JSON.parse(loli);
+lolirand = Math.floor(Math.random() * lolidata.length);
+lolikun = lolidata[lolirand];
+hasil = await getBuffer(lolikun)
+udin.sendMessage(from, hasil, image, {quoted: qul, caption: `${command}`}) 
+break
+case 'programming':
+loli = fs.readFileSync('./noapi/programming.js');
+lolidata = JSON.parse(loli);
+lolirand = Math.floor(Math.random() * lolidata.length);
+lolikun = lolidata[lolirand];
+hasil = await getBuffer(lolikun)
+udin.sendMessage(from, hasil, image, {quoted: qul, caption: `${command}`}) 
+break
+case 'pegunungan':
+loli = fs.readFileSync('./noapi/pegunungan.js');
+lolidata = JSON.parse(loli);
+lolirand = Math.floor(Math.random() * lolidata.length);
+lolikun = lolidata[lolirand];
+hasil = await getBuffer(lolikun)
+udin.sendMessage(from, hasil, image, {quoted: qul, caption: `${command}`}) 
+break
+case 'muslim':
+loli = fs.readFileSync('./noapi/muslim.js');
+lolidata = JSON.parse(loli);
+lolirand = Math.floor(Math.random() * lolidata.length);
+lolikun = lolidata[lolirand];
+hasil = await getBuffer(lolikun)
+udin.sendMessage(from, hasil, image, {quoted: qul, caption: `${command}`}) 
+break
+case 'WALLPAPER LAPTOP':
+Testbang = udin.prepareMessageFromContent(from, {"listMessage":{"title": `${ucapanWaktu} ${pushname}`, "description": "WALLPAPER LAPTOP", "buttonText": "Click here ♻️", "listType": "SINGLE_SELECT", "sections": [ {"title": `${week} ${date}`, "rows": [{ "title": "cyberspace", "rowId": 0 }, { "title": "teknologi", "rowId": 0 }, { "title": "programming", "rowId": 0 }, { "title": "pegunungan", "rowId": 0 }, { "title": "muslim", "rowId": 0 }]}]}}, {}) 
+ udin.relayWAMessage(Testbang, {waitForAck: true})
+ break
 }
            // STIKER CMD
           switch(stickCmd) {
@@ -1003,16 +941,16 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
  fyt2(textnya)
 	          break
 	          case 'tzCvkWiTvb5VtvzcgxdOxZ7Ak0aIco7vi2gnxCo+Eq4=':
-	          if (!isGroupAdmins) return reply(mess.GrupAdmin)
-	          if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+	          if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+	          if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
               tag = sender.split('@')[0]
               teks1 = `*_Sukses Membuka Group oleh Admin @${tag}`
 					    udin.sendMessage(from, teks1,text,{contextInfo: { mentionedJid: [sender]},quoted : qul})
 						udin.groupSettingChange(from, GroupSettingChange.messageSend, false)
 						break
 						case 'AI6CZl7Pu82Fgx8E/ane1j3nC9RnbXz51V0ZEFDZs0g=':
-                       if (!isGroupAdmins) return reply(mess.GrupAdmin)
-				       if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+                       if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+				       if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
                        tag = sender.split('@')[0]
                         teks1 = `*_Sukses Menutup Group oleh Admin @${tag}`
 					    udin.sendMessage(from, teks1,text,{contextInfo: { mentionedJid: [sender]},quoted : qul})
@@ -1041,7 +979,7 @@ TETAP DI RUMAH AJA DAN LAKUKAN 3M
  switch (command) {
 case 'addcmd':
 case 'setcmd':
-if (!isMybot) return reply(mess.OnlyOwner)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 if (isQuotedSticker) {
 if (!q) return reply(`Penggunaan : ${prefix+command} cmdnya dan tag stickernya`)
 kodenya = qul.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.fileSha256.toString('base64')
@@ -1052,7 +990,7 @@ reply('tag stickenya')
 }
 break
 case 'delcmd':
-if (!isMybot) return reply(mess.OnlyOwner)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 if (!isQuotedSticker) return reply(`Penggunaan : ${prefix+command} tagsticker`)
 kodenya = qul.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.fileSha256.toString('base64')
 _scommand.splice(getCommandPosition(kodenya), 1)
@@ -1061,126 +999,22 @@ reply('Sukses')
 break
 case 'q': 
 if (!m.quoted) return reply('reply message!')
-let qse = udin.serializeM(await m.getQuotedObj())
+let qse = senku.serializeM(await m.getQuotedObj())
 if (!qse.quoted) return reply('the message you replied does not contain a reply!')
 await qse.quoted.copyNForward(m.chat, true)
 break
-/*case 'help': case 'menu':
+case 'help': case 'menu':
  Testbang = udin.prepareMessageFromContent(from, {
 "listMessage":{
  "title": `${ucapanWaktu} ${pushname}`,
 "description": `JANGAN SPAM BOT INI !!..\nTETAP DI RUMAH AJA DAN LAKUKAN 3M\n1.makan\n2.minum\n3.MELIHAT MEMEG`,
 "buttonText": "Click here ♻️",
  "listType": "SINGLE_SELECT",
- "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": 0 }, { "title": "RANDOM ANIME <||>", "rowId": 0 }, { "title": "LOLI 😏", "rowId": 0 }, { "title": "LOLI HARAM😈", "rowId": 0 }, { "title": "HARAM COK 😎", "rowId": 0 }, { "title": "KONTAK OWNER??", "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `CEK BOT 🖥️`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
+ "sections": [ {"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": 0 }, { "title": "RANDOM ANIME <||>", "rowId": 0 }, { "title": "LOLI 😏", "rowId": 0 }, { "title": "LOLI HARAM😈", "rowId": 0 }, { "title": "HARAM COK 😎", "rowId": 0 }, { "title": "KONTAK OWNER🗿", "rowId": 0 }, { "title": `Darkjokes 🗿`, "rowId": 0 }, { "title": `CEK BOT 🖥️`, "rowId": 0 }, { "title": `TRUTH 🐤`, "rowId": 0 }, { "title": `DARE 🐤`, "rowId": 0 }
   ]
   }]}}, {}) 
  udin.relayWAMessage(Testbang, {waitForAck: true})
-break*/
-case 'help':
- rn = process.uptime()
- textnya = `𖥂  MENU BOT XZN ⼥
-
-╭──(>>>>>>PERHATIAN<<<<<<)
-│JANGAN SPAM BOT INI !!..
-│TETAP DI RUMAH AJA DAN LAKUKAN 3M
-│1.makan
-│2.minum
-│3.MELIHAT MEMEG
-╰───────────────────
-
-╭──(>>>>>>WAKTU/HARI<<<<<<)
-│⦿ Jam WIT : ${wit}
-│⦿ Jam WITA : ${wita}
-│⦿ Jam WIB : ${jam}
-│⦿ Hari : ${week} ${weton}
-│⦿ Kalender : ${date}
-│⦿Runtime : ${xznsenpai.runtime(rn)}
-╰───────────────────
-
-╭──(>>>>>>FFMPEG<<<<<<)
-│1.${prefix}sticker
-│2.${prefix}toimg {eror bang}
-╰───────────────────
-
-╭──(>>>>>>DOWNLOAD<<<<<<)
-│1.${prefix}play <judul lagu>
-│2.${prefix}video <judul video>
-│3.${prefix}ytmp4 <link video yt>
-│4.${prefix}ytmp3 <link video yt>
-│5.${prefix}ttnowm <link video tiktok>
-│6.${prefix}igdl <link video ig>
-╰───────────────────
-
-╭──(>>>>>>PAJANGAN<<<<<<)
-│1.${prefix}darkjokes
-│2.${prefix}lirik <judul lagu>
-│3.${prefix}ytsearch <nama video yt>
-│4.${prefix}pinterest <nama foto>
-│5.${prefix}playstore <nama apk>
-│6.${prefix}truth
-│7.${prefix}dare
-╰───────────────────
-
-╭──(>>>>>>ONLY ADMIN<<<<<<)
-│1.${prefix}kick <reply pesan>
-│2.${prefix}add <628**********>
-│3.${prefix}group buka/tutup
-│4.${prefix}welcome <1/2>
-╰───────────────────
-
-╭──(>>>>>>AU AH MLS<<<<<<)
-│1.${prefix}sm <reply foto/sticker>
-│2.${prefix}memegen <reply sticker/foto>
-│2.${prefix}flaming2 <masukkan text>
-│3.${prefix}butterfly <masukkan text>
-│4.${prefix}lovetext <masukkan text>
-│5.${prefix}msggrass <masukkan text>
-│6.${prefix}lovemsg <masukkan text>
-│7.${prefix}naruto2 <masukkan text>
-│8.${prefix}burnpapper <masukkan text>
-│9.${prefix}smoke <masukkan text>
-│10.${prefix}romantic <masukkan text>
-│11.${prefix}glitch <text1 text2>
-│12.${prefix}wanted <text1 text2 url>
-│13.${prefix}neon2 <masukkan text>
-│14.${prefix}coffecup <masukkan text>
-│15.${prefix}shadow <masukkan text>
-│16.${prefix}pubg <text1 text2>
-│17.${prefix}cemetery <masukkan text>
-│18.${prefix}wolf <masukkan text>
-│19.${prefix}hary <masukkan text>
-│20.${prefix}cover <masukkan text>
-│21.${prefix}nightsky <masukkan text>
-│22.${prefix}woodblock <masukkan text>
-│23.${prefix}under <masukkan text>
-│24.${prefix}battlefield <masukkan text>
-│25.${prefix}flaming2 <masukkan text>
-│
-│*Xᴢɴ々Bᴏᴛ*
-╰───────────────────`
-but = [{ buttonId: 'OWNER 🔰', buttonText: { displayText: 'OWNER 🔰' }, type: 1 }]
-img = fs.readFileSync('./media/aqul.jpeg')
-sendButLoc(from, `${textnya}`, `${panutan}`, img, but)
 break
-case 'menu':
- Testbang = udin.prepareMessageFromContent(from, {
-"listMessage":{
- "title": `${ucapanWaktu} ${pushname}`,
-"description": `╭──(>>>>>>PERHATIAN<<<<<<)
-│JANGAN SPAM BOT INI !!..
-│TETAP DI RUMAH AJA DAN LAKUKAN 3M
-│1.makan
-│2.minum
-│3.MELIHAT MEMEG
-╰───────────────────`,
-"buttonText": "Click here ♻️",
- "listType": "SINGLE_SELECT",
- "sections": [{"title": `${week} ${date}`, "rows": [ { "title": `MeNu🔥`, "rowId": "MeNu🔥" }, { "title": `PERTANYAAN`, "rowId": "PERTANYAAN" }, { "title": "RANDOM ANIME <||>", "rowId": "RANDOM ANIME <||>" }, { "title": "KONTAK OWNER🗿", "rowId": "KONTAK OWNER🗿" }, { "title": `Darkjokes 🗿`, "rowId": "Darkjokes 🗿" }, { "title": `CEK BOT 🖥️`, "rowId": "CEK BOT 🖥️" }
-  ]
-  }]}}, { quoted: qul }) 
- udin.relayWAMessage(Testbang, {waitForAck: true})
- break
  case 'virxzn':
 Testbang = udin.prepareMessageFromContent(from, {
 "listMessage":{
@@ -1190,7 +1024,7 @@ Testbang = udin.prepareMessageFromContent(from, {
  "listType": "SINGLE_SELECT",
  "sections": [ {"title": `${week} ${date}`,
  "rows": [ 
-{ "title": "SLAYER VERSI XZN🔥", "rowId": 0 }, { "title": "VIRGAM XZN 🔥", "rowId": "VIRGAM XZN 🔥 "}, { "title": "VIRUS LOKASI 🔥", "rowId": "VIRUS LOKASI 🔥" }, { "title": "STICKER 🐈", "rowId": "STICKER 🐈" }, 
+{ "title": "SLAYER VERSI XZN🔥", "rowId": 0 }, { "title": "VIRGAM XZN 🔥", "rowId": 0 }, { "title": "VIRUS LOKASI 🔥", "rowId": 0 }, { "title": "STICKER 🐈", "rowId": 0 }, 
   ]
   }]}}, {}) 
  udin.relayWAMessage(Testbang, {waitForAck: true})
@@ -1528,7 +1362,7 @@ textnya = `𖥂 OWNER MENU BY XZN ⼥
 │=> 
 │$
 ╰──(>>>>>>END OWNER<<<<<<)`
-udin.sendMessage(from, llol, image, {quoted: qul, thumbnail: fs.readFileSync('./media/loli.jpeg'), caption: textnya, contextInfo: { forwardingScore: 250, isForwarded: true,  externalAdReply: { title: `${wita} - ${week} ${weton}\n${date}`, body: 'XZN', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/aqul.jpeg') }}})
+udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo: { forwardingScore: 250, isForwarded: true,  externalAdReply: { title: `${wita} - ${week} ${weton}\n${date}`, body: 'XZN', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/aqul.jpeg') }}})
 break
 break
 case 'inspect':
@@ -1699,17 +1533,17 @@ case 'truth':
 const trut =['Pernah suka sama siapa aja? berapa lama?','Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)','apa ketakutan terbesar kamu?','pernah suka sama orang dan merasa orang itu suka sama kamu juga?','Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?','pernah gak nyuri uang nyokap atau bokap? Alesanya?','hal yang bikin seneng pas lu lagi sedih apa','pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?','pernah jadi selingkuhan orang?','hal yang paling ditakutin','siapa orang yang paling berpengaruh kepada kehidupanmu','hal membanggakan apa yang kamu dapatkan di tahun ini','siapa orang yang bisa membuatmu sange','siapa orang yang pernah buatmu sange','(bgi yg muslim) pernah ga solat seharian?','Siapa yang paling mendekati tipe pasangan idealmu di sini','suka mabar(main bareng)sama siapa?','pernah nolak orang? alasannya kenapa?','Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget','pencapaian yang udah didapet apa aja ditahun ini?','kebiasaan terburuk lo pas di sekolah apa?']
 const ttrth = trut[Math.floor(Math.random() * trut.length)]
 const truteh = fs.readFileSync(`./media/dare.jpg`)
-udin.sendMessage(from, truteh, image, { caption: '*Truth*\n\n'+ ttrth, quoted: qul, thumbnail: fs.readFileSync('./media/loli.jpeg')})
+udin.sendMessage(from, truteh, image, { caption: '*Truth*\n\n'+ ttrth, quoted: qul })
 break
 case 'dare':
 const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot "🦄💨" setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u baby?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
 const der = dare[Math.floor(Math.random() * dare.length)]
 const tod = fs.readFileSync(`./media/dare.jpg`)
-udin.sendMessage(from, tod, image, { quoted: qul, thumbnail: fs.readFileSync('./media/loli.jpeg'), caption: '*Dare*\n\n'+ der })
+udin.sendMessage(from, tod, image, { quoted: qul, caption: '*Dare*\n\n'+ der })
 break
 //jadi bot
 case 'jadibot':
-if (!isMybot) return reply(mess.OnlyOwner)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
     //if(qul.key.fromMe) return reply('Tidak bisa jadibot di dalam bot')
     jadibot(reply,udin,from)
     break
@@ -1725,7 +1559,7 @@ if (!isMybot) return reply(mess.OnlyOwner)
           reply(teks)
     break
     case 'autorespon':
-      if (!isMybot) return reply(mess.OnlyOwner)
+      if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
        if (args.length < 1) return reply(`Penggunaan ${prefix}autorespon on/off`)
            if (q === 'on'){
               autorespon = false
@@ -1738,7 +1572,7 @@ if (!isMybot) return reply(mess.OnlyOwner)
                 }
                 break
       case 'autoresponen':
-      if (!isMybot) return reply(mess.OnlyOwner)
+      if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
        if (args.length < 1) return reply(`Penggunaan ${prefix}autorespon on/off`)
            if (q === 'on'){
               autoresponen = false
@@ -1751,7 +1585,7 @@ if (!isMybot) return reply(mess.OnlyOwner)
                 }
                 break
       case 'autorespongc':
-      if (!isMybot) return reply(mess.OnlyOwner)
+      if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
        if (args.length < 1) return reply(`Penggunaan ${prefix}autorespon on/off`)
            if (q === 'on'){
               autorespongc = false
@@ -1764,7 +1598,7 @@ if (!isMybot) return reply(mess.OnlyOwner)
                 }
                 break
 case 'autovn':
-if (!isMybot) return reply(mess.OnlyOwner)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 if (args.length < 1) return reply(`Penggunaan ${prefix}autorespon on/off`)
 if (q === 'on'){
 autovn = false
@@ -1902,7 +1736,7 @@ case 'art':
             udin.relayWAMessage(Testbang, {waitForAck: true})
             break
                 case 'tau':
-                if (!isMybot) return reply(mess.OnlyOwner)
+                if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				res = await udin.prepareMessageFromContent(from, {
 				"groupInviteMessage": {
                 "groupJid": "6282256080304-1625992335@g.us",
@@ -1936,7 +1770,7 @@ case 'art':
                udin.sendMessage(from, `XZNSENPAI`, MessageType.text, {quoted: dinn })
            break
            case 'link':
-           if (!isMybot) return reply(mess.OnlyOwner) 
+           if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul) 
            res = await udin.prepareMessageFromContent(from,{
           "extendedTextMessage": {
             "text": "𐎑⃢BY;🇮🇩𝐱𝐳𝐧𝐬𝐞𝐧𝐩𝐚𝐢🇮🇩☙;\n\n╔═══----❖•ೋ° °ೋ•❖-----═══╗\n  ➲\"𝔫𝔞𝔪𝔞 𝔷𝔞𝔦𝔫𝔲𝔡𝔦𝔫 𝔞𝔫𝔤𝔤𝔞𝔯𝔞 𝔱??𝔫𝔦𝔰𝔥𝔞\" ➲\n╚═══----❖•ೋ° °ೋ•❖-----═══╝\n*╭━━ꩉ𖧹ᜓ᭢❍⃝⃘۪۪۪͡ ཻ̣֯ᬉཷ𖣘࿆ཪֺֹ໋ཱི࣯᳝ׄ፞͛ꪶཷ୭⸼۬࣪*\n*┊╭┄┈ꪶ࿐┄┈┄┈┄┈┄┈┄┈*\n*┊┆*                *PROSES*           \n*┊┆     ▭▬▬▭▬▬▭▬▬▭*\n*┊┆*        *MOHON DITUNGGU*\n*┊╰┈┄┈┄┈┄┈┄┈┄┈┈┄┈ ཿ⸼۬࣪ꪶ⸼༅*\n*╰━━ꩉ𖧹ᜓ᭢❍⃝⃘۪۪۪͡ ཻ̣֯ᬉཷ𖣘࿆ཪֺֹ໋ཱི࣯᳝ׄ፞͛ꪶཷ୭͓*\n\n*╭─「 Note* 」```\n│\n│• Sakit Hati Adalah Motifasi untuk\n│   mendapatkan di masa depan\n│\n╰────────────────\nhttps://xznsenpai.herokuapp.com",
@@ -1956,7 +1790,7 @@ case 'art':
                 replyy('aktif bang')
 				break
 			/*case 'public':
-			if (!isMybot) return reply(mess.OnlyOwner)
+			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				public = true
 				//xznsenpai.sendFakeStatus(from, `Status: PUBLIC`, fake)
 				await xznsenpai.FakeTokoForwarded(from, `Status: PUBLIC`, fake)
@@ -2120,7 +1954,7 @@ case 'art':
 					})
 				break
 				case 'x':
-				//if (!q) return reply(from, 'textnya apa brohh', qul)
+				//if (!q) return xznsenpai.reply(from, 'textnya apa brohh', qul)
 				udin.sendMessage(from, `${virtau()}`,
 					MessageType.text, {quoted: dinn,
 					sendEphemeral: true,
@@ -2129,7 +1963,7 @@ case 'art':
 				break
 			case 'colong':
 			case 'ambil':
-			if (!isMybot) return reply(mess.OnlyOwner)
+			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				if (!isQuotedSticker) return xznsenpai.reply(from, `Reply sticker dengan caption *${prefix}colong*`, qul)
 				const encmediia = JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 				const meidia = await udin.downloadAndSaveMediaMessage(encmediia, `./sticker/${sender}`)
@@ -2160,7 +1994,8 @@ const gtts = require('./lib/gtts')(args[0])
 					})
 break
 			case 'hidetag':
-			if (!isMybot) return reply(mess.OnlyOwner)
+			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+		    //if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}hidetag teks`, qul)
 		    tekss = args.join(' ')
 				xznsenpai.hideTag(from, `${tekss}`)
 				break
@@ -2247,14 +2082,14 @@ break
 				})
 				break
 			case 'setreply':
-			if (!isMybot) return reply(mess.OnlyOwner)
+			if (!isMybot) return
 				if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}setreply teks`, qul)
 				fake = arg
 				xznsenpai.sendFakeStatus(from, `Sukses`, fake)
 				break
 			case 'setprefix':
 			case 'sp':
-			if (!isMybot) return reply(mess.OnlyOwner)
+			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				if (!args) return xznsenpai.reply(from, `Penggunaan ${prefix}setprefix prefix`, qul)
 				prefix = args
 				reply(`Prefix berhasil diubah menjadi ${prefix}`)
@@ -2298,7 +2133,7 @@ break
 				break
 				case 'virgam':
 				case 'jadivirgam':
-				if (!isMybot) return reply(mess.OnlyOwner)
+				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				replyy(mess.wait)
 				if ((isMedia && !qul.message.videoMessage || isQuotedImage)) {
 					let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
@@ -2309,7 +2144,7 @@ break
 				}
 				break
 				case 'jadivirvid':
-				if (!isMybot) return reply(mess.OnlyOwner)
+				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				if ((isMedia && qul.message.videoMessage.fileLength < 10000000 || isQuotedVideo && qul.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
 				const kuning = isQuotedVideo ? JSON.parse(JSON.stringify(qul).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : qul
 				const tahi = await udin.downloadAndSaveMediaMessage(kuning)
@@ -2317,8 +2152,8 @@ break
 				udin.sendMessage(from, tahii, MessageType.video, {quoted: qul, thumbnail: fs.readFileSync("./virus/virgam.jpg") })}
 				break
 				case 'jadivirgam2': 
-				if (!isMybot) return reply(mess.OnlyOwner)
-				if (!isQuotedSticker) return reply('Reply stiker nya')
+				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+				if (!isQuotedSticker) return xznsenpai.reply(from, 'Reply stiker nya', qul)
 				if (qul.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.isAnimated === true){
 					const encmedia = JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					const media = await udin.downloadAndSaveMediaMessage(encmedia)
@@ -2344,7 +2179,7 @@ break
 				}
 				break
 			case 'setthumb':
-			if (!isMybot) return reply(mess.OnlyOwner)
+			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				boij = JSON.parse(JSON.stringify(qul).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
 				delb = await udin.downloadMediaMessage(boij)
 				fs.writeFileSync(`./media/xznsenpai.jpeg`, delb)
@@ -2563,14 +2398,14 @@ break
                 break
                     /*
 			case 'pubg':
-				if (!arg) return reply(from, `Penggunaan ${prefix}pubg teks1|teks2`, qul)
+				if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}pubg teks1|teks2`, qul)
 				argz = arg.split("|")
-				if (!argz) return reply(from, `Penggunaan ${prefix}pubg teks1|teks2`, qul)
+				if (!argz) return xznsenpai.reply(from, `Penggunaan ${prefix}pubg teks1|teks2`, qul)
 				axios.get(`https://udinbot-api.herokuapp.com/api/textmaker/game?text=${argz[0]}&text2=${argz[1]}&theme=pubg&apikey=udinBot`)
 				.then((res) => xznsenpai.sendMediaURL(from, res.data.result.url))
 				.catch((err) => {
 					console.log(err)
-					reply(from, mess.error.api, qul)
+					xznsenpai.reply(from, mess.error.api, qul)
 				})
 				break
 				*/
@@ -2589,13 +2424,13 @@ break
                break
 				//bug
 				/*case 'p':
-                if (!isMybot) return reply(mess.OnlyOwner)
+                if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
                 for (let i = 0; i < 50; i++) {
                 const response = udin.sendMessage(from, "Awokawok", "conversation", { quoted: dinn })
                 }
                break*/
 case 'tebas':
-if (!isMybot) return reply(mess.OnlyOwner)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 const lol = fs.readFileSync(`./media/xznsenpai.jpeg`)
 await udin.toggleDisappearingMessages(from)
 udin.sendMessage(from, lol, image, { quoted: dinn, caption: virtex()})
@@ -2632,7 +2467,7 @@ njir = await udin.prepareMessageFromContent(from, {"orderMessage": {"orderId": "
 udin.relayWAMessage(njir)}
 break
                case 'anu':
-               if (!isMybot) return reply(mess.OnlyOwner)
+               if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
                await udin.toggleDisappearingMessages(from)
                teeks = args.join(' ')
                res = await udin.prepareMessageFromContent(from, {
@@ -2655,7 +2490,7 @@ break
                 break
 				case 'xzn':
 				case 'xznbug':
-				if (!isMybot) return reply(mess.OnlyOwner)
+				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
                 for (let i = 0; i < 5; i++) {await udin.toggleDisappearingMessages(from)}
                 reply('nani bang')
                 break
@@ -2670,7 +2505,7 @@ break
                   udin.sendMessage(from, virtex(), MessageType.text, { quoted: flokasi })
                   break
  case 'repeat':       
-if (!isMybot) return reply(mess.OnlyOwner)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 var xzn_kawaii = `${args.join(' ')}`
 var kata = xzn_kawaii.split("|")[0];
 var angka = xzn_kawaii.split("|")[1]
@@ -2727,13 +2562,13 @@ break
                 udin.relayWAMessage(res)
                 break
                   case 'peson':
-                  if (!isMybot) return reply(mess.OnlyOwner)
+                  if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
                   const dj13mp3 = fs.readFileSync('./assets/dj13.mp3');
 				  udin.toggleDisappearingMessages(from, WA_DEFAULT_EPHEMERAL)
                   udin.sendMessage(from, dj13mp3, MessageType.audio, {quoted: dinn, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
 				  break
 				  case 'pesoff':
-				  if (!isMybot) return reply(mess.OnlyOwner)
+				  if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 			      udin.toggleDisappearingMessages(from, 0)
 				  break
                   //gw solo lu maju semua
@@ -2786,7 +2621,7 @@ break
                     udin.sendMessage(from, tttttttt, sticker, {quoted:flokasi })
                     break
              case 'virtex':
-             if (!isMybot) return reply(mess.OnlyOwner)
+             if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
             //udin.sendMessage(from, virtex(), MessageType.text, { quoted: dinn })
             await udin.toggleDisappearingMessages(from)
                res = await udin.prepareMessageFromContent(from, {
@@ -2808,14 +2643,14 @@ break
                 udin.relayWAMessage(res)
                break
             case 'linkgc1':
-            if (!isMybot) return reply(mess.OnlyOwner)
+            if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 					linkgc = await udin.groupInviteCode(from)
                     anunya ='https://chat.whatsapp.com/'+linkgc
                     xznsenpai.FakeStatusForwarded(from, anunya, MessageType.text, fake)
             break
             case 'linkgc':
 				    if (!isGroup) return reply("khushus group")
-				    if (!isGroupAdmins) return reply(mess.GrupAdmin)
+				    if (!isGroupAdmins) return reply("hanya admin bang")
 				    if (!isBotGroupAdmins) return reply("Gw Harus Jadi Admin babi")
 				    linkgc = await udin.groupInviteCode (from)
 				    yeh = `https://chat.whatsapp.com/${linkgc}\n\nlink Group *${groupName}*`
@@ -2833,7 +2668,7 @@ break
 					break
             //lagu
  case 'iri':
-               if (!isMybot) return reply(mess.OnlyOwner)
+               if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
                const irimp3 = fs.readFileSync('./assets/iri.mp3');
               udin.sendMessage(from, irimp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
               break
@@ -2847,13 +2682,13 @@ udin.sendMessage(from, banjarmp3, MessageType.audio, {quoted: flokasi, mimetype:
 break
 /*
 case 'dj':
-if (!isMybot) return reply(mess.OnlyOwner)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 const dj13mp3 = fs.readFileSync('./assets/dj13.mp3');
 udin.sendMessage(from, dj13mp3, MessageType.audio, {quoted: dinn, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
 break
 */
 			case 'togif':
-				if (!isQuotedSticker) return xznsenpai.reply(from, 'Reply stiker nya', qul)
+				if (!isQuotedSticker) return reply(from, 'Reply stiker nya', qul)
 				if (qul.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage.isAnimated === true){
 					const encmedia = JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					const media = await udin.downloadAndSaveMediaMessage(encmedia)
@@ -2886,22 +2721,21 @@ break
 							fs.unlinkSync(ran)
 						} else {
 							buffer = fs.readFileSync(ran)
-							//xznsenpai.sendImage(from, buffer, 'nih', qul)
-							xznsenpai.sendFakeImg(from, buffer, 'nih', faketoi, qul)
+							xznsenpai.sendImage(from, buffer, 'nih', qul)
 							fs.unlinkSync(ran)
 						}
 					})
 				}
 				break
 			case 'shutdown':
-			if (!isMybot) return reply(mess.OnlyOwner)
+			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				await xznsenpai.FakeTokoForwarded(from, `Bye...`, fake)
 				await xznsenpai.sleep(5000)
 				udin.close()
 				break
 			case 'spam':
-				if (!isMybot) return reply(mess.OnlyOwner)
-				if (!arg) return reply(from, `Penggunaan ${prefix}spam teks|jumlahspam`, qul)
+				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+				if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}spam teks|jumlahspam`, qul)
 				argz = arg.split("|")
 				if (!argz) return xznsenpai.reply(from, `Penggunaan ${prefix}spam teks|jumlah`, qul)
 				if (isNaN(argz[1])) return xznsenpai.reply(from, `harus berupa angka`, qul)
@@ -2913,12 +2747,12 @@ break
 				case 'delete':
 				case 'del':
 				case 'd':
-				if (!isGroupAdmins) return reply(mess.GrupAdmin)
+				if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
 				udin.deleteMessage(from, { id: qul.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true }) 
 				break
 			case 'promote':
-			if (!isGroupAdmins) return reply(mess.GrupAdmin)
-			if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+			if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+			if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
 				if (qul.message.extendedTextMessage != undefined){
                     mentioned = qul.message.extendedTextMessage.contextInfo.mentionedJid
 					await xznsenpai.FakeTokoForwarded(from, `sukses`, fake)
@@ -2929,8 +2763,8 @@ break
 				}
 				break
 			case 'demote':
-			if (!isGroupAdmins) return reply(mess.GrupAdmin)
-			if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+			if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+			if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
 				if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}demote @tag atau nomor`, qul)
 				if (qul.message.extendedTextMessage != undefined){
                     mentioned = qul.message.extendedTextMessage.contextInfo.mentionedJid
@@ -2942,9 +2776,9 @@ break
 				}
 				break
 			/*case 'kick':
-			if (!isGroupAdmins) return reply(mess.GrupAdmin)
-			if (!isBotGroupAdmins) return reply(mess.BotAdmin)
-				if (!arg) return reply(from, `Penggunaan ${prefix}kick @tag atau nomor`, qul)
+			if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+			if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
+				if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}kick @tag atau nomor`, qul)
 				if (qul.message.extendedTextMessage != undefined){
                     mentioned = qul.message.extendedTextMessage.contextInfo.mentionedJid
 					//await xznsenpai.FakeTokoForwarded(from, `Bye...`, fake)
@@ -2958,8 +2792,8 @@ break
 				break*/
 				case 'kick':
   if (!isGroup) return
-  if (!isGroupAdmins) return reply(mess.GrupAdmin)
- if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+  if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+ if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
   if (qul.message.extendedTextMessage === null || qul.message.extendedTextMessage === undefined) {
     orang = args[0].replace(/\D/g, '') + '@s.whatsapp.net'
     mentions(`Sure, kick @${orang.split('@')[0]}`, orang, true)
@@ -2972,8 +2806,8 @@ udin.groupRemove(from, [orang])
                     break
 case 'add':
  if (!isGroup) return
- if (!isGroupAdmins) return reply(mess.GrupAdmin)
-if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+ if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
 if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}add 628xxxx`, qul)
 orang = args[0] + '@s.whatsapp.net'
 response = await udin.groupAdd(from, [orang])
@@ -2986,15 +2820,15 @@ sendGroupV4Invite(from, orang, inv[0].invite_code, inv[0].invite_code_exp, group
 }
 break
 			/*case 'add':               
-			if (!isGroupAdmins) return reply(mess.GrupAdmin)
-			if (!isBotGroupAdmins) return reply(mess.BotAdmin)
-				if (!arg) return reply(from, `Penggunaan ${prefix}kick 628xxxx`, qul)
+			if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+			if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
+				if (!arg) return xznsenpai.reply(from, `Penggunaan ${prefix}kick 628xxxx`, qul)
 				xznsenpai.add(from, [args[0] + '@s.whatsapp.net'])
 				//xznsenpai.FakeTokoForwarded(from, `Sukses`, fake)
 				reply('Sokses lord')
 				break*/
 			case 'upstatus':
-				if (!isMybot) return reply(mess.OnlyOwner)
+				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				if (!arg) return xznsenpai.reply(from, `Penggunaan \n${prefix}upstatus text\n${prefix}upstatus caption <reply atau kirim video / img>`, qul)
 				if (isMedia && !qul.message.videoMessage || isQuotedImage) {
 					const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : qul
@@ -3018,7 +2852,7 @@ break
 				//xznsenpai.FakeTokoForwarded(from, txt, fake)
 				break
 			case 'creategrup': case 'creategroup': case 'createg':
-			if (!isMybot) return reply(mess.OnlyOwner)
+			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				argz = arg.split('|')
 				if (qul.message.extendedTextMessage != undefined){
                     mentioned = qul.message.extendedTextMessage.contextInfo.mentionedJid
@@ -3043,8 +2877,8 @@ break
 				fs.unlinkSync(b)
 				break
 				case 'group':
-				if (!isGroupAdmins) return reply(mess.GrupAdmin)
-				if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+				if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+				if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
 					if (args[0] === 'buka') {
 						udin.groupSettingChange(from, GroupSettingChange.messageSend, false)
 						xznsenpai.reply(from, 'Succes Buka Group Lord', qul)
@@ -3054,7 +2888,7 @@ break
 					}
 				break 
     case 'clearall':
-    if (!isMybot) return reply(mess.OnlyOwner)
+    if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 					anu = await udin.chats.all()
 					udin.setMaxListeners(25)
 					for (let _ of anu) {
@@ -3063,9 +2897,9 @@ break
 					reply('❬ 𝗦𝗨𝗞𝗦𝗘𝗦 ❭ ')
 				break
 			case 'antilink':
-if (!isMybot) return reply(mess.OnlyOwner)
-if (!isGroupAdmins) return reply(mess.GrupAdmin)
-if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
+if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
 if (Number(args[0]) === 1) {
 if (isAntiLink) return xznsenpai.reply(from, 'sdh aktif', qul)
 antilink.push(from)
@@ -3079,8 +2913,8 @@ reply('*❬ 𝗦𝗨𝗞𝗦𝗘𝗦 ❭ DEACTIVATED ANTILINK*')
 }
 break	
 case 'welcome':
-if (!isGroupAdmins) return reply(mess.GrupAdmin)
-if (!isBotGroupAdmins) return reply(mess.BotAdmin)
+if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
+if (!isBotGroupAdmins) return xznsenpai.reply(from, 'Jadikan Bot Sebagai Admin Untuk Menggunakan Fitur Ini', qul)
 if (Number(args[0]) === 1) {
 if (isWelkom) return xznsenpai.reply(from, 'sdh aktif', qul)
 welkom.push(from)
@@ -3122,7 +2956,7 @@ break
 					mentions(teeks, members_id, true)
 					break
 			case 'bc': 
-			if (!isMybot) return reply(mess.OnlyOwner)
+			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 					anu = await udin.chats.all()
 					if (isMedia && !qul.message.videoMessage || isQuotedImage) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
@@ -3139,7 +2973,7 @@ break
 					}
 					break
 					case 'bchide':
-					if (!isMybot) return reply(mess.OnlyOwner)
+					if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 					anu = await udin.chats.all()
                     for (let _ of anu) {
 							xznsenpai.hideTag(_.jid, `${arg}`)
@@ -3147,7 +2981,7 @@ break
 						reply('Sokses')
 						break
 case 'bcs':
-if (!isMybot) return reply(mess.OnlyOwner)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 if (!isQuotedSticker) return xznsenpai.reply(from, `Reply sticker dengan caption *${prefix}bcs*`, qul)
 let xznkyutkawaii = JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 let ngetagsticker = await udin.downloadMediaMessage(xznkyutkawaii)
@@ -3157,7 +2991,7 @@ xznsenpai.hideTagSticker(_.jid, ngetagsticker)
 }
 break
 case 'bcm':
-if (!isMybot) return reply(mess.OnlyOwner)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 if ((isMedia && !qul.message.videoMessage || isQuotedImage)) {
 let gambartag = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM','m')).message.extendedTextMessage.contextInfo : qul
 let byxzntag = await udin.downloadMediaMessage(gambartag)
@@ -3165,7 +2999,7 @@ xznbcm = await udin.chats.all()
 for (let _ of xznbcm){xznsenpai.hideTagImg(_.jid, byxzntag)}}
 break
 case 'bck':
-if (!isMybot) return reply(mess.OnlyOwner)
+if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 argz = arg.split('|')
 if (!argz) return xznsenpai.reply(from, `Penggunaan ${prefix}bck nomor|nama`, qul)
 xznkontaktag = await udin.chats.all()
@@ -3173,7 +3007,7 @@ for (let _ of xznkontaktag){
 xznsenpai.hideTagKontak(_.jid, argz[0], argz[1])}
 break 
 			case 'antidelete':
-				if (!isMybot) return reply(mess.OnlyOwner)
+				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				const dataRevoke = JSON.parse(fs.readFileSync('./antidelete/gc-revoked.json'))
 				const dataCtRevoke = JSON.parse(fs.readFileSync('./antidelete/ct-revoked.json'))
 				const dataBanCtRevoke = JSON.parse(fs.readFileSync('./antidelete/ct-revoked-banlist.json'))
@@ -3225,7 +3059,7 @@ break
 				}
 				break
 			case 'setpp': case 'setprofilepicture':
-				if (!isMybot) return reply(mess.OnlyOwner)
+				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				if (isMedia && !qul.message.videoMessage || isQuotedImage) {
 					const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(qul).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : qul
 					const media = await udin.downloadMediaMessage(encmedia)
@@ -3237,14 +3071,14 @@ break
 				}
 				break
 case 'leave':
-if (!isGroupAdmins) return reply(mess.GrupAdmin)
+if (!isGroupAdmins) return xznsenpai.reply(from, 'anda bukan admin', qul)
 udin.groupLeave(from)
 .then((res) => {
 udin.sendMessage(sender, "perintah untuk keluar berhasil di eksekusi", MessageType.text)
 })
 break
 			case 'eval':
-			if (!isMybot) return reply(mess.OnlyOwner)
+			if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				let code = body.slice(6)
 				try {
 
@@ -3289,10 +3123,10 @@ break
 				}
 				break
 				case 'xznk':
-				if (!isMybot) return reply(mess.OnlyOwner)
+				if (!isMybot) return xznsenpai.reply(from, 'ANDA BUKAN OWNER', qul)
 				if(!q) return reply('masukkan jumlah')
 				for (let i = 0; i < (q) ; i++){
-				res = await udin.prepareMessageFromContent(from, {"contactsArrayMessage": {"displayName": "2 kontak", "contacts": [{"vcard": "BEGIN:VCARD\nVERSION:3.0\nN:its_me_xzn/>;;;\nFN:its_me_xzn/>\nitem1.TEL;waid=6285751414996:+62 857-5141-4996\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈??𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nitem1.X-ABLabel:Ponsel\nEND:VCARD"}, {"vcard": "BEGIN:VCARD\nVERSION:3.0\nN:its_me_xzn/>;;;\nFN:its_me_xzn/>\nitem1.TEL;waid=0:+0\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟??𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nitem1.X-ABLabel:Ponsel\nEND:VCARD"}], "contextInfo": {"forwardingScore": 1, "isForwarded": true}}}, {quoted:dinn, contextInfo:{}}) 
+				res = await udin.prepareMessageFromContent(from, {"contactsArrayMessage": {"displayName": "2 kontak", "contacts": [{"vcard": "BEGIN:VCARD\nVERSION:3.0\nN:its_me_xzn/>;;;\nFN:its_me_xzn/>\nitem1.TEL;waid=6285751414996:+62 857-5141-4996\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈??𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nitem1.X-ABLabel:Ponsel\nEND:VCARD"}, {"vcard": "BEGIN:VCARD\nVERSION:3.0\nN:its_me_xzn/>;;;\nFN:its_me_xzn/>\nitem1.TEL;waid=0:+0\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nADR;TYPE=WORK:HOME;WHATSAPP.NET:𝘈𝘙𝘌𝘟𝘈𝘕𝘚 咽翁 𝔹𝕆𝕋️\nitem1.X-ABLabel:Ponsel\nEND:VCARD"}], "contextInfo": {"forwardingScore": 1, "isForwarded": true}}}, {quoted:dinn, contextInfo:{}}) 
                 udin.relayWAMessage(res)}
                 break
          case 'ttt':
@@ -3450,7 +3284,159 @@ giliran = @${tty.player1.split('@')[0]}`
         e = String(err)
             if (!e.includes("this.isZero")) {
 	console.log(color('[ ERROR ]', 'red'), e)}}})
-    
+    //} catch (err) {
+        //console.log(color('[ERROR]', 'red'), err)
+    //}
+//})    
+
+
+//INI JANGAN DI CUBA KARNA BASE TIDAK SOPORT 
+
+//send 1 button
+/*const sendButton = async(content, footer, button1, row1, options = {}) => {
+      buttons = [
+        { buttonId: row1, buttonText: { displayText: button1 }, type: 1 }
+      ]
+      buttonMessage = {
+        contentText: content,
+        footerText: footer,
+        buttons: buttons,
+        headerType: 1
+      }
+      await udin.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { ...options })
+    }*/
+//send 2 button
+/*const send2Button = async(content, footer, button1, row1, button2, row2, options = {}) => {
+      buttons = [
+        { buttonId: row1, buttonText: { displayText: button1 }, type: 1 },
+        { buttonId: row2, buttonText: { displayText: button2 }, type: 1 }
+      ]
+      buttonMessage = {
+        contentText: content,
+        footerText: footer,
+        buttons: buttons,
+        headerType: 1
+      }
+      await udin.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { ...options })
+    }*/
+//send 3 button
+/*const send3Button = async(content, footer, button1, row1, button2, row2, button3, row3, options = {}) => {
+      buttons = [
+        { buttonId: row1, buttonText: { displayText: button1 }, type: 1 },
+        { buttonId: row2, buttonText: { displayText: button2 }, type: 1 },
+        { buttonId: row3, buttonText: { displayText: button3 }, type: 1 }
+      ]
+      buttonMessage = {
+        contentText: content,
+        footerText: footer,
+        buttons: buttons,
+        headerType: 1
+      }
+      await udin.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { ...options })
+    }*/
+//send gambar + button
+/*const sendButtonImg = async(content, url, footer, button1, row1, options = {}) => {
+      m = await hexa.prepareMessage(from, await (await fetch(url)).buffer(), MessageType.image)
+      buttons = [
+        { buttonId: row1, buttonText: { displayText: button1 }, type: 1 }
+      ]
+      buttonMessage = {
+        contentText: content,
+        footerText: footer,
+        buttons: buttons,
+        headerType: 4,
+        imageMessage: m.message.imageMessage
+      }
+      await udin.sendMessage(from, buttonMessage, MessageType.buttonsMessage, { ...options })
+    }*/
+
+/*case 'menu':
+			const llol = fs.readFileSync(`./media/xznsenpai.jpeg`)
+			rn = process.uptime()
+				const textnya = `
+==>>Mohon Baca<<==
+
+JANGAN SPAM BOT INI !!..
+TETAP DI RUMAH AJA DAN LAKUKAN 3M
+1.makan
+2.minum
+3.MELIHAT MEMEG
+
+=>>JAM<<=
+
+⦿ Jam WIT : ${wit}
+⦿ Jam WITA : ${wita}
+⦿ Jam WIB : ${jam}
+⦿ Hari : ${week} ${weton}
+⦿ Kalender : ${date}
+⦿Runtime : ${xznsenpai.runtime(rn)}
+
+=>>Pembuat Sticker<<=
+
+1.${prefix}sticker
+2.${prefix}toimg
+
+=>>DOWNLOAD<<=
+
+1.${prefix}play
+2.${prefix}video
+3.${prefix}ytmp4
+4.${prefix}ytmp3
+5.${prefix}ttnowm
+6.${prefix}igdl
+
+=>>YNTKTS<<=
+
+1.${prefix}darkjokes
+2.${prefix}lirik
+3.${prefix}ytsearch
+4.${prefix}pinterest
+5.${prefix}playstore
+6.${prefix}truth
+7.${prefix}dare
+
+=>>HANYA ADMIN<<=
+
+1.${prefix}kick
+2.${prefix}add
+3.${prefix}group buka/tutup
+4.${prefix}welcome
+
+=>>MAKER<<=
+
+1.${prefix}dota
+2.${prefix}aov
+
+*Xᴢɴ々Bᴏᴛ*`
+fyt2(textnya)*/
+//udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo: { forwardingScore: 250, isForwarded: true,  externalAdReply: { title: 'Duta TeyTed Tzy', body: '𐎑⃢BY;🇮🇩𝐱𝐳𝐧𝐬𝐞𝐧𝐩𝐚𝐢🇮🇩☙', sourceUrl: `https://wa.me/6282256080304?text=Assalamualaikum`, thumbnail: fs.readFileSync('./media/loli.jpeg') }}})
+//udin.sendMessage(from, llol, image, {quoted: qul, caption: textnya, contextInfo:{forwardingScore: 250, isForwarded: true, "externalAdReply":{"title": `${ucapanWaktu} ${pushname}`, mediaType: 2, "thumbnailUrl": "https://telegra.ph/file/6b0259fd741e108910fbe.jpg","previewType": "VIDEO","mediaUrl": `https://youtu.be/5odMRQDrhoI`}}})
+/*res = await udin.prepareMessageFromContent(from, {
+					"orderMessage": {
+						"orderId": "792749621388119",
+						"sellerJid": "6282255794209@s.whatsapp.net",
+						"thumbnail": fs.readFileSync('./media/xznsenpai.jpeg'),
+						"itemCount": 99,
+						"status": "INQUIRY",
+						"surface": "CATALOG",
+						"message": `${textnya}`,
+						"orderTitle": "𝙓𝙕𝙉 𝙎𝙀𝙉𝙋??𝙄",
+						"token": "AR7lxB+W/oR81b6ENZgc3dQdr+XrCDQptYJnZEKf3oWcBg=="
+						 },
+                "contextInfo": {
+               "forwardingScore": 3,
+               "isForwarded": true
+                }
+                }, {quoted:fgclink, contextInfo:{}}) 
+                udin.relayWAMessage(res)*/
+                //replyy(textnya)
+                //xznsenpai.FakeTokoForwarded(from, textnya, fake)
+                //xznsenpai.sendFakeStatusWithImg(from, lord, textnya, fake)
+				//break
+/*api gw sendiri*/
+/*case 'button':
+	send3Button(`Ini contoh buttonsMessage`, `:v`, `Menu Bot`, `${prefix}menu`, `Tes Speed`, `${prefix}ping`, `Cek Runtime`, `${prefix}runtime`, { quoted: qul })
+	break*/
 //if (isCmd && !isGroup) {console.log(color('[UDIN]' ,'blue'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`))}
 //if (isCmd && isGroup) {console.log(color('[UDIN]'), color(moment(qul.messageTimestamp * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(udin.user.name), 'in', color(groupName))}
 
