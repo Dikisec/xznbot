@@ -2676,6 +2676,22 @@ break
 const wibump3 = fs.readFileSync('./assets/wibu.mp3');
 udin.sendMessage(from, wibump3, MessageType.audio, {quoted: flokasi, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
 break
+case 'anjayy':
+diki = fs.readFileSync('./assets/anjayy.mp3');
+udin.sendMessage(from, diki, MessageType.audio, { quoted : qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
+break
+case 'lol':
+diki = fs.readFileSync('./assets/lol.mp3');
+udin.sendMessage(from, diki, MessageType.audio, { quoted : qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
+break
+case 'lagu2':
+diki = fs.readFileSync('./assets/lagu2.mp3');
+udin.sendMessage(from, diki, MessageType.audio, { quoted : qul, mimetype: 'audio/mp4', duration: 999999, ptt:true})
+break
+case 'lagu1':
+diki = fs.readFileSync('./assets/lagu1.mp3');
+udin.sendMessage(from, diki, MessageType.audio, { quoted : qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
+break
 case 'banjar':
 const banjarmp3 = fs.readFileSync('./assets/banjar.mp3');
 udin.sendMessage(from, banjarmp3, MessageType.audio, {quoted: flokasi, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
