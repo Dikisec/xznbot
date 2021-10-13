@@ -2676,6 +2676,18 @@ break
 const wibump3 = fs.readFileSync('./assets/wibu.mp3');
 udin.sendMessage(from, wibump3, MessageType.audio, {quoted: flokasi, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
 break
+case 'lagu5':
+diki = fs.readFileSync('./assets/lagu5.mp3');
+udin.sendMessage(from, diki, MessageType.audio, { quoted : qul, mimetype: 'audio/mp4', duration: 5, ptt:true})
+break
+case 'lagu4':
+diki = fs.readFileSync('./assets/lagu4.mp3');
+udin.sendMessage(from, diki, MessageType.audio, { quoted : qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
+break
+case 'lagu3':
+diki = fs.readFileSync('./assets/lagu3.mp3');
+udin.sendMessage(from, diki, MessageType.audio, { quoted : qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
+break
 case 'anjayy':
 diki = fs.readFileSync('./assets/anjayy.mp3');
 udin.sendMessage(from, diki, MessageType.audio, { quoted : qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
