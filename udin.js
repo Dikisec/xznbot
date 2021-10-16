@@ -502,6 +502,10 @@ if (budy.includes('Bot')) {
 const gojomp3 = fs.readFileSync('./assets/kawaii.mp3');
 udin.sendMessage(from, gojomp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', ptt:true})
 }
+if (budy.includes('Anj')) {
+ gojomp3 = fs.readFileSync('./assets/lagu5.mp3');
+udin.sendMessage(from, gojomp3, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', ptt:true})
+}
 if (budy.includes('Ah')) {
 const ahh = fs.readFileSync('./assets/ah.mp3');
 udin.sendMessage(from, ahh, MessageType.audio, {quoted: qul, mimetype: 'audio/mp4', duration: 99999999, ptt:true})
